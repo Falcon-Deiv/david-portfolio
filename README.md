@@ -37,9 +37,8 @@ En la web solo se usan estas fotos de `assets/img/`:
 | `bocetos.jpg`            | Creatividad · Bocetos / Prototipo                      |
 
 La Diana, el Test EntreComp, Mi bloqueo creativo, el Reto 1+1, SCAMPER y el contrato están
-construidos con HTML y CSS a partir de los datos de las fichas. Las fotos originales de esas
-fichas (`diana.jpg`, `entrecomp-*.jpg`, `bloqueo.jpg`, `reto1mas1.jpg`, `scamper.jpg`,
-`asesoria.jpg`) siguen en la carpeta, pero la página ya no las carga.
+construidos con HTML y CSS a partir de los datos de las fichas en papel. Las puntuaciones de la
+Diana y del EntreComp reproducen exactamente lo que el alumno marcó en su ficha original.
 
 ## Vídeo y documentos
 
