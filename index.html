@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body>
 
@@ -142,10 +142,7 @@
             <span class="icon-badge" aria-hidden="true">✉️</span>
             <h3>Mi objetivo este año → Carta</h3>
           </header>
-          <div class="placeholder-text">
-            <!-- ✏️ Escribe aquí tu carta con el objetivo de este año -->
-            <p>Espacio reservado para la carta con mi objetivo para este año.</p>
-          </div>
+          <div class="letter-icon" role="img" aria-label="Carta con mi objetivo para este año">📄</div>
         </article>
       </div>
     </section>
@@ -336,6 +333,7 @@
           </figure>
 
           <div class="prototype-cta">
+            <div class="prototype-main">
             <div class="prototype-text">
               <span class="prototype-label">🚀 Prototipo</span>
               <h3>UniWay · App universitaria</h3>
@@ -347,6 +345,14 @@
               </a>
               <a class="prototype-zip" href="UniWay%20Mobile%20App%20Prototype%20(1).zip" download="UniWay-Mobile-App-Prototype.zip">⬇ o descarga el código (.zip)</a>
             </div>
+            </div>
+
+            <figure class="phone">
+              <video class="phone-video" src="assets/video/presentacion.mp4#t=0.1" controls playsinline preload="metadata" width="576" height="832">
+                Tu navegador no puede reproducir el vídeo. <a href="assets/video/presentacion.mp4">Descárgalo aquí</a>.
+              </video>
+              <figcaption>Vídeo de presentación de UniWay</figcaption>
+            </figure>
           </div>
         </div>
 
@@ -372,7 +378,7 @@
           <p>Cómo nos comunicamos, cómo nos organizamos y a qué nos comprometemos.</p>
         </div>
 
-        <div class="three-col">
+        <div class="two-col">
           <article class="card reveal">
             <header class="card-head">
               <span class="icon-badge" aria-hidden="true">👂</span>
@@ -394,18 +400,58 @@
             </div>
           </article>
 
-          <article class="card reveal">
+        </div>
+
+        <article class="card contract reveal">
+          <figure class="contract-photo">
+            <img src="assets/img/grupo.png" alt="Maite Basterrechea Carrasco y Jorge González Luque" width="1664" height="2496" loading="lazy">
+            <figcaption>Maite y Jorge</figcaption>
+          </figure>
+
+          <div class="contract-body">
             <header class="card-head">
               <span class="icon-badge" aria-hidden="true">📝</span>
               <h3>Contrato de equipo</h3>
             </header>
-            <ul class="contract-list">
-              <li><strong>Fortalezas:</strong> <span class="fill">por completar</span></li>
-              <li><strong>Responsabilidades:</strong> <span class="fill">por completar</span></li>
-              <li><strong>Acuerdos:</strong> <span class="fill">por completar</span></li>
-            </ul>
-          </article>
-        </div>
+
+            <div class="strengths">
+              <div class="strength">
+                <h4>Fortalezas · Maite Basterrechea Carrasco</h4>
+                <ul class="chip-list"><li class="chip chip--success">Creación de vídeos y publicidad</li><li class="chip chip--success">Trabajo en equipo</li><li class="chip chip--success">Aprendizaje y adaptación</li><li class="chip chip--success">Resolución de problemas</li><li class="chip chip--success">Organización y gestión del tiempo</li></ul>
+              </div>
+              <div class="strength">
+                <h4>Fortalezas · Jorge González Luque</h4>
+                <ul class="chip-list"><li class="chip chip--success">Creativo</li><li class="chip chip--success">Responsable</li><li class="chip chip--success">Organizado</li><li class="chip chip--success">Trabajo en equipo</li><li class="chip chip--success">Adaptativo y resolutivo</li></ul>
+              </div>
+            </div>
+
+            <dl class="contract-list">
+              <div>
+                <dt>🎯 Propósito</dt>
+                <dd>Nuestro propósito como equipo es escucharnos, respetar y entender las ideas y puntos de vista del otro, aportando cada uno nuestras opiniones y habilidades. Queremos llegar juntos a la mejor conclusión, tomar las decisiones de forma conjunta y llevarlas a cabo de la mejor manera posible.</dd>
+              </div>
+              <div>
+                <dt>🧩 Roles</dt>
+                <dd>Maite y Jorge nos repartiremos las tareas de forma equilibrada y según las habilidades de cada uno. Aunque cada uno pueda encargarse más de unas tareas concretas, ambos participaremos en las decisiones y en las partes importantes del proyecto. Si uno necesita ayuda, el otro colaborará para que el trabajo avance correctamente.</dd>
+              </div>
+              <div>
+                <dt>💬 Comunicación</dt>
+                <dd>Mantendremos una comunicación constante, clara y respetuosa durante el desarrollo de las actividades. Compartiremos nuestras ideas y opiniones, escuchando las propuestas del otro. También nos avisaremos si tenemos algún problema.</dd>
+              </div>
+              <div>
+                <dt>🤝 Conflictos</dt>
+                <dd>Si surge algún desacuerdo entre nosotros, intentaremos solucionarlo hablando y escuchando las opiniones de ambos. No tomaremos decisiones de manera individual. Buscaremos llegar a un acuerdo y elegir la opción que consideremos mejor para el proyecto.</dd>
+              </div>
+              <div>
+                <dt>✅ Revisión y Autoría</dt>
+                <dd>Revisaremos que las tareas estén repartidas de forma justa y que cada uno esté cumpliendo con sus responsabilidades. Antes de entregar cualquier actividad, revisaremos juntos el resultado final para comprobar que no haya errores.</dd>
+              </div>
+            </dl>
+
+            <!-- Se muestra automáticamente cuando exista assets/docs/contrato-equipo.pdf -->
+            <a class="btn btn-ghost pdf-link" href="assets/docs/contrato-equipo.pdf" target="_blank" rel="noopener" data-optional hidden>📄 Ver contrato de equipo (PDF)</a>
+          </div>
+        </article>
 
         <div class="case reveal">
           <div class="case-head">
@@ -510,6 +556,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=2"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>

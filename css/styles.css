@@ -61,6 +61,7 @@ body {
 }
 
 img { max-width: 100%; display: block; }
+[hidden] { display: none !important; }
 a { color: var(--blue-600); text-decoration: none; }
 h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .5em; color: var(--navy-900); }
 p { margin: 0 0 1em; }
@@ -300,18 +301,7 @@ p:last-child { margin-bottom: 0; }
 .eval-grid, .two-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-/* ---------- Placeholder text ---------- */
-.placeholder-text {
-  padding: 18px 20px;
-  border: 1.5px dashed #c5d1e3;
-  border-radius: var(--radius);
-  background: var(--blue-50);
-  color: var(--muted);
-  font-style: italic;
-}
-.placeholder-text h3 { font-style: normal; }
-
-/* Texto definitivo (sustituye a .placeholder-text) */
+/* ---------- Bloques de texto ---------- */
 .entry-text {
   padding: 16px 20px;
   border-left: 3px solid var(--blue-500);
@@ -364,7 +354,15 @@ p:last-child { margin-bottom: 0; }
   position: relative;
 }
 
-.letter .placeholder-text { min-height: 140px; }
+.letter-icon {
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  font-size: clamp(5rem, 14vw, 8rem);
+  line-height: 1;
+  border-radius: var(--radius);
+  background: var(--blue-50);
+}
 
 /* ---------- Tabs ---------- */
 .tabs {
@@ -518,7 +516,8 @@ p:last-child { margin-bottom: 0; }
   color: #dbe6f7;
   box-shadow: var(--shadow-lg);
 }
-.prototype-text { flex: 1 1 320px; }
+.prototype-main { flex: 1 1 320px; display: flex; flex-direction: column; gap: 24px; align-items: flex-start; }
+.prototype-text { max-width: 52ch; }
 .prototype-label {
   display: inline-block;
   font-size: .78rem;
@@ -542,6 +541,22 @@ p:last-child { margin-bottom: 0; }
 .btn-download:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .btn-download small { font-weight: 500; opacity: .75; }
 .prototype-actions { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+/* Vídeo con aspecto de smartphone */
+.phone { flex: 0 1 270px; margin: 0 auto; max-width: 270px; text-align: center; }
+.phone-video {
+  display: block;
+  width: 100%;
+  max-width: 270px;
+  height: auto;
+  aspect-ratio: 576 / 832;
+  object-fit: cover;
+  border: 10px solid #0a1424;
+  border-radius: 38px;
+  background: #000;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .15), 0 20px 40px rgba(0, 0, 0, .35);
+}
+.phone figcaption { margin-top: 10px; font-size: .85rem; color: #c8d3e6; }
 .prototype-zip { color: #dbe6f7; font-size: .9rem; text-decoration: underline; text-underline-offset: 3px; }
 .prototype-zip:hover { color: #fff; }
 
@@ -626,14 +641,39 @@ p:last-child { margin-bottom: 0; }
   font-size: .85rem;
   font-weight: 600;
 }
-.contract-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-.contract-list li {
-  padding: 12px 14px;
+/* Contrato de equipo: foto del grupo + contenido */
+.contract {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+.contract-photo { margin: 0; position: sticky; top: calc(var(--nav-h) + 16px); }
+.contract-photo img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+.contract-photo figcaption { margin-top: 10px; text-align: center; font-size: .85rem; color: var(--muted); }
+.strengths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+.strength { padding: 16px; border-radius: var(--radius); background: var(--bg-alt); border: 1px solid var(--line); }
+.strength h4 { font-size: .95rem; margin-bottom: 12px; }
+.strength .chip { padding: 6px 12px; font-size: .85rem; }
+.contract-list { margin: 0; display: grid; gap: 12px; }
+.contract-list > div {
+  padding: 14px 16px;
   border-radius: 12px;
+  border-left: 3px solid var(--blue-500);
   background: var(--blue-50);
 }
-.contract-list strong { color: var(--navy-900); display: block; }
-.fill { color: var(--muted); font-style: italic; font-size: .9rem; }
+.contract-list dt { font-weight: 700; color: var(--navy-900); margin-bottom: 4px; }
+.contract-list dd { margin: 0; }
+.pdf-link { margin-top: 20px; }
 
 .case {
   margin-top: 40px;
@@ -740,6 +780,9 @@ p:last-child { margin-bottom: 0; }
   .reto-layout { grid-template-columns: 1fr; }
   .reto-layout .exercise { max-width: 520px; margin: 0 auto; }
   .three-col { grid-template-columns: 1fr 1fr; }
+  .contract { grid-template-columns: 1fr; }
+  .contract-photo { position: static; max-width: 300px; margin: 0 auto; }
+  .prototype-main { align-items: stretch; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .profile { order: -1; }
   .img-slot--round { width: min(260px, 70vw); }
@@ -773,7 +816,7 @@ p:last-child { margin-bottom: 0; }
   .hero { padding-top: calc(var(--nav-h) + 40px); }
   .section-head { margin-bottom: 32px; }
 
-  .eval-grid, .two-col, .three-col, .block-grid, .priority-list, .reto-layout { grid-template-columns: 1fr; }
+  .eval-grid, .two-col, .three-col, .block-grid, .priority-list, .reto-layout, .strengths { grid-template-columns: 1fr; }
   .exercise--center { margin-top: 24px; }
 
   .card, .case { padding: 22px; }

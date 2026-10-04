@@ -38,12 +38,14 @@ Las fotos de los ejercicios y del equipo están en `assets/img/` y se muestran e
 | `scamper.jpg`                              | Creatividad · Técnica SCAMPER                  |
 | `bocetos.jpg`                              | Creatividad · Bocetos / Prototipo              |
 | `asesoria.jpg`                             | Mi equipo · Caso Asesoría Málaga Centro        |
+| `grupo.png`                                | Mi equipo · Contrato de equipo                 |
 
 La foto de perfil es `assets/img/jorge.png`; los avatares del caso Asesoría usan `jorge.png` y `maite.png`.
 
-## Rellenar textos
+## Vídeo y documentos
 
-Los apartados pendientes (narración, carta del objetivo, dinámicas de equipo, contrato,
-reflexiones de liderazgo) están en `index.html` dentro de bloques `placeholder-text`,
-marcados con un comentario `✏️`. Sustituye el párrafo por tu texto y, si quieres quitar el
-estilo punteado, elimina la clase `placeholder-text`.
+- `assets/video/presentacion.mp4`: vídeo de UniWay, en un marco tipo móvil junto al botón del prototipo (Creatividad · SCAMPER).
+- `assets/docs/contrato-equipo.pdf`: el botón "Ver contrato de equipo (PDF)" aparece solo cuando este archivo existe.
+
+> Al renombrar archivos binarios desde la web de GitHub, comprueba que el tamaño se mantiene:
+> ya ha pasado dos veces que el archivo renombrado quedó vacío (2 bytes).

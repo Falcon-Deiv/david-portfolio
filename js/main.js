@@ -111,6 +111,16 @@
     });
   });
 
+  /* ---------- Enlaces opcionales ----------
+     Los enlaces con data-optional solo se muestran si el archivo existe
+     (p. ej. el PDF del contrato de equipo). */
+  document.querySelectorAll('a[data-optional]').forEach(function (a) {
+    if (!window.fetch) return;
+    fetch(a.getAttribute('href'), { method: 'HEAD' })
+      .then(function (r) { if (r.ok) a.hidden = false; })
+      .catch(function () {});
+  });
+
   /* ---------- Huecos de imagen ----------
      Cada .img-slot intenta cargar la imagen indicada en data-src
      (p. ej. assets/img/perfil.jpg). Si no existe, muestra un placeholder.
