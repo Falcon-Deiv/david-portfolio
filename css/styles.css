@@ -311,6 +311,16 @@ p:last-child { margin-bottom: 0; }
 }
 .placeholder-text h3 { font-style: normal; }
 
+/* Texto definitivo (sustituye a .placeholder-text) */
+.entry-text {
+  padding: 16px 20px;
+  border-left: 3px solid var(--blue-500);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--blue-50);
+  color: var(--ink);
+}
+.entry-text h3 { font-size: 1.05rem; }
+
 /* ---------- Chips ---------- */
 .chip-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .chip {
