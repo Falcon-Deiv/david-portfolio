@@ -41,8 +41,8 @@ construidos con HTML y CSS a partir de los datos de las fichas en papel. Las pun
 Diana y del EntreComp reproducen exactamente lo que el alumno marcó en su ficha original.
 
 Debajo de cada componente, un botón «Ver apunte original» abre en otra pestaña la foto de la
-ficha en papel: `diana.jpg`, `entrecomp-1.jpg`, `bloqueo.jpg`, `reto1mas1.jpg`, `scamper.jpg`,
-`asesoria.jpg` y el PDF del contrato. `entrecomp-2.jpg` se conserva junto a ellas.
+ficha en papel: `diana.jpg`, `entrecomp-2.jpg` (Test pág. 1), `entrecomp-1.jpg` (Test pág. 2),
+`bloqueo.jpg`, `reto1mas1.jpg`, `scamper.jpg`, `asesoria.jpg` y el PDF del contrato.
 
 ## Vídeo y documentos
 
