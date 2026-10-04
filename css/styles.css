@@ -672,7 +672,6 @@ p:last-child { margin-bottom: 0; }
   border: 2px solid #fff;
   box-shadow: var(--shadow-sm), 0 0 0 1px var(--line);
 }
-.priority h4.fill { font-style: italic; color: var(--muted); }
 .why { color: var(--muted); font-size: .95rem; font-style: italic; }
 
 /* ---------- Liderazgo (timeline) ---------- */
