@@ -523,6 +523,72 @@ p:last-child { margin-bottom: 0; }
   50%      { box-shadow: 0 10px 28px rgba(201, 162, 74, .45), 0 0 0 10px rgba(201, 162, 74, 0); }
 }
 
+/* ---------- Imágenes de ejercicios ---------- */
+.exercise { margin: 0; min-width: 0; }
+.exercise a { display: block; border-radius: var(--radius); }
+.exercise a:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 3px; }
+.exercise-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: #fff;
+  transition: transform .25s, box-shadow .25s;
+}
+.exercise a:hover .exercise-img { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.exercise figcaption {
+  margin-top: 10px;
+  font-size: .85rem;
+  color: var(--muted);
+  text-align: center;
+}
+/* Fotos verticales a ancho completo de sección: limitar para no ocupar varias pantallas */
+.exercise--center { max-width: 520px; margin: 32px auto 0; }
+
+.exercise-stack { display: grid; gap: 20px; }
+
+/* Foto tomada en horizontal y guardada girada: se endereza 90° */
+.exercise-rotate {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 2048 / 1152;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  background: #fff;
+}
+.exercise-rotate .exercise-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100cqw * 1152 / 2048);
+  height: 100cqw;
+  max-width: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+.exercise a.exercise-rotate:hover .exercise-img { transform: translate(-50%, -50%) rotate(-90deg); box-shadow: none; }
+
+.eval-grid { align-items: start; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+@media (min-width: 721px) {
+  /* La diana acompaña al scroll mientras se ven las dos hojas del test */
+  .eval-grid > .eval-card:first-child { position: sticky; top: calc(var(--nav-h) + 16px); }
+}
+
+.reto-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
 /* ---------- Mi equipo ---------- */
 .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
 .pill {
@@ -630,6 +696,8 @@ p:last-child { margin-bottom: 0; }
    Responsive
    ========================================================= */
 @media (max-width: 960px) {
+  .reto-layout { grid-template-columns: 1fr; }
+  .reto-layout .exercise { max-width: 520px; margin: 0 auto; }
   .three-col { grid-template-columns: 1fr 1fr; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .profile { order: -1; }
@@ -663,7 +731,8 @@ p:last-child { margin-bottom: 0; }
   .hero { padding-top: calc(var(--nav-h) + 40px); }
   .section-head { margin-bottom: 32px; }
 
-  .eval-grid, .two-col, .three-col, .block-grid, .priority-list { grid-template-columns: 1fr; }
+  .eval-grid, .two-col, .three-col, .block-grid, .priority-list, .reto-layout { grid-template-columns: 1fr; }
+  .exercise--center { margin-top: 24px; }
 
   .card, .case { padding: 22px; }
   .quote { padding: 28px 24px; }

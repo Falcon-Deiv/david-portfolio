@@ -25,19 +25,22 @@ python3 -m http.server 8000
 
 También se puede publicar tal cual con GitHub Pages (Settings → Pages → rama y carpeta raíz).
 
-## Añadir imágenes
+## Imágenes
 
-Guarda las imágenes en `assets/img/` con estos nombres y aparecerán solas:
+Las fotos de los ejercicios están en `assets/img/` y se muestran en su sección:
 
-| Archivo                    | Dónde aparece                 |
-|----------------------------|-------------------------------|
-| `assets/img/perfil.jpg`    | Foto de perfil (¿Quién Soy?)  |
-| `assets/img/diana.jpg`     | Diana de Autoevaluación       |
-| `assets/img/entrecomp.jpg` | Test Inicial EntreComp        |
+| Archivo                                     | Dónde aparece                                  |
+|---------------------------------------------|------------------------------------------------|
+| `diana.jpeg`                                | ¿Quién Soy? · Diana de Autoevaluación (se endereza con CSS) |
+| `entrecomp-1.jpeg`, `entrecomp-2.jpeg`      | ¿Quién Soy? · Test Inicial EntreComp           |
+| `bloqueo.jpeg`                              | Creatividad · Mi bloqueo creativo              |
+| `reto1mas1.jpeg`                            | Creatividad · Reto 1+1 Málaga                  |
+| `scamper.jpeg`                              | Creatividad · Técnica SCAMPER                  |
+| `bocetos.jpeg`                              | Creatividad · Bocetos / Prototipo              |
+| `asesoria.jpeg`                             | Mi equipo · Caso Asesoría Málaga Centro        |
 
-Mientras no existan se muestra un hueco punteado. Al pulsarlo puedes elegir una imagen
-para previsualizarla, pero esa vista previa no se guarda: para que quede publicada hay que
-añadir el archivo a la carpeta.
+La foto de perfil todavía no está: guárdala como `assets/img/perfil.jpg` y aparecerá sola.
+Mientras tanto se muestra un hueco punteado.
 
 ## Rellenar textos
 
