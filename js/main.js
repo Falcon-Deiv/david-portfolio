@@ -64,20 +64,32 @@
   window.addEventListener('resize', updateActive);
   updateActive();
 
-  /* ---------- Animación de aparición ---------- */
+  /* ---------- Motion: aparición al hacer scroll ---------- */
   const reveals = document.querySelectorAll('.reveal');
+
+  function reveal(el) {
+    el.classList.add('active', 'is-visible');
+    // Al terminar la entrada se retiran las clases de animación para que
+    // el transform no anule los efectos hover propios del elemento.
+    el.addEventListener('transitionend', function done(e) {
+      if (e.target !== el || e.propertyName !== 'opacity') return;
+      el.removeEventListener('transitionend', done);
+      el.classList.remove('reveal', 'active');
+    });
+  }
+
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          reveal(entry.target);
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.15 });
     reveals.forEach(function (el) { io.observe(el); });
   } else {
-    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    reveals.forEach(reveal);
   }
 
   /* ---------- Pestañas (Creatividad) ---------- */

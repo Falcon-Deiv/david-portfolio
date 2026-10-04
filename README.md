@@ -44,9 +44,15 @@ Debajo de cada componente, un botón «Ver apunte original» abre en otra pesta�
 ficha en papel: `diana.jpg`, `entrecomp-2.jpg` (Test pág. 1), `entrecomp-1.jpg` (Test pág. 2),
 `bloqueo.jpg`, `reto1mas1.jpg`, `scamper.jpg`, `asesoria.jpg` y el PDF del contrato.
 
+## Animaciones
+
+Los bloques con la clase `.reveal` aparecen con un fundido y un desplazamiento hacia arriba al entrar en pantalla
+(`IntersectionObserver` en `js/main.js`, umbral 0.15). Dentro de un contenedor `.stagger` aparecen en cascada.
+Quien tenga activado "reducir movimiento" en su sistema ve el contenido sin animación.
+
 ## Vídeo y documentos
 
-- `assets/video/presentacion.mp4`: vídeo de UniWay, en un marco tipo móvil junto al botón del prototipo (Creatividad · SCAMPER).
+- `assets/video/presentacion.mp4`: vídeo de UniWay, dentro del marco de smartphone de la sección **Proyecto UniWay** (`#uniway`), junto al botón del prototipo y la descarga del `.zip`.
 - `assets/docs/contrato-equipo.pdf`: el botón "Ver contrato de equipo (PDF)" aparece solo cuando este archivo existe.
 
 > Al renombrar archivos binarios desde la web de GitHub, comprueba que el tamaño se mantiene:
