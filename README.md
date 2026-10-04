@@ -27,20 +27,19 @@ También se puede publicar tal cual con GitHub Pages (Settings → Pages → ram
 
 ## Imágenes
 
-Las fotos de los ejercicios están en `assets/img/` y se muestran en su sección:
+Las fotos de los ejercicios y del equipo están en `assets/img/` y se muestran en su sección:
 
 | Archivo                                     | Dónde aparece                                  |
 |---------------------------------------------|------------------------------------------------|
-| `diana.jpeg`                                | ¿Quién Soy? · Diana de Autoevaluación (se endereza con CSS) |
-| `entrecomp-1.jpeg`, `entrecomp-2.jpeg`      | ¿Quién Soy? · Test Inicial EntreComp           |
-| `bloqueo.jpeg`                              | Creatividad · Mi bloqueo creativo              |
-| `reto1mas1.jpeg`                            | Creatividad · Reto 1+1 Málaga                  |
-| `scamper.jpeg`                              | Creatividad · Técnica SCAMPER                  |
-| `bocetos.jpeg`                              | Creatividad · Bocetos / Prototipo              |
-| `asesoria.jpeg`                             | Mi equipo · Caso Asesoría Málaga Centro        |
+| `diana.jpg`                                | ¿Quién Soy? · Diana de Autoevaluación (se endereza con CSS) |
+| `entrecomp-1.jpg`, `entrecomp-2.jpg`      | ¿Quién Soy? · Test Inicial EntreComp           |
+| `bloqueo.jpg`                              | Creatividad · Mi bloqueo creativo              |
+| `reto1mas1.jpg`                            | Creatividad · Reto 1+1 Málaga                  |
+| `scamper.jpg`                              | Creatividad · Técnica SCAMPER                  |
+| `bocetos.jpg`                              | Creatividad · Bocetos / Prototipo              |
+| `asesoria.jpg`                             | Mi equipo · Caso Asesoría Málaga Centro        |
 
-La foto de perfil todavía no está: guárdala como `assets/img/perfil.jpg` y aparecerá sola.
-Mientras tanto se muestra un hueco punteado.
+La foto de perfil es `assets/img/jorge.png`; los avatares del caso Asesoría usan `jorge.png` y `maite.png`.
 
 ## Rellenar textos
 

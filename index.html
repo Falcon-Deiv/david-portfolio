@@ -55,8 +55,7 @@
         </div>
 
         <figure class="profile reveal">
-          <!-- 📷 Coloca tu foto en assets/img/perfil.jpg -->
-          <div class="img-slot img-slot--round" data-src="assets/img/perfil.jpg" data-label="Foto de perfil"></div>
+          <img class="profile-img" src="assets/img/jorge.png" alt="Foto de Jorge González Luque" width="340" height="340">
         </figure>
       </div>
 
@@ -69,8 +68,8 @@
             </header>
             <!-- La foto original está girada; se endereza con CSS (.exercise-rotate) -->
             <figure class="exercise">
-              <a class="exercise-rotate" href="assets/img/diana.jpeg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-                <img class="exercise-img" src="assets/img/diana.jpeg" alt="Diana de Autoevaluación de habilidades emprendedoras rellenada por Jorge" width="1152" height="2048" loading="lazy">
+              <a class="exercise-rotate" href="assets/img/diana.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
+                <img class="exercise-img" src="assets/img/diana.jpg" alt="Diana de Autoevaluación de habilidades emprendedoras rellenada por Jorge" width="1152" height="2048" loading="lazy">
               </a>
               <figcaption>Autoevaluación de habilidades emprendedoras (CEDEC).</figcaption>
             </figure>
@@ -83,14 +82,14 @@
             </header>
             <div class="exercise-stack">
               <figure class="exercise">
-              <a href="assets/img/entrecomp-1.jpeg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-                <img class="exercise-img" src="assets/img/entrecomp-1.jpeg" alt="Test Inicial EntreComp, hoja 1" width="1152" height="2048" loading="lazy">
+              <a href="assets/img/entrecomp-1.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
+                <img class="exercise-img" src="assets/img/entrecomp-1.jpg" alt="Test Inicial EntreComp, hoja 1" width="1152" height="2048" loading="lazy">
               </a>
               <figcaption>Habilidades 9–15, fortalezas y áreas de mejora.</figcaption>
             </figure>
               <figure class="exercise">
-              <a href="assets/img/entrecomp-2.jpeg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-                <img class="exercise-img" src="assets/img/entrecomp-2.jpeg" alt="Test Inicial EntreComp, hoja 2" width="1152" height="2048" loading="lazy">
+              <a href="assets/img/entrecomp-2.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
+                <img class="exercise-img" src="assets/img/entrecomp-2.jpg" alt="Test Inicial EntreComp, hoja 2" width="1152" height="2048" loading="lazy">
               </a>
               <figcaption>Habilidades 1–8.</figcaption>
             </figure>
@@ -222,8 +221,8 @@
           </div>
 
           <figure class="exercise exercise--center">
-            <a href="assets/img/bloqueo.jpeg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-              <img class="exercise-img" src="assets/img/bloqueo.jpeg" alt="Ficha original «Mi bloqueo creativo» rellenada por Jorge" width="1152" height="2048" loading="lazy">
+            <a href="assets/img/bloqueo.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
+              <img class="exercise-img" src="assets/img/bloqueo.jpg" alt="Ficha original «Mi bloqueo creativo» rellenada por Jorge" width="1152" height="2048" loading="lazy">
             </a>
             <figcaption>Ficha original: Mi bloqueo creativo.</figcaption>
           </figure>
@@ -275,8 +274,8 @@
           </div>
 
           <figure class="exercise">
-            <a href="assets/img/reto1mas1.jpeg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-              <img class="exercise-img" src="assets/img/reto1mas1.jpeg" alt="Ficha original del Reto 1+1 Málaga con todas las ideas generadas" width="1536" height="2048" loading="lazy">
+            <a href="assets/img/reto1mas1.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
+              <img class="exercise-img" src="assets/img/reto1mas1.jpg" alt="Ficha original del Reto 1+1 Málaga con todas las ideas generadas" width="1536" height="2048" loading="lazy">
             </a>
             <figcaption>Ficha original con las 7 combinaciones.</figcaption>
           </figure>
@@ -331,8 +330,8 @@
           </div>
 
           <figure class="exercise exercise--center">
-            <a href="assets/img/scamper.jpeg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-              <img class="exercise-img" src="assets/img/scamper.jpeg" alt="Ficha completa de la técnica SCAMPER rellenada por Jorge" width="1536" height="2048" loading="lazy">
+            <a href="assets/img/scamper.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
+              <img class="exercise-img" src="assets/img/scamper.jpg" alt="Ficha completa de la técnica SCAMPER rellenada por Jorge" width="1536" height="2048" loading="lazy">
             </a>
             <figcaption>Ficha completa: técnica SCAMPER.</figcaption>
           </figure>
@@ -341,11 +340,14 @@
             <div class="prototype-text">
               <span class="prototype-label">🚀 Prototipo</span>
               <h3>UniWay · App universitaria</h3>
-              <p>La idea llevada a la práctica: prototipo de la app móvil con mapa del campus, planificador de clases, feed y mensajes.</p>
+              <p>La idea llevada a la práctica: pruébala directamente en el navegador.</p>
             </div>
-            <a class="btn btn-download" href="UniWay%20Mobile%20App%20Prototype%20(1).zip" download="UniWay-Mobile-App-Prototype.zip">
-              <span aria-hidden="true">⬇</span> Descargar prototipo UniWay <small>(.zip)</small>
-            </a>
+            <div class="prototype-actions">
+              <a class="btn btn-download" href="https://uniwayprueba.netlify.app/" target="_blank" rel="noopener">
+                Ver Prototipo Interactivo UniWay <span aria-hidden="true">↗</span>
+              </a>
+              <a class="prototype-zip" href="UniWay%20Mobile%20App%20Prototype%20(1).zip" download="UniWay-Mobile-App-Prototype.zip">⬇ o descarga el código (.zip)</a>
+            </div>
           </div>
         </div>
 
@@ -353,8 +355,8 @@
         <div class="tab-panel" id="tab-bocetos" role="tabpanel" aria-labelledby="tabbtn-bocetos" hidden>
           <p class="panel-intro">Primeros bocetos a mano antes de pasar al prototipo digital de la app.</p>
           <figure class="exercise exercise--center">
-            <a href="assets/img/bocetos.jpeg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-              <img class="exercise-img" src="assets/img/bocetos.jpeg" alt="Bocetos a mano del prototipo" width="1152" height="2048" loading="lazy">
+            <a href="assets/img/bocetos.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
+              <img class="exercise-img" src="assets/img/bocetos.jpg" alt="Bocetos a mano del prototipo" width="1152" height="2048" loading="lazy">
             </a>
             <figcaption>Bocetos del prototipo.</figcaption>
           </figure>
@@ -418,7 +420,7 @@
               <span class="priority-num">1</span>
               <div class="priority-body">
                 <h4>Hacer llamadas para que pasen las facturas</h4>
-                <p class="who"><span class="avatar">J</span> Responsable: <strong>Jorge</strong></p>
+                <p class="who"><img class="avatar-img" src="assets/img/jorge.png" alt="Jorge" width="44" height="44" loading="lazy"> Responsable: <strong>Jorge</strong></p>
                 <p class="why">Justificación: porque es el que pone orden.</p>
               </div>
             </article>
@@ -426,15 +428,33 @@
               <span class="priority-num">2</span>
               <div class="priority-body">
                 <h4>Realizar llamadas para completar lo que falta</h4>
-                <p class="who"><span class="avatar avatar--alt">M</span> Responsable: <strong>Maite</strong></p>
+                <p class="who"><img class="avatar-img" src="assets/img/maite.png" alt="Maite" width="44" height="44" loading="lazy"> Responsable: <strong>Maite</strong></p>
                 <p class="why">Justificación: se le da muy bien interactuar con personas.</p>
+              </div>
+            </article>
+            <article class="priority">
+              <span class="priority-num">3</span>
+              <div class="priority-body">
+                <!-- ✏️ Escribe aquí la tarea y la justificación de la prioridad 3 -->
+                <h4 class="fill">Tarea por completar</h4>
+                <p class="who"><img class="avatar-img" src="assets/img/jorge.png" alt="Jorge" width="44" height="44" loading="lazy"> Responsable: <strong>Jorge</strong></p>
+                <p class="why">Justificación: por completar.</p>
+              </div>
+            </article>
+            <article class="priority">
+              <span class="priority-num">6</span>
+              <div class="priority-body">
+                <!-- ✏️ Escribe aquí la tarea y la justificación de la prioridad 6 -->
+                <h4 class="fill">Tarea por completar</h4>
+                <p class="who"><img class="avatar-img" src="assets/img/maite.png" alt="Maite" width="44" height="44" loading="lazy"> Responsable: <strong>Maite</strong></p>
+                <p class="why">Justificación: por completar.</p>
               </div>
             </article>
           </div>
 
           <figure class="exercise exercise--center">
-            <a href="assets/img/asesoria.jpeg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-              <img class="exercise-img" src="assets/img/asesoria.jpeg" alt="Tabla original del caso Asesoría Málaga Centro" width="1152" height="2048" loading="lazy">
+            <a href="assets/img/asesoria.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
+              <img class="exercise-img" src="assets/img/asesoria.jpg" alt="Tabla original del caso Asesoría Málaga Centro" width="1152" height="2048" loading="lazy">
             </a>
             <figcaption>Tabla original del caso.</figcaption>
           </figure>
