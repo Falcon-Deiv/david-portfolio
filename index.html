@@ -7,8 +7,8 @@
   <meta name="description" content="Portfolio de Jorge González Luque para la asignatura Simulación Empresarial (S.E) 2º A.F.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body>
 
@@ -59,42 +59,125 @@
       </div>
 
       <div class="container">
-        <div class="eval-grid">
-          <article class="card eval-card reveal">
-            <header class="card-head">
+        <article class="card skills-panel reveal" aria-labelledby="skills-title">
+          <header class="skills-head">
+            <div class="card-head">
               <span class="icon-badge" aria-hidden="true">🎯</span>
-              <h3>Diana de Autoevaluación</h3>
-            </header>
-            <!-- La foto original está girada; se endereza con CSS (.exercise-rotate) -->
-            <figure class="exercise">
-              <a class="exercise-rotate" href="assets/img/diana.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-                <img class="exercise-img" src="assets/img/diana.jpg" alt="Diana de Autoevaluación de habilidades emprendedoras rellenada por Jorge" width="1152" height="2048" loading="lazy">
-              </a>
-              <figcaption>Autoevaluación de habilidades emprendedoras (CEDEC).</figcaption>
-            </figure>
-          </article>
-
-          <article class="card eval-card reveal">
-            <header class="card-head">
-              <span class="icon-badge" aria-hidden="true">📊</span>
-              <h3>Test Inicial EntreComp</h3>
-            </header>
-            <div class="exercise-stack">
-              <figure class="exercise">
-              <a href="assets/img/entrecomp-1.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-                <img class="exercise-img" src="assets/img/entrecomp-1.jpg" alt="Test Inicial EntreComp, hoja 1" width="1152" height="2048" loading="lazy">
-              </a>
-              <figcaption>Habilidades 9–15, fortalezas y áreas de mejora.</figcaption>
-            </figure>
-              <figure class="exercise">
-              <a href="assets/img/entrecomp-2.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-                <img class="exercise-img" src="assets/img/entrecomp-2.jpg" alt="Test Inicial EntreComp, hoja 2" width="1152" height="2048" loading="lazy">
-              </a>
-              <figcaption>Habilidades 1–8.</figcaption>
-            </figure>
+              <div>
+                <h3 id="skills-title">Diana de Autoevaluación · Test Inicial EntreComp</h3>
+                <p class="skills-sub">Mi punto de partida en las 15 habilidades emprendedoras, valoradas de 1 a 5.</p>
+              </div>
             </div>
-          </article>
-        </div>
+            <dl class="skills-summary">
+              <div class="skills-summary-item skills-summary-item--top"><dt>Puntuación más alta (4/5)</dt><dd>Visión · Evaluar ideas</dd></div>
+              <div class="skills-summary-item"><dt>A reforzar (2/5)</dt><dd>Identificar oportunidades · Autoconocimiento · Motivación · Planificación</dd></div>
+            </dl>
+          </header>
+          <div class="skills-grid">
+              <section class="skill-group skill-group--ideas" aria-label="Ideas y oportunidades">
+                <header class="skill-group-head">
+                  <span class="skill-dot" aria-hidden="true"></span>
+                  <h4>Ideas y oportunidades</h4>
+                  <span class="skill-avg">Media <strong>3,2</strong></span>
+                </header>
+                <ul class="skill-list">
+                  <li class="skill" title="Identificar oportunidades: 2 de 5">
+                    <span class="skill-name">Identificar oportunidades</span>
+                    <span class="meter" role="meter" aria-label="Identificar oportunidades" aria-valuemin="1" aria-valuemax="5" aria-valuenow="2" aria-valuetext="2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+                    <span class="skill-val">2<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Creatividad: 3 de 5">
+                    <span class="skill-name">Creatividad</span>
+                    <span class="meter" role="meter" aria-label="Creatividad" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+                    <span class="skill-val">3<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Visión: 4 de 5">
+                    <span class="skill-name">Visión</span>
+                    <span class="meter" role="meter" aria-label="Visión" aria-valuemin="1" aria-valuemax="5" aria-valuenow="4" aria-valuetext="4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+                    <span class="skill-val">4<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Evaluar ideas: 4 de 5">
+                    <span class="skill-name">Evaluar ideas</span>
+                    <span class="meter" role="meter" aria-label="Evaluar ideas" aria-valuemin="1" aria-valuemax="5" aria-valuenow="4" aria-valuetext="4 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+                    <span class="skill-val">4<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Pensamiento ético: 3 de 5">
+                    <span class="skill-name">Pensamiento ético</span>
+                    <span class="meter" role="meter" aria-label="Pensamiento ético" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+                    <span class="skill-val">3<small>/5</small></span>
+                  </li>
+                </ul>
+              </section>
+              <section class="skill-group skill-group--recursos" aria-label="Recursos">
+                <header class="skill-group-head">
+                  <span class="skill-dot" aria-hidden="true"></span>
+                  <h4>Recursos</h4>
+                  <span class="skill-avg">Media <strong>2,6</strong></span>
+                </header>
+                <ul class="skill-list">
+                  <li class="skill" title="Autoconocimiento: 2 de 5">
+                    <span class="skill-name">Autoconocimiento</span>
+                    <span class="meter" role="meter" aria-label="Autoconocimiento" aria-valuemin="1" aria-valuemax="5" aria-valuenow="2" aria-valuetext="2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+                    <span class="skill-val">2<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Motivación: 2 de 5">
+                    <span class="skill-name">Motivación</span>
+                    <span class="meter" role="meter" aria-label="Motivación" aria-valuemin="1" aria-valuemax="5" aria-valuenow="2" aria-valuetext="2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+                    <span class="skill-val">2<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Movilizar recursos: 3 de 5">
+                    <span class="skill-name">Movilizar recursos</span>
+                    <span class="meter" role="meter" aria-label="Movilizar recursos" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+                    <span class="skill-val">3<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Educación financiera: 3 de 5">
+                    <span class="skill-name">Educación financiera</span>
+                    <span class="meter" role="meter" aria-label="Educación financiera" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+                    <span class="skill-val">3<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Involucrar a otros: 3 de 5">
+                    <span class="skill-name">Involucrar a otros</span>
+                    <span class="meter" role="meter" aria-label="Involucrar a otros" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+                    <span class="skill-val">3<small>/5</small></span>
+                  </li>
+                </ul>
+              </section>
+              <section class="skill-group skill-group--accion" aria-label="Pasar a la acción">
+                <header class="skill-group-head">
+                  <span class="skill-dot" aria-hidden="true"></span>
+                  <h4>Pasar a la acción</h4>
+                  <span class="skill-avg">Media <strong>2,8</strong></span>
+                </header>
+                <ul class="skill-list">
+                  <li class="skill" title="Tomar la iniciativa: 3 de 5">
+                    <span class="skill-name">Tomar la iniciativa</span>
+                    <span class="meter" role="meter" aria-label="Tomar la iniciativa" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+                    <span class="skill-val">3<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Planificación: 2 de 5">
+                    <span class="skill-name">Planificación</span>
+                    <span class="meter" role="meter" aria-label="Planificación" aria-valuemin="1" aria-valuemax="5" aria-valuenow="2" aria-valuetext="2 de 5"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+                    <span class="skill-val">2<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Manejar incertidumbre: 3 de 5">
+                    <span class="skill-name">Manejar incertidumbre</span>
+                    <span class="meter" role="meter" aria-label="Manejar incertidumbre" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+                    <span class="skill-val">3<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Trabajar con otros: 3 de 5">
+                    <span class="skill-name">Trabajar con otros</span>
+                    <span class="meter" role="meter" aria-label="Trabajar con otros" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+                    <span class="skill-val">3<small>/5</small></span>
+                  </li>
+                  <li class="skill" title="Aprender de la experiencia: 3 de 5">
+                    <span class="skill-name">Aprender de la experiencia</span>
+                    <span class="meter" role="meter" aria-label="Aprender de la experiencia" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3" aria-valuetext="3 de 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span>
+                    <span class="skill-val">3<small>/5</small></span>
+                  </li>
+                </ul>
+              </section>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -166,171 +249,216 @@
 
         <!-- Bloqueo creativo -->
         <div class="tab-panel is-active" id="tab-bloqueo" role="tabpanel" aria-labelledby="tabbtn-bloqueo">
-          <div class="block-grid">
-            <article class="card block-card">
-              <span class="tag">Perceptivo</span>
-              <dl>
-                <dt>Cuándo aparece</dt>
-                <dd>Cuando tengo que hacer una tarea de otra forma.</dd>
-                <dt>Cómo reacciono</dt>
-                <dd>Me limito a realizarla con mis conocimientos.</dd>
-                <dt>Estrategia</dt>
-                <dd class="strategy">Abrirme a nuevas maneras de realizarlas y sin miedo al fallo.</dd>
-              </dl>
-            </article>
-
-            <article class="card block-card">
-              <span class="tag">De equipo</span>
-              <dl>
-                <dt>Cuándo aparece</dt>
-                <dd>Cuando no estoy motivado o enchufado y no me siento importante o útil.</dd>
-                <dt>Cómo reacciono</dt>
-                <dd>Me quedo callado y solo me limito a escuchar.</dd>
-                <dt>Estrategia</dt>
-                <dd class="strategy">Intentar pensar en positivo y apoyar al equipo.</dd>
-              </dl>
-            </article>
-
-            <article class="card block-card">
-              <span class="tag">Cognitivo</span>
-              <dl>
-                <dt>Cuándo aparece</dt>
-                <dd>Cuando trabajo con alguien que no conozco.</dd>
-                <dt>Cómo reacciono</dt>
-                <dd>Me pongo nervioso y eso me hace más propenso a fallar.</dd>
-                <dt>Estrategia</dt>
-                <dd class="strategy">Mantener la calma y concentrarme.</dd>
-              </dl>
-            </article>
-
-            <article class="card block-card">
-              <span class="tag">Emocional</span>
-              <dl>
-                <dt>Cuándo aparece</dt>
-                <dd>Cuando realizo algo nuevo.</dd>
-                <dt>Cómo reacciono</dt>
-                <dd>Me vuelvo inquieto.</dd>
-                <dt>Estrategia</dt>
-                <dd class="strategy">Intentar mantener la escucha activa y concentración.</dd>
-              </dl>
-            </article>
+          <div class="sheet">
+            <header class="sheet-head">
+              <h3>Mi bloqueo creativo</h3>
+              <p>Qué tipo de bloqueo me aparece, cuándo, cómo me afecta y qué hago para superarlo.</p>
+            </header>
+            <div class="table-wrap">
+              <table class="data-table block-table">
+                <caption class="sr-only">Mis bloqueos creativos: cuándo aparecen, cómo me afectan y mi estrategia</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Tipo de bloqueo</th>
+                    <th scope="col">¿Cuándo aparece?</th>
+                    <th scope="col">¿Cómo me afecta?</th>
+                    <th scope="col">Estrategia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th scope="row" data-label="Tipo de bloqueo"><span class="block-type"><span aria-hidden="true">👁️</span> Perceptivo</span></th>
+                  <td data-label="¿Cuándo aparece?">Cuando tengo que hacer una tarea de otra forma.</td>
+                  <td data-label="¿Cómo me afecta?">Solo me limito a realizarla con mis conocimientos.</td>
+                  <td data-label="Estrategia" class="strategy-cell">Abrirme a nuevas maneras de realizarlas y sin miedo al fallo.</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-label="Tipo de bloqueo"><span class="block-type"><span aria-hidden="true">👥</span> De equipo</span></th>
+                  <td data-label="¿Cuándo aparece?">Cuando no estoy motivado y no me siento importante o útil.</td>
+                  <td data-label="¿Cómo me afecta?">Me quedo callado y solo me limito a escuchar.</td>
+                  <td data-label="Estrategia" class="strategy-cell">Intentar pensar en positivo y apoyar al equipo.</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-label="Tipo de bloqueo"><span class="block-type"><span aria-hidden="true">🧠</span> Cognitivo</span></th>
+                  <td data-label="¿Cuándo aparece?">Cuando trabajo con alguien que no conozco.</td>
+                  <td data-label="¿Cómo me afecta?">Me pongo nervioso y me hace propenso a fallar.</td>
+                  <td data-label="Estrategia" class="strategy-cell">Mantener la calma y concentrarme.</td>
+                </tr>
+                <tr>
+                  <th scope="row" data-label="Tipo de bloqueo"><span class="block-type"><span aria-hidden="true">💓</span> Emocional</span></th>
+                  <td data-label="¿Cuándo aparece?">Cuando realizo algo nuevo.</td>
+                  <td data-label="¿Cómo me afecta?">Me vuelvo inquieto.</td>
+                  <td data-label="Estrategia" class="strategy-cell">Intentar mantener la escucha activa y concentración.</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <figure class="exercise exercise--center">
-            <a href="assets/img/bloqueo.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-              <img class="exercise-img" src="assets/img/bloqueo.jpg" alt="Ficha original «Mi bloqueo creativo» rellenada por Jorge" width="1152" height="2048" loading="lazy">
-            </a>
-            <figcaption>Ficha original: Mi bloqueo creativo.</figcaption>
-          </figure>
-
           <div class="commitment">
-            <span class="commitment-label">Mi compromiso</span>
+            <span class="commitment-label">📌 Mi compromiso</span>
             <p>“Cuando aparezca mi bloqueo, voy a mantener la calma y concentrarme para no ponerme nervioso.”</p>
           </div>
         </div>
 
         <!-- Reto 1+1 Málaga -->
         <div class="tab-panel" id="tab-reto" role="tabpanel" aria-labelledby="tabbtn-reto" hidden>
-          <div class="reto-layout">
-          <div class="card">
-            <header class="card-head">
-              <span class="icon-badge" aria-hidden="true">💡</span>
-              <h3>Ideas generadas</h3>
+          <div class="sheet">
+            <header class="sheet-head">
+              <h3>Reto 1+1 Málaga</h3>
+              <p class="mission"><span class="mission-label">Misión</span> Genera cantidad antes de seleccionar calidad.</p>
             </header>
+
+            <div class="table-tools" role="group" aria-label="Filtrar ideas">
+              <span class="table-tools-label">Mostrar:</span>
+              <button type="button" class="filter-btn is-active" data-filter="all" aria-pressed="true">Todas <span class="count">7</span></button>
+              <button type="button" class="filter-btn" data-filter="alive" aria-pressed="false">Siguen vivas <span class="count">4</span></button>
+              <button type="button" class="filter-btn" data-filter="dead" aria-pressed="false">Descartadas <span class="count">3</span></button>
+              <span class="sr-only" aria-live="polite" id="reto-live"></span>
+            </div>
+
             <div class="table-wrap">
-              <table class="idea-table">
+              <table class="data-table reto-table" id="reto-table">
+                <caption class="sr-only">Ideas generadas en el Reto 1+1 Málaga</caption>
                 <thead>
                   <tr>
-                    <th scope="col">Elemento 1</th>
-                    <th scope="col" aria-label="más"></th>
-                    <th scope="col">Elemento 2 (Málaga)</th>
-                    <th scope="col" aria-label="resultado"></th>
-                    <th scope="col">Idea resultante</th>
+                    <th scope="col">Combinación</th>
+                    <th scope="col">Idea</th>
+                    <th scope="col">Autoría</th>
+                    <th scope="col">¿Sigue viva?</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td data-label="Elemento 1">Código QR</td>
-                    <td class="op" aria-hidden="true">+</td>
-                    <td data-label="Elemento 2">Alcazaba</td>
-                    <td class="op" aria-hidden="true">→</td>
-                    <td data-label="Idea">Audiolibro y cultura</td>
-                  </tr>
-                  <tr>
-                    <td data-label="Elemento 1">Recepción</td>
-                    <td class="op" aria-hidden="true">+</td>
-                    <td data-label="Elemento 2">Vialia</td>
-                    <td class="op" aria-hidden="true">→</td>
-                    <td data-label="Idea">Punto de información para personas perdidas</td>
-                  </tr>
-                  <!-- ➕ Añade aquí más filas con otras ideas generadas -->
+                <tr data-status="alive">
+                  <th scope="row" data-label="Combinación"><span class="combo"><span class="combo-chip">Código QR</span><span class="combo-plus" aria-label="más">+</span><span class="combo-chip combo-chip--place">Alcazaba</span></span></th>
+                  <td data-label="Idea">Información a través de un audiolibro y cultura</td>
+                  <td data-label="Autoría"><span class="authors"><span class="avatar-stack" aria-hidden="true"><img class="avatar-img avatar-img--sm" src="assets/img/jorge.png" alt="" width="32" height="32" loading="lazy"></span>Jorge</span></td>
+                  <td data-label="¿Sigue viva?"><span class="status status--alive"><span aria-hidden="true">✓</span> Sigue</span></td>
+                </tr>
+                <tr data-status="alive">
+                  <th scope="row" data-label="Combinación"><span class="combo"><span class="combo-chip">Recepción</span><span class="combo-plus" aria-label="más">+</span><span class="combo-chip combo-chip--place">Vialia</span></span></th>
+                  <td data-label="Idea">Punto de información para las personas perdidas</td>
+                  <td data-label="Autoría"><span class="authors"><span class="avatar-stack" aria-hidden="true"><img class="avatar-img avatar-img--sm" src="assets/img/jorge.png" alt="" width="32" height="32" loading="lazy"></span>Jorge</span></td>
+                  <td data-label="¿Sigue viva?"><span class="status status--alive"><span aria-hidden="true">✓</span> Sigue</span></td>
+                </tr>
+                <tr data-status="dead">
+                  <th scope="row" data-label="Combinación"><span class="combo"><span class="combo-chip">Pantalla</span><span class="combo-plus" aria-label="más">+</span><span class="combo-chip combo-chip--place">Rosaleda</span></span></th>
+                  <td data-label="Idea">Publicidad, fecha de partidos y cuándo puedes comprar las entradas</td>
+                  <td data-label="Autoría"><span class="authors"><span class="avatar-stack" aria-hidden="true"><img class="avatar-img avatar-img--sm" src="assets/img/maite.png" alt="" width="32" height="32" loading="lazy"><img class="avatar-img avatar-img--sm" src="assets/img/jorge.png" alt="" width="32" height="32" loading="lazy"></span>Maite y Jorge</span></td>
+                  <td data-label="¿Sigue viva?"><span class="status status--dead"><span aria-hidden="true">✕</span> No sigue</span></td>
+                </tr>
+                <tr data-status="dead">
+                  <th scope="row" data-label="Combinación"><span class="combo"><span class="combo-chip">Contador</span><span class="combo-plus" aria-label="más">+</span><span class="combo-chip combo-chip--place">Playa</span></span></th>
+                  <td data-label="Idea">Aforo para ver antes de ir a la playa cuánta gente hay a tiempo real</td>
+                  <td data-label="Autoría"><span class="authors"><span class="avatar-stack" aria-hidden="true"><img class="avatar-img avatar-img--sm" src="assets/img/jorge.png" alt="" width="32" height="32" loading="lazy"></span>Jorge</span></td>
+                  <td data-label="¿Sigue viva?"><span class="status status--dead"><span aria-hidden="true">✕</span> No sigue</span></td>
+                </tr>
+                <tr data-status="alive" class="is-chosen">
+                  <th scope="row" data-label="Combinación"><span class="combo"><span class="combo-chip">Plano</span><span class="combo-plus" aria-label="más">+</span><span class="combo-chip combo-chip--place">Universidad</span></span></th>
+                  <td data-label="Idea">Para que cuando lleguen se orienten mejor <span class="chosen-badge">⭐ Elegida</span></td>
+                  <td data-label="Autoría"><span class="authors"><span class="avatar-stack" aria-hidden="true"><img class="avatar-img avatar-img--sm" src="assets/img/maite.png" alt="" width="32" height="32" loading="lazy"><img class="avatar-img avatar-img--sm" src="assets/img/jorge.png" alt="" width="32" height="32" loading="lazy"></span>Maite y Jorge</span></td>
+                  <td data-label="¿Sigue viva?"><span class="status status--alive"><span aria-hidden="true">✓</span> Sigue</span></td>
+                </tr>
+                <tr data-status="dead">
+                  <th scope="row" data-label="Combinación"><span class="combo"><span class="combo-chip">Asesoría</span><span class="combo-plus" aria-label="más">+</span><span class="combo-chip combo-chip--place">Deportes</span></span></th>
+                  <td data-label="Idea">Dudas sobre los deportes para hacer en Málaga</td>
+                  <td data-label="Autoría"><span class="authors"><span class="avatar-stack" aria-hidden="true"><img class="avatar-img avatar-img--sm" src="assets/img/jorge.png" alt="" width="32" height="32" loading="lazy"></span>Jorge</span></td>
+                  <td data-label="¿Sigue viva?"><span class="status status--dead"><span aria-hidden="true">✕</span> No sigue</span></td>
+                </tr>
+                <tr data-status="alive">
+                  <th scope="row" data-label="Combinación"><span class="combo"><span class="combo-chip">Aplicación</span><span class="combo-plus" aria-label="más">+</span><span class="combo-chip combo-chip--place">Motos ya</span></span></th>
+                  <td data-label="Idea">Facilidad para coger motos en Málaga (alquiler)</td>
+                  <td data-label="Autoría"><span class="authors"><span class="avatar-stack" aria-hidden="true"><img class="avatar-img avatar-img--sm" src="assets/img/jorge.png" alt="" width="32" height="32" loading="lazy"></span>Jorge</span></td>
+                  <td data-label="¿Sigue viva?"><span class="status status--alive"><span aria-hidden="true">✓</span> Sigue</span></td>
+                </tr>
                 </tbody>
               </table>
             </div>
           </div>
 
-          <figure class="exercise">
-            <a href="assets/img/reto1mas1.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-              <img class="exercise-img" src="assets/img/reto1mas1.jpg" alt="Ficha original del Reto 1+1 Málaga con todas las ideas generadas" width="1536" height="2048" loading="lazy">
-            </a>
-            <figcaption>Ficha original con las 7 combinaciones.</figcaption>
-          </figure>
-          </div>
-
-          <div class="chosen-idea">
-            <span class="commitment-label">⭐ Idea elegida</span>
-            <h3>Planos para el primer día de universidad</h3>
-            <p>Metro · aplicación · tiempo: una guía para llegar sin perderse el primer día.</p>
+          <div class="chosen-banner">
+            <span class="chosen-banner-icon" aria-hidden="true">⭐</span>
+            <div>
+              <span class="commitment-label">Idea elegida</span>
+              <h3>Planos para el primer día de universidad</h3>
+              <ul class="chosen-tags" aria-label="Claves de la idea">
+                <li><span aria-hidden="true">🚇</span> Metro</li>
+                <li><span aria-hidden="true">📱</span> Aplicación</li>
+                <li><span aria-hidden="true">⏱️</span> Tiempo</li>
+              </ul>
+            </div>
           </div>
         </div>
 
         <!-- SCAMPER -->
         <div class="tab-panel" id="tab-scamper" role="tabpanel" aria-labelledby="tabbtn-scamper" hidden>
-          <p class="panel-intro">Aplicación de la técnica SCAMPER a la idea elegida: <strong>App Universitaria</strong>.</p>
-          <div class="scamper-grid">
-            <article class="scamper-card">
-              <span class="scamper-letter">S</span>
-              <h4>Sustituir</h4>
-              <p>Cambiar las jornadas de puertas abiertas por una app para quien no pueda asistir presencialmente.</p>
-            </article>
-            <article class="scamper-card">
-              <span class="scamper-letter">C</span>
-              <h4>Combinar</h4>
-              <p>App que se adapte al estudio y año de la persona, adaptada a cada universidad.</p>
-            </article>
-            <article class="scamper-card">
-              <span class="scamper-letter">A</span>
-              <h4>Adaptar</h4>
-              <p>Realizar una mini encuesta para generar una guía personalizada de clases.</p>
-            </article>
-            <article class="scamper-card">
-              <span class="scamper-letter">M</span>
-              <h4>Modificar</h4>
-              <p>Incluir preferencias en la encuesta para recomendar bibliotecas, salas de estudio y actividades.</p>
-            </article>
-            <article class="scamper-card">
-              <span class="scamper-letter">P</span>
-              <h4>Poner otros usos</h4>
-              <p>Organizar eventos, localizar servicios y orientación para Erasmus con idiomas.</p>
-            </article>
-            <article class="scamper-card">
-              <span class="scamper-letter">E</span>
-              <h4>Eliminar</h4>
-              <p>La necesidad de buscar información en muchas páginas; todo reunido en un mismo sitio.</p>
-            </article>
-            <article class="scamper-card">
-              <span class="scamper-letter">R</span>
-              <h4>Reordenar</h4>
-              <p>Recordatorio diario tipo: <em>“Tu próxima clase está en el aula X, aquí tienes cómo llegar”</em>.</p>
-            </article>
+          <div class="sheet">
+            <header class="sheet-head sheet-head--split">
+              <div>
+                <h3>Técnica SCAMPER</h3>
+                <p>Siete preguntas para mejorar la idea elegida.</p>
+              </div>
+              <p class="idea-box"><span class="mission-label">Idea</span> App universitaria · UniWay</p>
+            </header>
+            <ol class="scamper-list">
+            <li class="scamper-row scamper-row--s">
+              <span class="scamper-letter" aria-hidden="true">S</span>
+              <div class="scamper-body">
+                <h4>Sustituir</h4>
+                <p>Hay jornadas de puertas abiertas y lo cambiaremos por una app, ya que no todo el mundo puede asistir presencialmente.</p>
+              </div>
+              <p class="scamper-hint">Sustituir cosas, personas, ideas, lugares, procesos, etc.</p>
+            </li>
+            <li class="scamper-row scamper-row--c">
+              <span class="scamper-letter" aria-hidden="true">C</span>
+              <div class="scamper-body">
+                <h4>Combinar</h4>
+                <p>Creando una app que se adapte al estudio y año de la persona, adaptada a cada universidad correspondiente.</p>
+              </div>
+              <p class="scamper-hint">Combinar conceptos, ideas, características, temas, emociones, etc.</p>
+            </li>
+            <li class="scamper-row scamper-row--a">
+              <span class="scamper-letter" aria-hidden="true">A</span>
+              <div class="scamper-body">
+                <h4>Adaptar</h4>
+                <p>Tendrán que realizar una mini encuesta y les aparecerá seguidamente su guía personalizada: clases, etc.</p>
+              </div>
+              <p class="scamper-hint">Adaptar ideas a otros contextos, lugares, personas, tiempo, etc.</p>
+            </li>
+            <li class="scamper-row scamper-row--m">
+              <span class="scamper-letter" aria-hidden="true">M</span>
+              <div class="scamper-body">
+                <h4>Modificar</h4>
+                <p>No solo preguntar el año y estudios, sino que tenga preferencias para recomendar bibliotecas, salas, actividades...</p>
+              </div>
+              <p class="scamper-hint">Cambiar una característica, parte de un objeto, alterar el orden.</p>
+            </li>
+            <li class="scamper-row scamper-row--p">
+              <span class="scamper-letter" aria-hidden="true">P</span>
+              <div class="scamper-body">
+                <h4>Poner otros usos</h4>
+                <p>Organizar eventos universitarios, localizar servicios y facilitar la orientación de Erasmus con opción de idioma.</p>
+              </div>
+              <p class="scamper-hint">Utilizar para otros usos, extraer utilidades ocultas.</p>
+            </li>
+            <li class="scamper-row scamper-row--e">
+              <span class="scamper-letter" aria-hidden="true">E</span>
+              <div class="scamper-body">
+                <h4>Eliminar</h4>
+                <p>La necesidad de buscar información en muchas páginas diferentes. Todo estaría reunido en un mismo sitio.</p>
+              </div>
+              <p class="scamper-hint">Suprimir partes del objeto o elementos del problema.</p>
+            </li>
+            <li class="scamper-row scamper-row--r">
+              <span class="scamper-letter" aria-hidden="true">R</span>
+              <div class="scamper-body">
+                <h4>Reordenar</h4>
+                <p>Un tipo de recordatorio del día: <em>“Tu próxima clase está en el aula X, aquí tienes cómo llegar”</em>.</p>
+              </div>
+              <p class="scamper-hint">Cambiar de lugar, de roles, invertir elementos.</p>
+            </li>
+            </ol>
           </div>
-
-          <figure class="exercise exercise--center">
-            <a href="assets/img/scamper.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-              <img class="exercise-img" src="assets/img/scamper.jpg" alt="Ficha completa de la técnica SCAMPER rellenada por Jorge" width="1536" height="2048" loading="lazy">
-            </a>
-            <figcaption>Ficha completa: técnica SCAMPER.</figcaption>
-          </figure>
 
           <div class="prototype-cta">
             <div class="prototype-main">
@@ -402,56 +530,78 @@
 
         </div>
 
-        <article class="card contract reveal">
-          <figure class="contract-photo">
-            <img src="assets/img/grupo.png" alt="Maite Basterrechea Carrasco y Jorge González Luque" width="1664" height="2496" loading="lazy">
-            <figcaption>Maite y Jorge</figcaption>
-          </figure>
+        <article class="a4-doc reveal" aria-labelledby="contract-title">
+          <header class="a4-head">
+            <div class="a4-head-text">
+              <p class="a4-kicker">Simulación Empresarial · 2º A.F</p>
+              <h3 id="contract-title">Contrato de equipo</h3>
+              <p class="a4-parties"><span>Integrantes:</span> Maite Basterrechea Carrasco · Jorge González Luque</p>
+            </div>
+            <figure class="a4-photo">
+              <img src="assets/img/grupo.png" alt="Maite Basterrechea Carrasco y Jorge González Luque" width="1664" height="2496" loading="lazy">
+              <figcaption>Maite y Jorge</figcaption>
+            </figure>
+          </header>
 
-          <div class="contract-body">
-            <header class="card-head">
-              <span class="icon-badge" aria-hidden="true">📝</span>
-              <h3>Contrato de equipo</h3>
-            </header>
-
-            <div class="strengths">
-              <div class="strength">
-                <h4>Fortalezas · Maite Basterrechea Carrasco</h4>
-                <ul class="chip-list"><li class="chip chip--success">Creación de vídeos y publicidad</li><li class="chip chip--success">Trabajo en equipo</li><li class="chip chip--success">Aprendizaje y adaptación</li><li class="chip chip--success">Resolución de problemas</li><li class="chip chip--success">Organización y gestión del tiempo</li></ul>
+          <div class="a4-body">
+            <section class="a4-clause">
+              <h4><span class="a4-num">1.</span> Fortalezas</h4>
+              <div class="a4-strengths">
+                <div>
+                  <h5>Maite Basterrechea Carrasco</h5>
+                  <ul><li>Creación de vídeos y publicidad</li><li>Trabajo en equipo</li><li>Aprendizaje y adaptación</li><li>Resolución de problemas</li><li>Organización y gestión del tiempo</li></ul>
+                </div>
+                <div>
+                  <h5>Jorge González Luque</h5>
+                  <ul><li>Creativo</li><li>Responsable</li><li>Organizado</li><li>Trabajo en equipo</li><li>Adaptativo y resolutivo</li></ul>
+                </div>
               </div>
-              <div class="strength">
-                <h4>Fortalezas · Jorge González Luque</h4>
-                <ul class="chip-list"><li class="chip chip--success">Creativo</li><li class="chip chip--success">Responsable</li><li class="chip chip--success">Organizado</li><li class="chip chip--success">Trabajo en equipo</li><li class="chip chip--success">Adaptativo y resolutivo</li></ul>
+            </section>
+            <section class="a4-clause">
+              <h4><span class="a4-num">2.</span> Propósito</h4>
+              <p>Nuestro propósito como equipo es escucharnos, respetar y entender las ideas y puntos de vista del otro, aportando cada uno nuestras opiniones y habilidades. Queremos llegar juntos a la mejor conclusión, tomar las decisiones de forma conjunta y llevarlas a cabo de la mejor manera posible.</p>
+            </section>
+            <section class="a4-clause">
+              <h4><span class="a4-num">3.</span> Roles</h4>
+              <p>Maite y Jorge nos repartiremos las tareas de forma equilibrada y según las habilidades de cada uno. Aunque cada uno pueda encargarse más de unas tareas concretas, ambos participaremos en las decisiones y en las partes importantes del proyecto. Si uno necesita ayuda, el otro colaborará para que el trabajo avance correctamente.</p>
+            </section>
+            <section class="a4-clause">
+              <h4><span class="a4-num">4.</span> Comunicación</h4>
+              <p>Mantendremos una comunicación constante, clara y respetuosa durante el desarrollo de las actividades. Compartiremos nuestras ideas y opiniones, escuchando las propuestas del otro. También nos avisaremos si tenemos algún problema.</p>
+            </section>
+            <section class="a4-clause">
+              <h4><span class="a4-num">5.</span> Conflictos</h4>
+              <p>Si surge algún desacuerdo entre nosotros, intentaremos solucionarlo hablando y escuchando las opiniones de ambos. No tomaremos decisiones de manera individual. Buscaremos llegar a un acuerdo y elegir la opción que consideremos mejor para el proyecto.</p>
+            </section>
+            <section class="a4-clause">
+              <h4><span class="a4-num">6.</span> Revisión y Autoría</h4>
+              <p>Revisaremos que las tareas estén repartidas de forma justa y que cada uno esté cumpliendo con sus responsabilidades. Antes de entregar cualquier actividad, revisaremos juntos el resultado final para comprobar que no haya errores.</p>
+            </section>
+          </div>
+
+          <footer class="a4-foot">
+            <p class="a4-date">Málaga, 30 de septiembre de 2026</p>
+            <div class="a4-signatures">
+              <div class="a4-signature">
+                <span class="a4-sign" aria-hidden="true">Jorge González</span>
+                <span class="a4-sign-line"></span>
+                <span class="a4-sign-label">Firma del compañero</span>
+                <span class="a4-sign-name">Jorge González Luque</span>
+              </div>
+              <div class="a4-signature">
+                <span class="a4-sign" aria-hidden="true">Maite Basterrechea</span>
+                <span class="a4-sign-line"></span>
+                <span class="a4-sign-label">Firma de la compañera</span>
+                <span class="a4-sign-name">Maite Basterrechea Carrasco</span>
               </div>
             </div>
-
-            <dl class="contract-list">
-              <div>
-                <dt>🎯 Propósito</dt>
-                <dd>Nuestro propósito como equipo es escucharnos, respetar y entender las ideas y puntos de vista del otro, aportando cada uno nuestras opiniones y habilidades. Queremos llegar juntos a la mejor conclusión, tomar las decisiones de forma conjunta y llevarlas a cabo de la mejor manera posible.</dd>
-              </div>
-              <div>
-                <dt>🧩 Roles</dt>
-                <dd>Maite y Jorge nos repartiremos las tareas de forma equilibrada y según las habilidades de cada uno. Aunque cada uno pueda encargarse más de unas tareas concretas, ambos participaremos en las decisiones y en las partes importantes del proyecto. Si uno necesita ayuda, el otro colaborará para que el trabajo avance correctamente.</dd>
-              </div>
-              <div>
-                <dt>💬 Comunicación</dt>
-                <dd>Mantendremos una comunicación constante, clara y respetuosa durante el desarrollo de las actividades. Compartiremos nuestras ideas y opiniones, escuchando las propuestas del otro. También nos avisaremos si tenemos algún problema.</dd>
-              </div>
-              <div>
-                <dt>🤝 Conflictos</dt>
-                <dd>Si surge algún desacuerdo entre nosotros, intentaremos solucionarlo hablando y escuchando las opiniones de ambos. No tomaremos decisiones de manera individual. Buscaremos llegar a un acuerdo y elegir la opción que consideremos mejor para el proyecto.</dd>
-              </div>
-              <div>
-                <dt>✅ Revisión y Autoría</dt>
-                <dd>Revisaremos que las tareas estén repartidas de forma justa y que cada uno esté cumpliendo con sus responsabilidades. Antes de entregar cualquier actividad, revisaremos juntos el resultado final para comprobar que no haya errores.</dd>
-              </div>
-            </dl>
-
-            <!-- Se muestra automáticamente cuando exista assets/docs/contrato-equipo.pdf -->
-            <a class="btn btn-ghost pdf-link" href="assets/docs/contrato-equipo.pdf" target="_blank" rel="noopener" data-optional hidden>📄 Ver contrato de equipo (PDF)</a>
-          </div>
+          </footer>
         </article>
+
+        <p class="a4-actions">
+          <!-- Se muestra automáticamente cuando exista assets/docs/contrato-equipo.pdf -->
+          <a class="btn btn-ghost pdf-link" href="assets/docs/contrato-equipo.pdf" target="_blank" rel="noopener" data-optional hidden>📄 Ver contrato de equipo (PDF)</a>
+        </p>
 
         <div class="case reveal">
           <div class="case-head">
@@ -493,12 +643,6 @@
             </article>
           </div>
 
-          <figure class="exercise exercise--center">
-            <a href="assets/img/asesoria.jpg" target="_blank" rel="noopener" title="Ver imagen a tamaño completo">
-              <img class="exercise-img" src="assets/img/asesoria.jpg" alt="Tabla original del caso Asesoría Málaga Centro" width="1152" height="2048" loading="lazy">
-            </a>
-            <figcaption>Tabla original del caso.</figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -556,6 +700,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>

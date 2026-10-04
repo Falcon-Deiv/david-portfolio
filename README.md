@@ -27,20 +27,19 @@ También se puede publicar tal cual con GitHub Pages (Settings → Pages → ram
 
 ## Imágenes
 
-Las fotos de los ejercicios y del equipo están en `assets/img/` y se muestran en su sección:
+En la web solo se usan estas fotos de `assets/img/`:
 
-| Archivo                                     | Dónde aparece                                  |
-|---------------------------------------------|------------------------------------------------|
-| `diana.jpg`                                | ¿Quién Soy? · Diana de Autoevaluación (se endereza con CSS) |
-| `entrecomp-1.jpg`, `entrecomp-2.jpg`      | ¿Quién Soy? · Test Inicial EntreComp           |
-| `bloqueo.jpg`                              | Creatividad · Mi bloqueo creativo              |
-| `reto1mas1.jpg`                            | Creatividad · Reto 1+1 Málaga                  |
-| `scamper.jpg`                              | Creatividad · Técnica SCAMPER                  |
-| `bocetos.jpg`                              | Creatividad · Bocetos / Prototipo              |
-| `asesoria.jpg`                             | Mi equipo · Caso Asesoría Málaga Centro        |
-| `grupo.png`                                | Mi equipo · Contrato de equipo                 |
+| Archivo                  | Dónde aparece                                         |
+|--------------------------|-------------------------------------------------------|
+| `jorge.png`              | Foto de perfil y avatares (Reto 1+1, caso Asesoría)    |
+| `maite.png`              | Avatares (Reto 1+1, caso Asesoría)                     |
+| `grupo.png`              | Mi equipo · Contrato de equipo                         |
+| `bocetos.jpg`            | Creatividad · Bocetos / Prototipo                      |
 
-La foto de perfil es `assets/img/jorge.png`; los avatares del caso Asesoría usan `jorge.png` y `maite.png`.
+La Diana, el Test EntreComp, Mi bloqueo creativo, el Reto 1+1, SCAMPER y el contrato están
+construidos con HTML y CSS a partir de los datos de las fichas. Las fotos originales de esas
+fichas (`diana.jpg`, `entrecomp-*.jpg`, `bloqueo.jpg`, `reto1mas1.jpg`, `scamper.jpg`,
+`asesoria.jpg`) siguen en la carpeta, pero la página ya no las carga.
 
 ## Vídeo y documentos
 

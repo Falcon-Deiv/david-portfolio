@@ -121,56 +121,29 @@
       .catch(function () {});
   });
 
-  /* ---------- Huecos de imagen ----------
-     Cada .img-slot intenta cargar la imagen indicada en data-src
-     (p. ej. assets/img/perfil.jpg). Si no existe, muestra un placeholder.
-     Al pulsar el placeholder se puede elegir una imagen del ordenador
-     para previsualizarla (solo en este navegador). */
-  document.querySelectorAll('.img-slot').forEach(function (slot) {
-    const src = slot.dataset.src;
-    const label = slot.dataset.label || 'Imagen';
+  /* ---------- Filtro de ideas (Reto 1+1 Málaga) ---------- */
+  const retoTable = document.getElementById('reto-table');
+  if (retoTable) {
+    const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
+    const retoRows = Array.from(retoTable.querySelectorAll('tbody tr'));
+    const live = document.getElementById('reto-live');
 
-    function showImage(url) {
-      slot.innerHTML = '';
-      const img = new Image();
-      img.alt = label;
-      img.src = url;
-      slot.appendChild(img);
-    }
-
-    function showPlaceholder() {
-      slot.innerHTML = '';
-      const ph = document.createElement('button');
-      ph.type = 'button';
-      ph.className = 'img-placeholder';
-      ph.setAttribute('aria-label', 'Seleccionar imagen: ' + label);
-      ph.innerHTML =
-        '<span class="ph-icon" aria-hidden="true">🖼️</span>' +
-        '<span class="ph-label"></span>' +
-        '<span class="ph-hint">Pulsa para previsualizar o guarda el archivo en</span>' +
-        '<code></code>';
-      ph.querySelector('.ph-label').textContent = label;
-      ph.querySelector('code').textContent = src;
-
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'image/*';
-      input.hidden = true;
-      input.addEventListener('change', function () {
-        const file = input.files && input.files[0];
-        if (file) showImage(URL.createObjectURL(file));
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const f = btn.dataset.filter;
+        let shown = 0;
+        retoRows.forEach(function (row) {
+          const visible = f === 'all' || row.dataset.status === f;
+          row.hidden = !visible;
+          if (visible) shown++;
+        });
+        filterBtns.forEach(function (b) {
+          const on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
+        if (live) live.textContent = shown + (shown === 1 ? ' idea' : ' ideas');
       });
-
-      ph.addEventListener('click', function () { input.click(); });
-      slot.appendChild(ph);
-      slot.appendChild(input);
-    }
-
-    if (!src) { showPlaceholder(); return; }
-
-    const probe = new Image();
-    probe.onload = function () { showImage(src); };
-    probe.onerror = showPlaceholder;
-    probe.src = src;
-  });
+    });
+  }
 })();
