@@ -40,6 +40,10 @@ La Diana, el Test EntreComp, Mi bloqueo creativo, el Reto 1+1, SCAMPER y el cont
 construidos con HTML y CSS a partir de los datos de las fichas en papel. Las puntuaciones de la
 Diana y del EntreComp reproducen exactamente lo que el alumno marcó en su ficha original.
 
+Debajo de cada componente, un botón «Ver apunte original» abre en otra pestaña la foto de la
+ficha en papel: `diana.jpg`, `entrecomp-1.jpg`, `bloqueo.jpg`, `reto1mas1.jpg`, `scamper.jpg`,
+`asesoria.jpg` y el PDF del contrato. `entrecomp-2.jpg` se conserva junto a ellas.
+
 ## Vídeo y documentos
 
 - `assets/video/presentacion.mp4`: vídeo de UniWay, en un marco tipo móvil junto al botón del prototipo (Creatividad · SCAMPER).

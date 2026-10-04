@@ -841,7 +841,29 @@ p:last-child { margin-bottom: 0; }
 .a4-sign-line { width: 100%; max-width: 260px; margin: 6px 0 8px; border-top: 1.5px solid var(--ink); }
 .a4-sign-label { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
 .a4-sign-name { font-size: .9rem; }
-.a4-actions { margin: 28px 0 0; text-align: center; }
+
+/* ---------- Enlaces a los apuntes originales (botón fantasma) ---------- */
+.source-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; margin-top: 14px; }
+.source-links--center { justify-content: center; margin-top: 28px; }
+.btn-source {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #c9d3e1;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--navy-700);
+  font-size: .88rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: color .2s, border-color .2s, background-color .2s, transform .2s;
+}
+.btn-source:hover {
+  border-color: var(--blue-600);
+  background: var(--blue-50);
+  color: var(--blue-600);
+  transform: translateY(-1px);
+}
+.btn-source:focus-visible { outline: 2px solid var(--blue-500); outline-offset: 2px; }
 
 .case {
   margin-top: 40px;
@@ -990,6 +1012,7 @@ p:last-child { margin-bottom: 0; }
   .card, .case { padding: 22px; }
   .quote { padding: 28px 24px; }
   .commitment { padding: 22px; }
+  .source-links { justify-content: center; }
   .skills-head, .skill-group { padding-left: 20px; padding-right: 20px; }
   .sheet-head, .table-tools { padding-left: 20px; padding-right: 20px; }
   .scamper-list { padding: 14px; }
