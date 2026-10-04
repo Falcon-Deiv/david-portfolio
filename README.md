@@ -1,59 +1,37 @@
-# Portfolio · Jorge González Luque
+# 🚀 Portfolio de Simulación Empresarial
 
-Portfolio de una sola página para la asignatura **Simulación Empresarial (S.E) 2º A.F**.
-Hecho con HTML, CSS y JavaScript sin dependencias ni paso de compilación.
+**Autor:** Jorge González Luque (2º Administración y Finanzas)  
+**Desarrollo Técnico:** Octubre 2026  
+**Estado:** 🚧 Proyecto vivo y en desarrollo continuo (Próximos meses)  
+**Sitio en vivo:** [Enlace a GitHub Pages] *(Nota: asegúrate de que el enlace de GitHub Pages esté configurado)*
 
-## Estructura
+## 📖 Sobre el proyecto
+Este repositorio contiene el código fuente del portfolio de la asignatura de Simulación Empresarial. El objetivo es documentar de forma interactiva y profesional el proceso de aprendizaje, autoconocimiento, creatividad, trabajo en equipo y liderazgo a lo largo del curso.
 
-```
-index.html        Contenido y secciones
-css/styles.css    Estilos (paleta azul universitaria, responsive)
-js/main.js        Menú móvil, scroll activo, pestañas, animaciones e imágenes
-assets/img/       Imágenes del portfolio
-```
+## 🏗️ Lo que hemos construido hasta ahora (Base del Proyecto)
+El portfolio ha evolucionado de simples apuntes en papel a una experiencia web interactiva completa. Actualmente cuenta con las siguientes secciones funcionales:
 
-Secciones: ¿Quién Soy? · Autoconocimiento · Creatividad · Mi equipo · Liderazgo.
+*   **¿Quién Soy?:** Presentación personal con foto de perfil optimizada (recorte circular perfecto y responsivo).
+*   **Autoconocimiento:** Transformación de la *Diana de Evaluación* y el *Test EntreComp* en paneles interactivos de HTML/CSS con barras de progreso que se animan al hacer scroll. *(Nota: Las puntuaciones reproducen exactamente lo marcado por el alumno en papel, preservando la fidelidad del ejercicio original).*
+*   **Creatividad:** Tablas responsivas para el "Bloqueo Creativo" y "Reto 1+1" (incluyendo un sistema de filtros interactivo para las ideas), y la técnica SCAMPER.
+*   **Proyecto UniWay (App):** Sección *hero* destacada que incluye el prototipo de Netlify, enlace al código y una demostración en vídeo emulada dentro de un marco de smartphone creado con CSS.
+*   **Mi Equipo:** Maquetación del Caso Asesoría y diseño visual del "Contrato de Equipo" simulando un documento A4 real con firmas.
+*   **Liderazgo:** Reflexiones y conclusiones sobre las dinámicas grupales ("Estilo novia", "El espejo", "El baile").
+*   **Reflexión Final:** Tabla de valoraciones (con notas y etiquetas doradas) y conclusiones personales en un tono sincero y directo.
 
-## Cómo verlo
+## 💻 Características Técnicas y Diseño
+*   **Tecnologías:** HTML5, CSS3 puro y Vanilla JavaScript. Sin dependencias externas pesadas.
+*   **UI/UX:** Diseño totalmente *Responsive* (Mobile-first). Incluye un menú de navegación que pasa a modo hamburguesa en resoluciones inferiores a 1140px para evitar desbordamientos.
+*   **Motion & Animaciones:** Uso de `IntersectionObserver` en JS para lograr efectos de aparición en cascada (*fade-in slide-up*) al hacer scroll, con soporte para opciones de "reducir movimiento" del sistema operativo.
+*   **Transparencia (Archivos originales):** Integración de botones fantasma (*ghost buttons*) debajo de cada componente interactivo que abren los JPGs/PDFs originales de los apuntes a mano, alojados directamente en el repo.
+*   **Optimización:** *Assets* aligerados y control de versiones estricto (eliminación de imágenes pesadas o en desuso para mantener la carga rápida). CSS cache-busting implementado (`?v=3`).
 
-Abre `index.html` en el navegador, o sirve la carpeta:
+## 🛠️ Notas para la continuación del proyecto
+Como este portfolio se irá ampliando en los próximos meses, ten en cuenta lo siguiente para futuras actualizaciones:
+1.  **Añadir nuevas secciones:** Solo hay que replicar la estructura de `<section id="nuevo-id" class="reveal">`. El JavaScript animará los nuevos contenidos automáticamente.
+2.  **Imágenes originales:** Si se añaden nuevos apuntes en papel, guárdalos en `assets/img/` y enlázalos usando el diseño de los *ghost buttons* ("Ver apunte original").
+3.  **Textos:** Todos los textos están escritos en el HTML. Si se actualizan reflexiones o notas, deben modificarse directamente ahí.
+4.  **Despliegue:** Cualquier `git push` a la rama `main` actualizará automáticamente GitHub Pages en un par de minutos.
 
-```bash
-python3 -m http.server 8000
-# http://localhost:8000
-```
-
-También se puede publicar tal cual con GitHub Pages (Settings → Pages → rama y carpeta raíz).
-
-## Imágenes
-
-En la web solo se usan estas fotos de `assets/img/`:
-
-| Archivo                  | Dónde aparece                                         |
-|--------------------------|-------------------------------------------------------|
-| `jorge.png`              | Foto de perfil y avatares (Reto 1+1, caso Asesoría)    |
-| `maite.png`              | Avatares (Reto 1+1, caso Asesoría)                     |
-| `grupo.png`              | Mi equipo · Contrato de equipo                         |
-| `bocetos.jpg`            | Creatividad · Bocetos / Prototipo                      |
-
-La Diana, el Test EntreComp, Mi bloqueo creativo, el Reto 1+1, SCAMPER y el contrato están
-construidos con HTML y CSS a partir de los datos de las fichas en papel. Las puntuaciones de la
-Diana y del EntreComp reproducen exactamente lo que el alumno marcó en su ficha original.
-
-Debajo de cada componente, un botón «Ver apunte original» abre en otra pestaña la foto de la
-ficha en papel: `diana.jpg`, `entrecomp-2.jpg` (Test pág. 1), `entrecomp-1.jpg` (Test pág. 2),
-`bloqueo.jpg`, `reto1mas1.jpg`, `scamper.jpg`, `asesoria.jpg` y el PDF del contrato.
-
-## Animaciones
-
-Los bloques con la clase `.reveal` aparecen con un fundido y un desplazamiento hacia arriba al entrar en pantalla
-(`IntersectionObserver` en `js/main.js`, umbral 0.15). Dentro de un contenedor `.stagger` aparecen en cascada.
-Quien tenga activado "reducir movimiento" en su sistema ve el contenido sin animación.
-
-## Vídeo y documentos
-
-- `assets/video/presentacion.mp4`: vídeo de UniWay, dentro del marco de smartphone de la sección **Proyecto UniWay** (`#uniway`), junto al botón del prototipo y la descarga del `.zip`.
-- `assets/docs/contrato-equipo.pdf`: el botón "Ver contrato de equipo (PDF)" aparece solo cuando este archivo existe.
-
-> Al renombrar archivos binarios desde la web de GitHub, comprueba que el tamaño se mantiene:
-> ya ha pasado dos veces que el archivo renombrado quedó vacío (2 bytes).
+---
+*Desarrollado con mucha dedicación, HTML, CSS y un poco de café.* ☕
