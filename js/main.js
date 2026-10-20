@@ -158,4 +158,71 @@
       });
     });
   }
+
+  /* ---------- Idea de negocio: pasos ---------- */
+  const steps = document.getElementById('idea-steps');
+  if (steps) {
+    const stepBtns = Array.from(steps.querySelectorAll('.step-btn'));
+    const stepPanels = stepBtns.map(function (b) { return document.getElementById(b.getAttribute('aria-controls')); });
+    const stepNav = document.getElementById('idea-steps-nav');
+    const prevBtn = stepNav.querySelector('[data-step="prev"]');
+    const nextBtn = stepNav.querySelector('[data-step="next"]');
+    const stepCount = stepNav.querySelector('.step-count');
+    let current = 0;
+
+    function goTo(i, focus) {
+      current = Math.max(0, Math.min(stepBtns.length - 1, i));
+      stepBtns.forEach(function (b, j) {
+        const on = j === current;
+        b.classList.toggle('is-active', on);
+        b.classList.toggle('is-done', j < current);
+        b.setAttribute('aria-selected', String(on));
+        b.tabIndex = on ? 0 : -1;
+        stepPanels[j].hidden = !on;
+      });
+      steps.style.setProperty('--p', current / (stepBtns.length - 1));
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === stepBtns.length - 1;
+      stepCount.textContent = 'Paso ' + (current + 1) + ' de ' + stepBtns.length;
+      if (focus) stepBtns[current].focus();
+    }
+
+    stepBtns.forEach(function (b, i) {
+      b.addEventListener('click', function () { goTo(i); });
+      b.addEventListener('keydown', function (e) {
+        let next = null;
+        if (e.key === 'ArrowRight') next = (i + 1) % stepBtns.length;
+        if (e.key === 'ArrowLeft') next = (i - 1 + stepBtns.length) % stepBtns.length;
+        if (e.key === 'Home') next = 0;
+        if (e.key === 'End') next = stepBtns.length - 1;
+        if (next !== null) { e.preventDefault(); goTo(next, true); }
+      });
+    });
+    prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+    stepNav.hidden = false;
+    goTo(0);
+  }
+
+  /* ---------- Idea de negocio: vista previa del logo ---------- */
+  const logoStage = document.getElementById('logo-stage');
+  const logoControls = document.getElementById('logo-controls');
+  if (logoStage && logoControls) {
+    logoControls.querySelectorAll('.seg').forEach(function (group) {
+      const key = group.dataset.control; // "view" (logo / icono) o "bg" (fondo)
+      const segBtns = Array.from(group.querySelectorAll('.seg-btn'));
+      segBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          logoStage.dataset[key] = btn.dataset.value;
+          segBtns.forEach(function (b) {
+            const on = b === btn;
+            b.classList.toggle('is-active', on);
+            b.setAttribute('aria-pressed', String(on));
+          });
+        });
+      });
+    });
+    logoControls.hidden = false;
+  }
 })();

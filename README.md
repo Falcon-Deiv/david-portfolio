@@ -17,7 +17,7 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   **Proyecto UniWay (App):** Sección *hero* destacada que incluye el prototipo de Netlify, enlace al código y una demostración en vídeo emulada dentro de un marco de smartphone creado con CSS.
 *   **Mi Equipo:** Maquetación del Caso Asesoría y diseño visual del "Contrato de Equipo" simulando un documento A4 real con firmas.
 *   **Liderazgo:** Reflexiones y conclusiones sobre las dinámicas grupales ("Estilo novia", "El espejo", "El baile").
-*   **Idea de negocio (Fase 1 · grupal):** Cómo se llegó a la idea (del brainstorming a la flor de loto) contado en primera persona, y el logo con su explicación, colores y tipografía.
+*   **Idea de negocio (Fase 1 · grupal):** "Cómo llegué a la idea" en 5 pasos que se pueden pulsar (con barra de progreso y botones Anterior/Siguiente) y el logo con una vista previa interactiva (logo / icono de app, fondo blanco / verde claro) y su explicación en desplegables.
 *   **Reflexión Final:** Tabla de valoraciones (con notas y etiquetas doradas) y conclusiones personales en un tono sincero y directo.
 
 ## 💻 Características Técnicas y Diseño

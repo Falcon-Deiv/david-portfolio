@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <!-- Fuentes del logo: solo las letras de "Nunito" y "Poppins" -->
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Poppins:wght@600&text=NunitoPps&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=10">
+  <link rel="stylesheet" href="css/styles.css?v=11">
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -751,48 +751,116 @@
           <p>Fase 1 del proyecto, en grupo. Cómo llegué a la idea y cómo sería su logo.</p>
         </div>
 
+        <!-- Cómo llegué a la idea: pasos que se pueden pulsar -->
         <article class="card idea-card reveal">
-          <h3>Cómo llegué a la idea</h3>
-          <p class="idea-path" aria-label="Resumen del proceso">
-            <span>Brainstorming</span>
-            <span>Grupo</span>
-            <span>4 ideas</span>
-            <span>Ficha de filtrado</span>
-            <span>SCAMPER</span>
-            <span>Sombreros</span>
-            <span>Flor de loto</span>
-            <span class="idea-path-end">Mi idea</span>
-          </p>
-          <div class="entry-text idea-text">
-            <p>Para sacar ideas me fijé en cosas que me gustan, en problemas que veo en el día a día, en noticias y en sectores que están empezando a crecer. Con todo eso hice una lluvia de ideas y luego las presenté al grupo, que me ayudó a sacar alguna más.</p>
-            <p>Me quedé con cuatro, las pasé por la ficha de filtrado y después por el SCAMPER. Los sombreros de pensamiento los hicimos en grupo, para ver la idea desde otros puntos de vista.</p>
-            <p>Con la idea que quedó hice la flor de loto: 64 combinaciones, que volví a filtrar hasta quedarme con una. Para justificarla pensé en si de verdad podría sacarla adelante con los medios técnicos, profesionales y personales que tengo.</p>
+          <header class="idea-card-head">
+            <h3>Cómo llegué a la idea</h3>
+            <p class="idea-hint">Pulsa cada paso para verlo.</p>
+          </header>
+
+          <div class="steps" id="idea-steps" role="tablist" aria-label="Pasos para llegar a la idea">
+            <button type="button" class="step-btn" role="tab" id="pasobtn-1" aria-controls="paso-1"><span class="step-dot">1</span><span class="step-label">Lluvia de ideas</span></button>
+            <button type="button" class="step-btn" role="tab" id="pasobtn-2" aria-controls="paso-2"><span class="step-dot">2</span><span class="step-label">En grupo</span></button>
+            <button type="button" class="step-btn" role="tab" id="pasobtn-3" aria-controls="paso-3"><span class="step-dot">3</span><span class="step-label">4 ideas</span></button>
+            <button type="button" class="step-btn" role="tab" id="pasobtn-4" aria-controls="paso-4"><span class="step-dot">4</span><span class="step-label">Sombreros</span></button>
+            <button type="button" class="step-btn" role="tab" id="pasobtn-5" aria-controls="paso-5"><span class="step-dot">5</span><span class="step-label">Flor de loto</span></button>
+          </div>
+
+          <div class="step-panels">
+            <div class="step-panel" id="paso-1" role="tabpanel" aria-labelledby="pasobtn-1">
+              <span class="step-panel-num" aria-hidden="true">01</span>
+              <div>
+                <h4>Lluvia de ideas</h4>
+                <p>Me fijé en cosas que me gustan, en problemas que veo en el día a día, en noticias y en sectores que están empezando a crecer. Con todo eso hice una lluvia de ideas.</p>
+                <ul class="step-tags" aria-label="De dónde saqué las ideas">
+                  <li>Gustos</li><li>Problemas</li><li>Noticias</li><li>Sectores que crecen</li>
+                </ul>
+              </div>
+            </div>
+            <div class="step-panel" id="paso-2" role="tabpanel" aria-labelledby="pasobtn-2">
+              <span class="step-panel-num" aria-hidden="true">02</span>
+              <div>
+                <h4>En grupo</h4>
+                <p>Después presenté las ideas al grupo y entre todos salió alguna más.</p>
+              </div>
+            </div>
+            <div class="step-panel" id="paso-3" role="tabpanel" aria-labelledby="pasobtn-3">
+              <span class="step-panel-num" aria-hidden="true">03</span>
+              <div>
+                <h4>Me quedo con 4</h4>
+                <p>Me quedé con cuatro, las pasé por la ficha de filtrado y después por el SCAMPER.</p>
+                <p class="step-result">Ficha de filtrado <span aria-hidden="true">→</span> SCAMPER</p>
+              </div>
+            </div>
+            <div class="step-panel" id="paso-4" role="tabpanel" aria-labelledby="pasobtn-4">
+              <span class="step-panel-num" aria-hidden="true">04</span>
+              <div>
+                <h4>Sombreros de pensamiento</h4>
+                <p>Los sombreros los hicimos en grupo, para ver la idea desde otros puntos de vista.</p>
+              </div>
+            </div>
+            <div class="step-panel" id="paso-5" role="tabpanel" aria-labelledby="pasobtn-5">
+              <span class="step-panel-num" aria-hidden="true">05</span>
+              <div>
+                <h4>Flor de loto</h4>
+                <p>Con la idea que quedó hice la flor de loto: 64 combinaciones, que volví a filtrar hasta quedarme con una. Para justificarla pensé en si de verdad podría sacarla adelante con los medios técnicos, profesionales y personales que tengo.</p>
+                <p class="step-result step-result--gold">64 combinaciones <span aria-hidden="true">→</span> 1 idea</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-nav" id="idea-steps-nav" hidden>
+            <button type="button" class="step-arrow" data-step="prev"><span aria-hidden="true">←</span> Anterior</button>
+            <span class="step-count" aria-live="polite"></span>
+            <button type="button" class="step-arrow" data-step="next">Siguiente <span aria-hidden="true">→</span></button>
           </div>
         </article>
 
+        <!-- El logo: se puede cambiar la vista y el fondo -->
         <article class="card logo-card reveal">
-          <div class="logo-media">
-            <a class="logo-main" href="assets/img/idea-logo.jpg" target="_blank" rel="noopener" title="Ver el logo a tamaño completo">
-              <img src="assets/img/idea-logo.jpg" alt="Logo: dos figuras en verde salvia y turquesa que forman un corazón con un check en el centro" width="460" height="460" loading="lazy">
-            </a>
-            <figure class="logo-icon">
-              <a href="assets/img/idea-logo-app.jpg" target="_blank" rel="noopener" title="Ver el icono a tamaño completo">
-                <img src="assets/img/idea-logo-app.jpg" alt="El mismo logo como icono de app, sobre fondo verde muy claro" width="720" height="720" loading="lazy">
-              </a>
-              <figcaption>Así quedaría como icono en el móvil.</figcaption>
-            </figure>
+          <div class="logo-play">
+            <div class="logo-stage" id="logo-stage" data-view="logo" data-bg="white">
+              <img class="logo-view logo-view--logo" src="assets/img/idea-logo.png" alt="Logo: dos figuras en verde salvia y turquesa que forman un corazón con un check en el centro" width="363" height="363" loading="lazy">
+              <img class="logo-view logo-view--app" src="assets/img/idea-logo-app.jpg" alt="El logo como icono de app, sobre un cuadrado redondeado verde muy claro" width="560" height="560" loading="lazy">
+            </div>
+            <div class="logo-controls" id="logo-controls" hidden>
+              <div class="seg" role="group" aria-label="Qué ver" data-control="view">
+                <button type="button" class="seg-btn is-active" data-value="logo" aria-pressed="true">Logo</button>
+                <button type="button" class="seg-btn" data-value="app" aria-pressed="false">Icono de la app</button>
+              </div>
+              <div class="seg" role="group" aria-label="Color de fondo" data-control="bg">
+                <span class="seg-label">Fondo</span>
+                <button type="button" class="seg-btn is-active" data-value="white" aria-pressed="true"><span class="seg-dot" aria-hidden="true"></span>Blanco</button>
+                <button type="button" class="seg-btn" data-value="mint" aria-pressed="false"><span class="seg-dot seg-dot--mint" aria-hidden="true"></span>Verde claro</button>
+              </div>
+            </div>
           </div>
 
           <div class="logo-text">
             <h3>El logo</h3>
-            <p>Son dos personas que se abrazan y entre las dos forman un corazón. Una es la persona dependiente y la otra, quien la acompaña. En el centro hay un check por lo que hace la app: tener organizado todo lo que necesita esa persona.</p>
-            <p>Los colores son verde salvia y turquesa suave con blanco. La idea es que dé calma y confianza, pero sin que parezca algo de hospital.</p>
-            <ul class="palette" aria-label="Colores del logo">
-              <li><span class="palette-dot" style="--c: #91B9A5" aria-hidden="true"></span>Verde salvia <small>#91B9A5</small></li>
-              <li><span class="palette-dot" style="--c: #66B8B0" aria-hidden="true"></span>Turquesa suave <small>#66B8B0</small></li>
-              <li><span class="palette-dot palette-dot--white" style="--c: #FFFFFF" aria-hidden="true"></span>Blanco <small>#FFFFFF</small></li>
-            </ul>
-            <p>La letra tiene que ser redondeada y fácil de leer (tipo <span class="font-nunito">Nunito</span> o <span class="font-poppins">Poppins</span>) para que el nombre se entienda aunque se vea en pequeño. Por eso también es un diseño sencillo, con pocas formas y todo redondeado: así se reconoce bien como icono. De fondo, blanco o un verde muy clarito para que destaque.</p>
+            <div class="logo-why">
+              <details name="logo-why" open>
+                <summary>Dos personas, un corazón</summary>
+                <p>Son dos personas que se abrazan y entre las dos forman un corazón. Una es la persona dependiente y la otra, quien la acompaña. En el centro hay un check por lo que hace la app: tener organizado todo lo que necesita esa persona.</p>
+              </details>
+              <details name="logo-why">
+                <summary>Los colores</summary>
+                <p>Verde salvia y turquesa suave con blanco. La idea es que dé calma y confianza, pero sin que parezca algo de hospital.</p>
+                <ul class="palette" aria-label="Colores del logo">
+                  <li><span class="palette-dot" style="--c: #91B9A5" aria-hidden="true"></span>Verde salvia <small>#91B9A5</small></li>
+                  <li><span class="palette-dot" style="--c: #66B8B0" aria-hidden="true"></span>Turquesa suave <small>#66B8B0</small></li>
+                  <li><span class="palette-dot palette-dot--white" style="--c: #FFFFFF" aria-hidden="true"></span>Blanco <small>#FFFFFF</small></li>
+                </ul>
+              </details>
+              <details name="logo-why">
+                <summary>La letra</summary>
+                <p>Tiene que ser redondeada y fácil de leer, tipo <span class="font-nunito">Nunito</span> o <span class="font-poppins">Poppins</span>, para que el nombre se entienda aunque se vea en pequeño.</p>
+              </details>
+              <details name="logo-why">
+                <summary>Sencillo y redondeado</summary>
+                <p>Pocas formas y todo redondeado, para que se reconozca bien como icono en el móvil. De fondo, blanco o un verde muy clarito para que destaque: lo puedes probar con los botones de «Fondo».</p>
+              </details>
+            </div>
           </div>
         </article>
       </div>
@@ -866,6 +934,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=5"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>
