@@ -17,7 +17,7 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   **Proyecto UniWay (App):** Sección *hero* destacada que incluye el prototipo de Netlify, enlace al código y una demostración en vídeo emulada dentro de un marco de smartphone creado con CSS.
 *   **Mi Equipo:** Maquetación del Caso Asesoría y diseño visual del "Contrato de Equipo" simulando un documento A4 real con firmas.
 *   **Liderazgo:** Reflexiones y conclusiones sobre las dinámicas grupales ("Estilo novia", "El espejo", "El baile").
-*   **Idea de negocio (Fase 1 · grupal):** "Cómo llegué a la idea" en 5 pasos que se pueden pulsar (con barra de progreso y botones Anterior/Siguiente) y el logo con una vista previa interactiva (logo / icono de app, fondo blanco / verde claro) y su explicación en desplegables.
+*   **Idea de negocio (Fase 1 · grupal):** "Velas con mensaje oculto" con una vela interactiva (escribes un mensaje, la enciendes y aparecen las letras) y pestañas propias: cómo llegamos a la idea (pasos con SCAMPER, sombreros y flor de loto que se pueden pulsar), lienzo Canvas interactivo, evaluación con competencia y números, taller y maqueta navegable de la web, y por qué emprender con los socios. El apunte original de la flor de loto está en `assets/img/flor-de-loto.jpg`.
 *   **Reflexión Final:** Tabla de valoraciones (con notas y etiquetas doradas) y conclusiones personales en un tono sincero y directo.
 
 ## 💻 Características Técnicas y Diseño
@@ -31,7 +31,7 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 Como este portfolio se irá ampliando en los próximos meses, ten en cuenta lo siguiente para futuras actualizaciones:
 1.  **Añadir nuevas secciones:** Solo hay que replicar la estructura de `<section id="nuevo-id" class="reveal">`. El JavaScript animará los nuevos contenidos automáticamente.
 2.  **Imágenes originales:** Si se añaden nuevos apuntes en papel, guárdalos en `assets/img/` y enlázalos usando el diseño de los *ghost buttons* ("Ver apunte original").
-3.  **Completar la Fase 1:** El resto de apartados de la fase (lienzo Canvas, evaluación, nombre, ubicación, espacio, motivos para emprender y socios) se añaden en `#idea-negocio` según estén hechos, redactados en primera persona y con el mismo tono que el resto del portfolio.
+3.  **Fase 1:** Todo el contenido de la idea de negocio está en `#idea-negocio`. Los textos se escriben en primera persona y con el mismo tono que el resto del portfolio. Las pestañas, sombreros, pétalos, lienzo, precios y web usan el mismo mecanismo en `js/main.js` (`data-sw-btn` / `data-sw-panel`).
 4.  **Menú:** El menú de escritorio va justo de ancho. Si añades otra sección, comprueba que los enlaces no se partan en dos líneas (o acorta el texto del enlace).
 5.  **Textos:** Todos los textos están escritos en el HTML. Si se actualizan reflexiones o notas, deben modificarse directamente ahí.
 6.  **Despliegue:** Cualquier `git push` a la rama `main` actualizará automáticamente GitHub Pages en un par de minutos.

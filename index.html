@@ -8,9 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <!-- Fuentes del logo: solo las letras de "Nunito" y "Poppins" -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Poppins:wght@600&text=NunitoPps&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=11">
+  <link rel="stylesheet" href="css/styles.css?v=12">
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -748,121 +746,394 @@
         <div class="section-head reveal">
           <span class="section-num">06</span>
           <h2>Idea de negocio</h2>
-          <p>Fase 1 del proyecto, en grupo. Cómo llegué a la idea y cómo sería su logo.</p>
+          <p>Fase 1 del proyecto, con Maite. Nuestra idea: velas con un mensaje escondido que solo se ve cuando la vela se usa.</p>
         </div>
 
-        <!-- Cómo llegué a la idea: pasos que se pueden pulsar -->
-        <article class="card idea-card reveal">
-          <header class="idea-card-head">
-            <h3>Cómo llegué a la idea</h3>
-            <p class="idea-hint">Pulsa cada paso para verlo.</p>
-          </header>
-
-          <div class="steps" id="idea-steps" role="tablist" aria-label="Pasos para llegar a la idea">
-            <button type="button" class="step-btn" role="tab" id="pasobtn-1" aria-controls="paso-1"><span class="step-dot">1</span><span class="step-label">Lluvia de ideas</span></button>
-            <button type="button" class="step-btn" role="tab" id="pasobtn-2" aria-controls="paso-2"><span class="step-dot">2</span><span class="step-label">En grupo</span></button>
-            <button type="button" class="step-btn" role="tab" id="pasobtn-3" aria-controls="paso-3"><span class="step-dot">3</span><span class="step-label">4 ideas</span></button>
-            <button type="button" class="step-btn" role="tab" id="pasobtn-4" aria-controls="paso-4"><span class="step-dot">4</span><span class="step-label">Sombreros</span></button>
-            <button type="button" class="step-btn" role="tab" id="pasobtn-5" aria-controls="paso-5"><span class="step-dot">5</span><span class="step-label">Flor de loto</span></button>
+        <!-- La idea + vela interactiva -->
+        <article class="idea-hero reveal">
+          <div class="idea-hero-text">
+            <p class="idea-eyebrow">La idea final</p>
+            <h3>Velas con mensaje oculto</h3>
+            <p>Velas de cera vegetal hechas a mano que esconden un mensaje. Cuando la enciendes y la cera se derrite, van saliendo unas letras metálicas que forman una frase: un «te quiero», un «ánimo» antes de un examen o una cita de tu libro favorito.</p>
+            <p>Están pensadas sobre todo para lectores, estudiantes y opositores, y para quien quiera hacer un regalo que no sea lo de siempre.</p>
+            <h4>Cómo funciona</h4>
+            <ol class="how-list">
+              <li>Ponemos las letras (cuentas metálicas que aguantan el calor) bajo una capa fina de cera.</li>
+              <li>Al encenderla, en unos 30-45 minutos la cera se vuelve líquida y transparente.</li>
+              <li>Las letras aparecen una a una y se lee el mensaje.</li>
+            </ol>
           </div>
 
-          <div class="step-panels">
-            <div class="step-panel" id="paso-1" role="tabpanel" aria-labelledby="pasobtn-1">
-              <span class="step-panel-num" aria-hidden="true">01</span>
-              <div>
-                <h4>Lluvia de ideas</h4>
-                <p>Me fijé en cosas que me gustan, en problemas que veo en el día a día, en noticias y en sectores que están empezando a crecer. Con todo eso hice una lluvia de ideas.</p>
-                <ul class="step-tags" aria-label="De dónde saqué las ideas">
-                  <li>Gustos</li><li>Problemas</li><li>Noticias</li><li>Sectores que crecen</li>
-                </ul>
+          <div class="candle-demo">
+            <div class="candle" id="candle" data-state="off">
+              <span class="candle-glow" aria-hidden="true"></span>
+              <div class="candle-jar" aria-hidden="true">
+                <div class="candle-wax">
+                  <div class="candle-pool">
+                    <span class="candle-wick"></span>
+                    <span class="candle-flame"></span>
+                    <div class="candle-letters" id="candle-letters"></div>
+                  </div>
+                </div>
+                <span class="candle-label">mensaje oculto</span>
               </div>
             </div>
-            <div class="step-panel" id="paso-2" role="tabpanel" aria-labelledby="pasobtn-2">
-              <span class="step-panel-num" aria-hidden="true">02</span>
-              <div>
-                <h4>En grupo</h4>
-                <p>Después presenté las ideas al grupo y entre todos salió alguna más.</p>
-              </div>
-            </div>
-            <div class="step-panel" id="paso-3" role="tabpanel" aria-labelledby="pasobtn-3">
-              <span class="step-panel-num" aria-hidden="true">03</span>
-              <div>
-                <h4>Me quedo con 4</h4>
-                <p>Me quedé con cuatro, las pasé por la ficha de filtrado y después por el SCAMPER.</p>
-                <p class="step-result">Ficha de filtrado <span aria-hidden="true">→</span> SCAMPER</p>
-              </div>
-            </div>
-            <div class="step-panel" id="paso-4" role="tabpanel" aria-labelledby="pasobtn-4">
-              <span class="step-panel-num" aria-hidden="true">04</span>
-              <div>
-                <h4>Sombreros de pensamiento</h4>
-                <p>Los sombreros los hicimos en grupo, para ver la idea desde otros puntos de vista.</p>
-              </div>
-            </div>
-            <div class="step-panel" id="paso-5" role="tabpanel" aria-labelledby="pasobtn-5">
-              <span class="step-panel-num" aria-hidden="true">05</span>
-              <div>
-                <h4>Flor de loto</h4>
-                <p>Con la idea que quedó hice la flor de loto: 64 combinaciones, que volví a filtrar hasta quedarme con una. Para justificarla pensé en si de verdad podría sacarla adelante con los medios técnicos, profesionales y personales que tengo.</p>
-                <p class="step-result step-result--gold">64 combinaciones <span aria-hidden="true">→</span> 1 idea</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="step-nav" id="idea-steps-nav" hidden>
-            <button type="button" class="step-arrow" data-step="prev"><span aria-hidden="true">←</span> Anterior</button>
-            <span class="step-count" aria-live="polite"></span>
-            <button type="button" class="step-arrow" data-step="next">Siguiente <span aria-hidden="true">→</span></button>
+            <form class="candle-form" id="candle-form" hidden>
+              <label class="sr-only" for="candle-msg">Escribe tu mensaje</label>
+              <input id="candle-msg" type="text" maxlength="12" value="Ánimo" autocomplete="off" spellcheck="false" placeholder="Tu mensaje">
+              <button type="submit" class="candle-btn">Encender</button>
+            </form>
+            <p class="candle-status" id="candle-status" aria-live="polite">Las letras están escondidas bajo la cera.</p>
           </div>
         </article>
 
-        <!-- El logo: se puede cambiar la vista y el fondo -->
-        <article class="card logo-card reveal">
-          <div class="logo-play">
-            <div class="logo-stage" id="logo-stage" data-view="logo" data-bg="white">
-              <img class="logo-view logo-view--logo" src="assets/img/idea-logo.png" alt="Logo: dos figuras en verde salvia y turquesa que forman un corazón con un check en el centro" width="363" height="363" loading="lazy">
-              <img class="logo-view logo-view--app" src="assets/img/idea-logo-app.jpg" alt="El logo como icono de app, sobre un cuadrado redondeado verde muy claro" width="560" height="560" loading="lazy">
+        <!-- Pestañas de la fase -->
+        <div class="tabs itabs reveal" role="tablist" aria-label="Partes de la fase 1">
+          <button type="button" class="itab is-active" role="tab" id="itab-camino" aria-controls="ipanel-camino" data-sw-btn="idea" data-key="camino">Cómo llegamos</button>
+          <button type="button" class="itab" role="tab" id="itab-canvas" aria-controls="ipanel-canvas" data-sw-btn="idea" data-key="canvas">Lienzo Canvas</button>
+          <button type="button" class="itab" role="tab" id="itab-evaluacion" aria-controls="ipanel-evaluacion" data-sw-btn="idea" data-key="evaluacion">Evaluación</button>
+          <button type="button" class="itab" role="tab" id="itab-taller" aria-controls="ipanel-taller" data-sw-btn="idea" data-key="taller">Taller y web</button>
+          <button type="button" class="itab" role="tab" id="itab-motivos" aria-controls="ipanel-motivos" data-sw-btn="idea" data-key="motivos">Por qué emprender</button>
+        </div>
+
+        <!-- 1. Cómo llegamos a la idea -->
+        <div class="ipanel" id="ipanel-camino" role="tabpanel" aria-labelledby="itab-camino" data-sw-panel="idea" data-key="camino">
+          <article class="card idea-card">
+            <header class="idea-card-head">
+              <h3>Cómo llegamos a la idea</h3>
+              <p class="idea-hint">Pulsa cada paso para verlo.</p>
+            </header>
+
+            <div class="steps" id="idea-steps" role="tablist" aria-label="Pasos para llegar a la idea">
+              <button type="button" class="step-btn" role="tab" id="pasobtn-1" aria-controls="paso-1"><span class="step-dot">1</span><span class="step-label">Lluvia de ideas</span></button>
+              <button type="button" class="step-btn" role="tab" id="pasobtn-2" aria-controls="paso-2"><span class="step-dot">2</span><span class="step-label">En grupo</span></button>
+              <button type="button" class="step-btn" role="tab" id="pasobtn-3" aria-controls="paso-3"><span class="step-dot">3</span><span class="step-label">SCAMPER</span></button>
+              <button type="button" class="step-btn" role="tab" id="pasobtn-4" aria-controls="paso-4"><span class="step-dot">4</span><span class="step-label">Sombreros</span></button>
+              <button type="button" class="step-btn" role="tab" id="pasobtn-5" aria-controls="paso-5"><span class="step-dot">5</span><span class="step-label">Flor de loto</span></button>
             </div>
-            <div class="logo-controls" id="logo-controls" hidden>
-              <div class="seg" role="group" aria-label="Qué ver" data-control="view">
-                <button type="button" class="seg-btn is-active" data-value="logo" aria-pressed="true">Logo</button>
-                <button type="button" class="seg-btn" data-value="app" aria-pressed="false">Icono de la app</button>
+
+            <div class="step-panels">
+              <div class="step-panel" id="paso-1" role="tabpanel" aria-labelledby="pasobtn-1">
+                <span class="step-panel-num" aria-hidden="true">01</span>
+                <div>
+                  <h4>Lluvia de ideas</h4>
+                  <p>Me fijé en cosas que me gustan, en problemas que veo en el día a día, en noticias y en sectores que están empezando a crecer. Con todo eso hice una lluvia de ideas.</p>
+                  <ul class="step-tags" aria-label="De dónde saqué las ideas">
+                    <li>Gustos</li><li>Problemas</li><li>Noticias</li><li>Sectores que crecen</li>
+                  </ul>
+                </div>
               </div>
-              <div class="seg" role="group" aria-label="Color de fondo" data-control="bg">
-                <span class="seg-label">Fondo</span>
-                <button type="button" class="seg-btn is-active" data-value="white" aria-pressed="true"><span class="seg-dot" aria-hidden="true"></span>Blanco</button>
-                <button type="button" class="seg-btn" data-value="mint" aria-pressed="false"><span class="seg-dot seg-dot--mint" aria-hidden="true"></span>Verde claro</button>
+
+              <div class="step-panel" id="paso-2" role="tabpanel" aria-labelledby="pasobtn-2">
+                <span class="step-panel-num" aria-hidden="true">02</span>
+                <div>
+                  <h4>En grupo</h4>
+                  <p>Después presenté las ideas al grupo y entre todos salió alguna más.</p>
+                </div>
+              </div>
+
+              <div class="step-panel" id="paso-3" role="tabpanel" aria-labelledby="pasobtn-3">
+                <span class="step-panel-num" aria-hidden="true">03</span>
+                <div>
+                  <h4>4 ideas y SCAMPER</h4>
+                  <p>Me quedé con cuatro y las pasé por la ficha de filtrado. Con la de la tienda de velas hice el SCAMPER:</p>
+                  <ul class="mini-scamper">
+                    <li><b class="ms-s">S</b><span><strong>Sustituir:</strong> en vez de envases de cristal, tazas o cuencos que se puedan reutilizar.</span></li>
+                    <li><b class="ms-c">C</b><span><strong>Combinar:</strong> vela + signo del zodiaco + gema de cera = «la vela de tu signo».</span></li>
+                    <li><b class="ms-a">A</b><span><strong>Adaptar:</strong> llevar las tendencias de repostería de TikTok a las velas.</span></li>
+                    <li><b class="ms-m">M</b><span><strong>Modificar:</strong> mini velas para probar aromas o para regalar a los invitados.</span></li>
+                    <li><b class="ms-p">P</b><span><strong>Poner otros usos:</strong> cuando se acaba la vela, la taza se queda para casa.</span></li>
+                    <li><b class="ms-e">E</b><span><strong>Eliminar:</strong> quitar colecciones y pasos de la web y quedarnos con 2 o 3 colecciones estrella.</span></li>
+                    <li><b class="ms-r">R</b><span><strong>Reordenar:</strong> ordenar la web por ocasiones: «Para regalar», «Para mí» y «Para una fiesta».</span></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step-panel" id="paso-4" role="tabpanel" aria-labelledby="pasobtn-4">
+                <span class="step-panel-num" aria-hidden="true">04</span>
+                <div class="step-wide">
+                  <h4>Sombreros de pensamiento</h4>
+                  <p>Los hicimos en grupo. Toca cada sombrero para ver qué salió:</p>
+                  <div class="hats" role="tablist" aria-label="Sombreros">
+                    <button type="button" class="hat hat--blanco is-active" role="tab" id="hat-blanco" aria-controls="hatp-blanco" data-sw-btn="sombrero" data-key="blanco"><span class="hat-dot" aria-hidden="true"></span>Blanco</button>
+                    <button type="button" class="hat hat--rojo" role="tab" id="hat-rojo" aria-controls="hatp-rojo" data-sw-btn="sombrero" data-key="rojo"><span class="hat-dot" aria-hidden="true"></span>Rojo</button>
+                    <button type="button" class="hat hat--negro" role="tab" id="hat-negro" aria-controls="hatp-negro" data-sw-btn="sombrero" data-key="negro"><span class="hat-dot" aria-hidden="true"></span>Negro</button>
+                    <button type="button" class="hat hat--amarillo" role="tab" id="hat-amarillo" aria-controls="hatp-amarillo" data-sw-btn="sombrero" data-key="amarillo"><span class="hat-dot" aria-hidden="true"></span>Amarillo</button>
+                    <button type="button" class="hat hat--verde" role="tab" id="hat-verde" aria-controls="hatp-verde" data-sw-btn="sombrero" data-key="verde"><span class="hat-dot" aria-hidden="true"></span>Verde</button>
+                    <button type="button" class="hat hat--azul" role="tab" id="hat-azul" aria-controls="hatp-azul" data-sw-btn="sombrero" data-key="azul"><span class="hat-dot" aria-hidden="true"></span>Azul</button>
+                  </div>
+                  <div class="hat-panel hat-panel--blanco" id="hatp-blanco" role="tabpanel" aria-labelledby="hat-blanco" data-sw-panel="sombrero" data-key="blanco">
+                    <p class="hat-title">Blanco · los datos</p>
+                    <p>Teníamos un catálogo enorme: temáticas, gourmand, naturaleza, zodiaco, mística y escultórica. Lo que nos diferenciaba era la mecha de madera, las ceras naturales y que todo está hecho a mano. Nos faltaban los costes, los precios, el público y la competencia.</p>
+                  </div>
+                  <div class="hat-panel hat-panel--rojo" id="hatp-rojo" role="tabpanel" aria-labelledby="hat-rojo" data-sw-panel="sombrero" data-key="rojo">
+                    <p class="hat-title">Rojo · lo que transmite</p>
+                    <p>Da ternura e ilusión, y lo de «para comerte a besos» engancha. El chisporroteo de la mecha de madera y las velas que parecen postres dan muchas ganas de comprar. Pero tanta variedad agobia: parecen varias tiendas en una.</p>
+                  </div>
+                  <div class="hat-panel hat-panel--negro" id="hatp-negro" role="tabpanel" aria-labelledby="hat-negro" data-sw-panel="sombrero" data-key="negro">
+                    <p class="hat-title">Negro · los riesgos</p>
+                    <p>Demasiadas líneas para empezar: mucho inventario y un mensaje poco claro. Las velas que parecen comida son un peligro con niños y mascotas, y piden más etiquetado. Además depende mucho de la temporada y los envíos son delicados (el calor, toppings que se rompen).</p>
+                  </div>
+                  <div class="hat-panel hat-panel--amarillo" id="hatp-amarillo" role="tabpanel" aria-labelledby="hat-amarillo" data-sw-panel="sombrero" data-key="amarillo">
+                    <p class="hat-title">Amarillo · lo bueno</p>
+                    <p>Es muy diferente a lo que hay. Tiene mucho tirón en TikTok e Instagram porque es muy visual, y se puede vender de muchas formas: regalos, eventos, packs y suscripción.</p>
+                  </div>
+                  <div class="hat-panel hat-panel--verde" id="hatp-verde" role="tabpanel" aria-labelledby="hat-verde" data-sw-panel="sombrero" data-key="verde">
+                    <p class="hat-title">Verde · ideas nuevas</p>
+                    <p>Empezar con una colección pequeña de 8-10 velas, una suscripción mensual con edición limitada para no depender tanto de la temporada, y vídeos del proceso en redes.</p>
+                  </div>
+                  <div class="hat-panel hat-panel--azul" id="hatp-azul" role="tabpanel" aria-labelledby="hat-azul" data-sw-panel="sombrero" data-key="azul">
+                    <p class="hat-title">Azul · conclusión</p>
+                    <p>La idea es creativa, pero teníamos que centrarnos: elegir 2 o 3 líneas y dejar el resto para más adelante. Y antes de lanzar, calcular costes, mirar la seguridad y probar los envíos.</p>
+                  </div>
+                  <button type="button" class="step-link" data-step-goto="4">De ahí salió la idea final <span aria-hidden="true">→</span></button>
+                </div>
+              </div>
+
+              <div class="step-panel" id="paso-5" role="tabpanel" aria-labelledby="pasobtn-5">
+                <span class="step-panel-num" aria-hidden="true">05</span>
+                <div class="step-wide">
+                  <h4>Flor de loto</h4>
+                  <p>Con todo eso, Maite y yo hicimos la flor de loto de la idea final: la vela con mensaje oculto vista desde ocho lados. Pulsa cada pétalo.</p>
+                  <div class="lotus-wrap">
+                    <div class="lotus">
+                      <div class="lotus-center">
+                        <span class="lotus-idea">Vela con mensaje oculto</span>
+                        <span class="lotus-names">Jorge y Maite</span>
+                        <span class="lotus-sub">original y personalizada</span>
+                      </div>
+                      <div class="lotus-petals" role="tablist" aria-label="Pétalos de la flor de loto">
+                        <button type="button" class="petal is-active" style="--a: 0deg" role="tab" id="petal-cliente" aria-controls="petalp-cliente" data-sw-btn="petalo" data-key="cliente">Cliente</button>
+                        <button type="button" class="petal" style="--a: 45deg" role="tab" id="petal-problema" aria-controls="petalp-problema" data-sw-btn="petalo" data-key="problema">Problema</button>
+                        <button type="button" class="petal" style="--a: 90deg" role="tab" id="petal-propuesta" aria-controls="petalp-propuesta" data-sw-btn="petalo" data-key="propuesta">Propuesta de valor</button>
+                        <button type="button" class="petal" style="--a: 135deg" role="tab" id="petal-solucion" aria-controls="petalp-solucion" data-sw-btn="petalo" data-key="solucion">Solución</button>
+                        <button type="button" class="petal" style="--a: 180deg" role="tab" id="petal-diferencia" aria-controls="petalp-diferencia" data-sw-btn="petalo" data-key="diferencia">Diferen&shy;ciación</button>
+                        <button type="button" class="petal" style="--a: 225deg" role="tab" id="petal-canales" aria-controls="petalp-canales" data-sw-btn="petalo" data-key="canales">Canales</button>
+                        <button type="button" class="petal" style="--a: 270deg" role="tab" id="petal-ingresos" aria-controls="petalp-ingresos" data-sw-btn="petalo" data-key="ingresos">Ingresos</button>
+                        <button type="button" class="petal" style="--a: 315deg" role="tab" id="petal-impacto" aria-controls="petalp-impacto" data-sw-btn="petalo" data-key="impacto">Impacto</button>
+                      </div>
+                    </div>
+                    <div class="lotus-notes">
+                      <div class="lotus-note" id="petalp-cliente" role="tabpanel" aria-labelledby="petal-cliente" data-sw-panel="petalo" data-key="cliente"><h5>Cliente</h5><ul><li>Jóvenes y adultos</li><li>Lectores</li><li>Estudiantes</li></ul></div>
+                      <div class="lotus-note" id="petalp-problema" role="tabpanel" aria-labelledby="petal-problema" data-sw-panel="petalo" data-key="problema"><h5>Problema</h5><ul><li>Cómo meter el mensaje</li><li>Que sea un regalo económico</li><li>Lo que cuesta expresar sentimientos</li></ul></div>
+                      <div class="lotus-note" id="petalp-propuesta" role="tabpanel" aria-labelledby="petal-propuesta" data-sw-panel="petalo" data-key="propuesta"><h5>Propuesta de valor</h5><ul><li>Mensaje sorpresa</li><li>Recuerdo duradero</li><li>Regalo único</li></ul></div>
+                      <div class="lotus-note" id="petalp-solucion" role="tabpanel" aria-labelledby="petal-solucion" data-sw-panel="petalo" data-key="solucion"><h5>Solución</h5><ul><li>Varios tamaños (y precios)</li><li>Posibilidad de poner una foto</li><li>Velas para cada ocasión</li></ul></div>
+                      <div class="lotus-note" id="petalp-diferencia" role="tabpanel" aria-labelledby="petal-diferencia" data-sw-panel="petalo" data-key="diferencia"><h5>Diferenciación</h5><ul><li>El mensaje solo lo ves si usas la vela</li><li>Es única</li><li>Envase reutilizable (cristal)</li></ul></div>
+                      <div class="lotus-note" id="petalp-canales" role="tabpanel" aria-labelledby="petal-canales" data-sw-panel="petalo" data-key="canales"><h5>Canales</h5><ul><li>Colaboración con Casa del Libro</li><li>Vender por Instagram</li><li>TikTok Shop</li></ul></div>
+                      <div class="lotus-note" id="petalp-ingresos" role="tabpanel" aria-labelledby="petal-ingresos" data-sw-panel="petalo" data-key="ingresos"><h5>Ingresos</h5><ul><li>Un extra por personalizar</li><li>Un % de beneficio por la colaboración con Casa del Libro</li><li>Ediciones especiales para ocasiones (un poco más caras)</li></ul></div>
+                      <div class="lotus-note" id="petalp-impacto" role="tabpanel" aria-labelledby="petal-impacto" data-sw-panel="petalo" data-key="impacto"><h5>Impacto</h5><ul><li>Cera vegetal</li><li>Envase reutilizable</li><li>Envuelta en papel reciclado</li></ul></div>
+                      <a class="btn-source" href="assets/img/flor-de-loto.jpg" target="_blank" rel="noopener"><span aria-hidden="true">🖼️</span> Ver apunte original</a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <div class="step-nav" id="idea-steps-nav" hidden>
+              <button type="button" class="step-arrow" data-step="prev"><span aria-hidden="true">←</span> Anterior</button>
+              <span class="step-count" aria-live="polite"></span>
+              <button type="button" class="step-arrow" data-step="next">Siguiente <span aria-hidden="true">→</span></button>
+            </div>
+          </article>
+        </div>
+
+        <!-- 2. Lienzo Canvas -->
+        <div class="ipanel" id="ipanel-canvas" role="tabpanel" aria-labelledby="itab-canvas" data-sw-panel="idea" data-key="canvas">
+          <article class="card idea-card">
+            <header class="idea-card-head">
+              <h3>Nuestro primer lienzo</h3>
+              <p class="idea-hint">Pulsa un bloque para ver más.</p>
+            </header>
+            <div class="canvas-grid">
+              <div class="cv cv--socios"><h4><button type="button" class="cv-btn" aria-pressed="false" aria-controls="cv-detail" data-sw-btn="canvas" data-key="socios">Socios clave</button></h4>
+                <ul><li>Proveedores de cera, aromas y letras</li><li>Casa del Libro y librerías</li><li>Bookstagram, BookTok y Studygram</li><li>Mensajería e imprenta</li></ul></div>
+              <div class="cv cv--actividades"><h4><button type="button" class="cv-btn" aria-pressed="false" aria-controls="cv-detail" data-sw-btn="canvas" data-key="actividades">Actividades clave</button></h4>
+                <ul><li>Diseñar colecciones</li><li>Fabricar y colocar las letras</li><li>Vídeos para redes</li><li>Pedidos, envíos y cuentas</li></ul></div>
+              <div class="cv cv--recursos"><h4><button type="button" class="cv-btn" aria-pressed="false" aria-controls="cv-detail" data-sw-btn="canvas" data-key="recursos">Recursos clave</button></h4>
+                <ul><li>Cera de soja y aromas sin ftalatos</li><li>Letras metálicas</li><li>Taller en casa</li><li>Lo que sabemos de AF, Canva y redes</li></ul></div>
+              <div class="cv cv--propuesta"><h4><button type="button" class="cv-btn" aria-pressed="false" aria-controls="cv-detail" data-sw-btn="canvas" data-key="propuesta">Propuesta de valor</button></h4>
+                <ul><li>Una vela con un mensaje que aparece al usarla</li><li>Regalo único y con significado</li><li>Tú eliges mensaje, aroma y color</li></ul></div>
+              <div class="cv cv--relacion"><h4><button type="button" class="cv-btn" aria-pressed="false" aria-controls="cv-detail" data-sw-btn="canvas" data-key="relacion">Relación con clientes</button></h4>
+                <ul><li>Instagram, WhatsApp y correo</li><li>Tarjeta con descuento</li><li>Cambio si llega rota</li></ul></div>
+              <div class="cv cv--canales"><h4><button type="button" class="cv-btn" aria-pressed="false" aria-controls="cv-detail" data-sw-btn="canvas" data-key="canales">Canales</button></h4>
+                <ul><li>Web propia</li><li>Instagram y TikTok Shop</li><li>Librerías y tiendas de regalos</li><li>Envío a casa</li></ul></div>
+              <div class="cv cv--clientes"><h4><button type="button" class="cv-btn" aria-pressed="false" aria-controls="cv-detail" data-sw-btn="canvas" data-key="clientes">Clientes</button></h4>
+                <ul><li>Lectores</li><li>Estudiantes y opositores</li><li>Quien busca un regalo diferente</li></ul></div>
+              <div class="cv cv--costes"><h4><button type="button" class="cv-btn" aria-pressed="false" aria-controls="cv-detail" data-sw-btn="canvas" data-key="costes">Costes</button></h4>
+                <ul><li>3,50 – 5 € por vela</li><li>Web y dominio, unos 30 €/mes</li><li>Cuota de autónomos</li><li>Publicidad: 50 – 100 €/mes</li></ul></div>
+              <div class="cv cv--ingresos"><h4><button type="button" class="cv-btn" aria-pressed="false" aria-controls="cv-detail" data-sw-btn="canvas" data-key="ingresos">Ingresos</button></h4>
+                <ul><li>Velas sueltas y packs</li><li>Extra por personalizar</li><li>Colecciones de temporada</li><li>Eventos y empresas</li></ul></div>
+            </div>
+            <div class="cv-detail" id="cv-detail" aria-live="polite">
+              <div data-sw-panel="canvas" data-key="intro"><p class="cv-detail-empty">Elige un bloque del lienzo.</p></div>
+              <div data-sw-panel="canvas" data-key="socios"><h5>Socios clave</h5><p>Lo que no hacemos nosotros: los materiales, los envíos (Correos Express, Nacex, InPost) y las etiquetas. Y para llegar a más gente, librerías como Casa del Libro y cuentas de libros y de estudio en redes.</p></div>
+              <div data-sw-panel="canvas" data-key="actividades"><h5>Actividades clave</h5><p>Casi todo lo hacemos nosotros: diseñar, fabricar, montar el mensaje letra a letra, las redes, empaquetar y las cuentas. Fuera solo dejamos la mensajería y la imprenta de las etiquetas.</p></div>
+              <div data-sw-panel="canvas" data-key="recursos"><h5>Recursos clave</h5><p>Empezamos en una habitación de casa preparada como taller, así no pagamos local. Usamos cera de soja, aceites sin ftalatos, mechas de madera o de algodón y letras metálicas que aguantan el calor. Como estudiamos Administración y Finanzas, la contabilidad, las facturas y los impuestos los llevamos nosotros, sin gestoría.</p></div>
+              <div data-sw-panel="canvas" data-key="propuesta"><h5>Propuesta de valor</h5><p>Una vela normal huele o decora. La nuestra además dice algo, y el mensaje se descubre poco a poco mientras la usas. Sirve para decir lo que cuesta decir a la cara.</p></div>
+              <div data-sw-panel="canvas" data-key="relacion"><h5>Relación con clientes</h5><p>Trato cercano: por Instagram y WhatsApp concretamos cómo quiere la vela cada cliente. En el paquete va una tarjeta con un descuento para la próxima compra, y si algo llega roto lo cambiamos. También les animamos a grabar el momento en que salen las letras y subirlo.</p></div>
+              <div data-sw-panel="canvas" data-key="canales"><h5>Canales</h5><p>Las redes son el escaparate: en un vídeo se ve muy bien cómo aparece el mensaje. Vendemos por la web y TikTok Shop, y también a través de librerías, tiendas de regalos y cajas literarias. El envío va a casa, cuidando mucho el paquete para que la sorpresa empiece al abrirlo.</p></div>
+              <div data-sw-panel="canvas" data-key="clientes"><h5>Clientes</h5><p>Lectores que quieren leer con una vela y una frase bonita, estudiantes y opositores que buscan concentrarse o un empujón en época de exámenes, y cualquiera que busque un regalo diferente para un cumpleaños, un aniversario o San Valentín.</p></div>
+              <div data-sw-panel="canvas" data-key="costes"><h5>Costes</h5><p>Hacer una vela nos cuesta entre 3,50 y 5 € con todo: envase, cera, aroma, color, letras y packaging. Al mes: la web y el dominio (unos 30 €), la cuota de autónomos y entre 50 y 100 € de publicidad en redes. Y por cada pedido, las comisiones de pago (Stripe, Bizum) y el embalaje.</p></div>
+              <div data-sw-panel="canvas" data-key="ingresos"><h5>Ingresos</h5><p>Velas sueltas o en pack, con una frase ya pensada o totalmente personalizadas. Colecciones limitadas para exámenes, Navidad o el Día del Libro, y pedidos grandes para eventos, clubes de lectura o empresas.</p></div>
+            </div>
+          </article>
+        </div>
+
+        <!-- 3. Evaluación -->
+        <div class="ipanel" id="ipanel-evaluacion" role="tabpanel" aria-labelledby="itab-evaluacion" data-sw-panel="idea" data-key="evaluacion">
+          <div class="eval-grid">
+            <article class="card idea-card">
+              <h3>Competencia</h3>
+              <dl class="rivals">
+                <div><dt>Directa</dt><dd>Tiendas de velas artesanales en Etsy, Shopify o Instagram que personalizan el aroma o la etiqueta.</dd></div>
+                <div><dt>Indirecta</dt><dd>Regalos personalizados (Mr. Wonderful, UO), librerías con merchandising, papelerías y cajas de experiencias.</dd></div>
+                <div><dt>Nos fijamos en</dt><dd>Bookish Candles y La Vela Botánica.</dd></div>
+              </dl>
+            </article>
+
+            <article class="card idea-card">
+              <h3>Lo que nos hace diferentes</h3>
+              <ol class="diff-list">
+                <li>Las letras son metálicas y van saliendo una a una en la cera líquida. Queda elegante y duran.</li>
+                <li>Ayuda a decir cosas que cuestan: un te quiero, un perdón o un ánimo.</li>
+                <li>El cliente lo elige todo: mensaje, aroma, color y decoración.</li>
+                <li>Si no quieres personalizar, hay colecciones con mensaje sorpresa para Navidad, Halloween o San Valentín.</li>
+                <li>Un nicho claro: velas para leer, estudiar y concentrarse.</li>
+              </ol>
+            </article>
           </div>
 
-          <div class="logo-text">
-            <h3>El logo</h3>
-            <div class="logo-why">
-              <details name="logo-why" open>
-                <summary>Dos personas, un corazón</summary>
-                <p>Son dos personas que se abrazan y entre las dos forman un corazón. Una es la persona dependiente y la otra, quien la acompaña. En el centro hay un check por lo que hace la app: tener organizado todo lo que necesita esa persona.</p>
-              </details>
-              <details name="logo-why">
-                <summary>Los colores</summary>
-                <p>Verde salvia y turquesa suave con blanco. La idea es que dé calma y confianza, pero sin que parezca algo de hospital.</p>
-                <ul class="palette" aria-label="Colores del logo">
-                  <li><span class="palette-dot" style="--c: #91B9A5" aria-hidden="true"></span>Verde salvia <small>#91B9A5</small></li>
-                  <li><span class="palette-dot" style="--c: #66B8B0" aria-hidden="true"></span>Turquesa suave <small>#66B8B0</small></li>
-                  <li><span class="palette-dot palette-dot--white" style="--c: #FFFFFF" aria-hidden="true"></span>Blanco <small>#FFFFFF</small></li>
-                </ul>
-              </details>
-              <details name="logo-why">
-                <summary>La letra</summary>
-                <p>Tiene que ser redondeada y fácil de leer, tipo <span class="font-nunito">Nunito</span> o <span class="font-poppins">Poppins</span>, para que el nombre se entienda aunque se vea en pequeño.</p>
-              </details>
-              <details name="logo-why">
-                <summary>Sencillo y redondeado</summary>
-                <p>Pocas formas y todo redondeado, para que se reconozca bien como icono en el móvil. De fondo, blanco o un verde muy clarito para que destaque: lo puedes probar con los botones de «Fondo».</p>
-              </details>
+          <article class="card idea-card price-card-wrap">
+            <header class="idea-card-head">
+              <h3>Los números</h3>
+              <p class="idea-hint">Elige una vela.</p>
+            </header>
+            <div class="seg price-tabs" role="tablist" aria-label="Tipo de vela">
+              <button type="button" class="seg-btn is-active" role="tab" id="precio-coleccion" aria-controls="preciop-coleccion" data-sw-btn="precio" data-key="coleccion">De colección</button>
+              <button type="button" class="seg-btn" role="tab" id="precio-personal" aria-controls="preciop-personal" data-sw-btn="precio" data-key="personal">Personalizada</button>
+              <button type="button" class="seg-btn" role="tab" id="precio-pack" aria-controls="preciop-pack" data-sw-btn="precio" data-key="pack">Pack temático</button>
             </div>
+            <div class="price-panel" id="preciop-coleccion" role="tabpanel" aria-labelledby="precio-coleccion" data-sw-panel="precio" data-key="coleccion">
+              <p class="price-what">Vela con una frase ya pensada, de las colecciones fijas o de temporada.</p>
+              <dl class="price-rows"><div><dt>La vende</dt><dd>13 – 15 €</dd></div><div><dt>Nos cuesta</dt><dd>3,50 – 5 €</dd></div><div class="price-margin"><dt>Nos queda</dt><dd>8 – 11,50 €</dd></div></dl>
+              <div class="price-bar" aria-hidden="true"><span class="price-bar-cost" style="width: 30%">Coste</span><span class="price-bar-margin" style="width: 70%">Margen</span></div>
+            </div>
+            <div class="price-panel" id="preciop-personal" role="tabpanel" aria-labelledby="precio-personal" data-sw-panel="precio" data-key="personal">
+              <p class="price-what">Vela 100 % a tu gusto: mensaje, color, aroma y decoración.</p>
+              <dl class="price-rows"><div><dt>La vende</dt><dd>16 – 18 €</dd></div><div><dt>Nos cuesta</dt><dd>3,50 – 5 €</dd></div><div class="price-margin"><dt>Nos queda</dt><dd>11 – 14,50 €</dd></div></dl>
+              <div class="price-bar" aria-hidden="true"><span class="price-bar-cost" style="width: 25%">Coste</span><span class="price-bar-margin" style="width: 75%">Margen</span></div>
+            </div>
+            <div class="price-panel" id="preciop-pack" role="tabpanel" aria-labelledby="precio-pack" data-sw-panel="precio" data-key="pack">
+              <p class="price-what">Packs como el Pack Lectura o el Pack Opositor.</p>
+              <dl class="price-rows"><div><dt>Lo vende</dt><dd>28 – 35 €</dd></div><div><dt>Nos cuesta</dt><dd>Depende de lo que lleve</dd></div></dl>
+            </div>
+            <p class="price-note">«Nos queda» es lo que paga el cliente menos lo que cuesta hacer la vela. De ahí todavía hay que quitar el IVA y los gastos fijos: web (unos 30 €/mes), cuota de autónomos y publicidad (50 – 100 €/mes). El envío se cobra aparte y es gratis a partir de 45 €.</p>
+          </article>
+        </div>
+
+        <!-- 4. Taller y web -->
+        <div class="ipanel" id="ipanel-taller" role="tabpanel" aria-labelledby="itab-taller" data-sw-panel="idea" data-key="taller">
+          <div class="taller-grid">
+            <article class="card idea-card">
+              <h3>Dónde trabajamos</h3>
+              <p>De momento, en casa: preparamos una habitación como taller para no pagar un local al principio. Vendemos sobre todo por internet (web propia, Instagram y TikTok Shop) y queremos colaborar con librerías como Casa del Libro.</p>
+              <p class="tools-title">Lo que hay en el taller</p>
+              <ul class="step-tags">
+                <li>Jarra para fundir la cera</li><li>Báscula de precisión</li><li>Termómetro</li><li>Pistola de calor</li><li>Pinzas para las letras</li>
+              </ul>
+            </article>
+
+            <article class="card idea-card">
+              <header class="idea-card-head">
+                <h3>Primer diseño de la web</h3>
+                <p class="idea-hint">Navega por el menú.</p>
+              </header>
+              <div class="browser">
+                <div class="browser-bar" aria-hidden="true">
+                  <span class="browser-dots"><i></i><i></i><i></i></span>
+                  <span class="browser-url" id="web-url">/inicio</span>
+                </div>
+                <div class="browser-nav" role="tablist" aria-label="Menú de la web">
+                  <button type="button" class="web-link is-active" role="tab" id="web-inicio" aria-controls="webp-inicio" data-sw-btn="web" data-key="inicio" data-url="/inicio">Inicio</button>
+                  <button type="button" class="web-link" role="tab" id="web-tematicas" aria-controls="webp-tematicas" data-sw-btn="web" data-key="tematicas" data-url="/tematicas">Temáticas</button>
+                  <button type="button" class="web-link" role="tab" id="web-colecciones" aria-controls="webp-colecciones" data-sw-btn="web" data-key="colecciones" data-url="/colecciones">Colecciones</button>
+                  <button type="button" class="web-link" role="tab" id="web-madera" aria-controls="webp-madera" data-sw-btn="web" data-key="madera" data-url="/mecha-de-madera">Mecha de madera</button>
+                  <button type="button" class="web-link" role="tab" id="web-crea" aria-controls="webp-crea" data-sw-btn="web" data-key="crea" data-url="/crea-tu-vela">Crea tu vela</button>
+                  <button type="button" class="web-link" role="tab" id="web-regalos" aria-controls="webp-regalos" data-sw-btn="web" data-key="regalos" data-url="/regalos">Regalos</button>
+                </div>
+                <div class="browser-page">
+                  <div class="web-page" id="webp-inicio" role="tabpanel" aria-labelledby="web-inicio" data-sw-panel="web" data-key="inicio">
+                    <p class="web-banner">Banner que cambia con la temporada: calabazas en octubre, Navidad en diciembre.</p>
+                    <p>Debajo, el carrusel <strong>«Para comerte a besos (¡no a bocados!)»</strong> con las velas que parecen postres, un bloque para la mecha de madera, el botón de «Crea tu vela» y accesos a cada festividad. Al final, lo que nos importa: ceras naturales, aromas seguros y todo hecho a mano.</p>
+                  </div>
+                  <div class="web-page" id="webp-tematicas" role="tabpanel" aria-labelledby="web-tematicas" data-sw-panel="web" data-key="tematicas">
+                    <ul class="web-cards">
+                      <li><strong>Halloween</strong>Calabazas, fantasmas y pócimas. Huele a calabaza especiada o manzana con canela.</li>
+                      <li><strong>Navidad</strong>Árboles, copos y muñecos de jengibre. Pino, galleta de jengibre o chocolate caliente.</li>
+                      <li><strong>Pascua</strong>Huevos, conejitos y flores. Vainilla, miel y flores frescas.</li>
+                      <li><strong>San Valentín</strong>Corazones y tartas. Fresas con nata o champán.</li>
+                    </ul>
+                  </div>
+                  <div class="web-page" id="webp-colecciones" role="tabpanel" aria-labelledby="web-colecciones" data-sw-panel="web" data-key="colecciones">
+                    <ul class="web-cards">
+                      <li><strong>Dulces</strong>Tazas con nata, tartas, donuts, gofres…</li>
+                      <li><strong>Salados</strong>Palomitas, ramen o nachos.</li>
+                      <li><strong>Naturaleza</strong>Suculentas y flores en 3D. Eucalipto, lavanda, tierra mojada.</li>
+                      <li><strong>Zodiaco</strong>Una vela para cada signo, con su color y su aroma.</li>
+                      <li><strong>Mística</strong>Gemas de cera. Sándalo, incienso, palo santo.</li>
+                      <li><strong>Escultórica</strong>Bustos griegos y formas geométricas.</li>
+                    </ul>
+                  </div>
+                  <div class="web-page" id="webp-madera" role="tabpanel" aria-labelledby="web-madera" data-sw-panel="web" data-key="madera">
+                    <p>Velas con mecha de madera: cruje como una chimenea pequeña, quema más limpio y queda muy natural. Se pueden filtrar por dulces, navideñas o de bosque, y llevan una guía para recortar la mecha antes de cada uso.</p>
+                  </div>
+                  <div class="web-page" id="webp-crea" role="tabpanel" aria-labelledby="web-crea" data-sw-panel="web" data-key="crea">
+                    <ol class="web-steps">
+                      <li>Envase o molde</li><li>Mecha de algodón o de madera</li><li>Color</li><li>Aroma</li><li>Toppings de cera</li><li>Mensaje o etiqueta</li>
+                    </ol>
+                    <p class="web-warn">En cada vela, un aviso bien grande: «Aunque parezca delicioso, NO ES COMESTIBLE».</p>
+                  </div>
+                  <div class="web-page" id="webp-regalos" role="tabpanel" aria-labelledby="web-regalos" data-sw-panel="web" data-key="regalos">
+                    <p>Mini tartas de vela como recuerdo para invitados, cajas temáticas como la «Caja mágica de Halloween» o la «Caja astral», y velas con nombres o logos para bodas y empresas.</p>
+                  </div>
+                </div>
+              </div>
+              <p class="web-after">Después del SCAMPER y los sombreros la idea es simplificarla: menos colecciones y ordenada por ocasiones («Para regalar», «Para mí» y «Para una fiesta»).</p>
+            </article>
           </div>
-        </article>
+        </div>
+
+        <!-- 5. Por qué emprender -->
+        <div class="ipanel" id="ipanel-motivos" role="tabpanel" aria-labelledby="itab-motivos" data-sw-panel="idea" data-key="motivos">
+          <div class="motivos-grid">
+            <article class="card idea-card">
+              <h3>Por qué esta idea</h3>
+              <div class="entry-text idea-text">
+                <p>Nace de algo que vemos mucho: a la gente le cuesta decir lo que siente a la cara. Una vela con un mensaje escondido es una forma bonita de decirlo sin tener que decirlo.</p>
+                <p>También tiene que ver con nosotros: nos gusta leer, la papelería y estudiar, y sabemos lo que es querer un sitio agradable y un poco de ánimo en época de exámenes.</p>
+                <p>Y queríamos un regalo que sorprenda de verdad, que no sea lo de siempre y que se disfrute mientras se usa.</p>
+              </div>
+            </article>
+
+            <article class="card idea-card">
+              <h3>Los socios</h3>
+              <div class="partners">
+                <div class="partner">
+                  <img class="avatar-img" src="assets/img/jorge.png" alt="Jorge" width="56" height="56" loading="lazy">
+                  <div><strong>Jorge González Luque</strong><span>Creativo, responsable y organizado</span></div>
+                </div>
+                <div class="partner">
+                  <img class="avatar-img" src="assets/img/maite.png" alt="Maite" width="56" height="56" loading="lazy">
+                  <div><strong>Maite Basterrechea Carrasco</strong><span>Vídeos y publicidad, organización del tiempo</span></div>
+                </div>
+              </div>
+              <p class="tools-title">Lo que sabemos entre los dos</p>
+              <ul class="step-tags">
+                <li>Administración y Finanzas</li><li>Canva y edición de vídeo</li><li>TikTok e Instagram</li><li>Cursos de cerería</li>
+              </ul>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -934,6 +1205,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>

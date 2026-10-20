@@ -200,29 +200,131 @@
     });
     prevBtn.addEventListener('click', function () { goTo(current - 1); });
     nextBtn.addEventListener('click', function () { goTo(current + 1); });
+    document.querySelectorAll('[data-step-goto]').forEach(function (b) {
+      b.addEventListener('click', function () { goTo(Number(b.dataset.stepGoto), true); });
+    });
 
     stepNav.hidden = false;
     goTo(0);
   }
 
-  /* ---------- Idea de negocio: vista previa del logo ---------- */
-  const logoStage = document.getElementById('logo-stage');
-  const logoControls = document.getElementById('logo-controls');
-  if (logoStage && logoControls) {
-    logoControls.querySelectorAll('.seg').forEach(function (group) {
-      const key = group.dataset.control; // "view" (logo / icono) o "bg" (fondo)
-      const segBtns = Array.from(group.querySelectorAll('.seg-btn'));
-      segBtns.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          logoStage.dataset[key] = btn.dataset.value;
-          segBtns.forEach(function (b) {
-            const on = b === btn;
-            b.classList.toggle('is-active', on);
-            b.setAttribute('aria-pressed', String(on));
-          });
-        });
+  /* ---------- Idea de negocio: grupos de botones que cambian lo que se ve ----------
+     Cada botón lleva data-sw-btn="grupo" y data-key; cada panel, data-sw-panel="grupo"
+     y la misma data-key. Sirve para las pestañas, sombreros, pétalos, lienzo, precios y web. */
+  function initSwitch(group) {
+    const btns = Array.from(document.querySelectorAll('[data-sw-btn="' + group + '"]'));
+    const panels = Array.from(document.querySelectorAll('[data-sw-panel="' + group + '"]'));
+    if (!btns.length || !panels.length) return;
+    const isTab = btns[0].getAttribute('role') === 'tab';
+
+    function show(key, focusBtn) {
+      btns.forEach(function (b) {
+        const on = b.dataset.key === key;
+        b.classList.toggle('is-active', on);
+        if (isTab) {
+          b.setAttribute('aria-selected', String(on));
+          b.tabIndex = on ? 0 : -1;
+        } else {
+          b.setAttribute('aria-pressed', String(on));
+        }
+        if (on && focusBtn) b.focus();
+        if (on && b.dataset.url) {
+          const url = document.getElementById('web-url');
+          if (url) url.textContent = b.dataset.url;
+        }
+      });
+      panels.forEach(function (p) { p.hidden = p.dataset.key !== key; });
+    }
+
+    btns.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        show(b.dataset.key);
+        // En el lienzo, en móvil, bajar hasta la explicación
+        if (group === 'canvas' && window.innerWidth < 960) {
+          const detail = document.getElementById('cv-detail');
+          if (detail) detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+      if (!isTab) return;
+      b.addEventListener('keydown', function (e) {
+        let next = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % btns.length;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + btns.length) % btns.length;
+        if (e.key === 'Home') next = 0;
+        if (e.key === 'End') next = btns.length - 1;
+        if (next !== null) { e.preventDefault(); show(btns[next].dataset.key, true); }
       });
     });
-    logoControls.hidden = false;
+
+    const active = btns.find(function (b) { return b.classList.contains('is-active'); });
+    const hasIntro = panels.some(function (p) { return p.dataset.key === 'intro'; });
+    show(active ? active.dataset.key : (hasIntro ? 'intro' : btns[0].dataset.key));
+  }
+  ['idea', 'sombrero', 'petalo', 'canvas', 'precio', 'web'].forEach(initSwitch);
+
+  /* ---------- Idea de negocio: vela con mensaje oculto ---------- */
+  const candle = document.getElementById('candle');
+  const candleForm = document.getElementById('candle-form');
+  if (candle && candleForm) {
+    const msgInput = document.getElementById('candle-msg');
+    const pool = document.getElementById('candle-letters');
+    const candleBtn = candleForm.querySelector('button');
+    const candleStatus = document.getElementById('candle-status');
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timers = [];
+
+    function stopTimers() {
+      timers.forEach(clearTimeout);
+      timers = [];
+    }
+
+    function putOut() {
+      stopTimers();
+      candle.dataset.state = 'off';
+      pool.textContent = '';
+      msgInput.readOnly = false;
+      candleBtn.textContent = 'Encender';
+      candleStatus.textContent = 'Las letras están escondidas bajo la cera.';
+    }
+
+    function light() {
+      const text = (msgInput.value.trim() || 'Ánimo').toUpperCase().slice(0, 12);
+      pool.textContent = '';
+      // Cada palabra va junta, para que las filas se corten entre palabras
+      text.split(/\s+/).filter(Boolean).forEach(function (word) {
+        const group = document.createElement('span');
+        group.className = 'bead-word';
+        Array.from(word).forEach(function (ch) {
+          const bead = document.createElement('span');
+          bead.className = 'bead';
+          bead.textContent = ch;
+          group.appendChild(bead);
+        });
+        pool.appendChild(group);
+      });
+      candle.dataset.state = 'lit';
+      msgInput.readOnly = true;
+      candleBtn.textContent = 'Apagar';
+      candleStatus.textContent = 'Se está derritiendo la cera… (en la vida real, 30-45 minutos)';
+
+      const beads = Array.from(pool.querySelectorAll('.bead'));
+      const wait = reduceMotion ? 0 : 1500;
+      const gap = reduceMotion ? 0 : 280;
+      beads.forEach(function (bead, i) {
+        timers.push(setTimeout(function () { bead.classList.add('is-shown'); }, wait + i * gap));
+      });
+      timers.push(setTimeout(function () {
+        candle.dataset.state = 'done';
+        candleStatus.textContent = 'Mensaje: «' + text + '». Apágala para probar otro.';
+      }, wait + beads.length * gap + 300));
+    }
+
+    candleForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (candle.dataset.state === 'off') light(); else putOut();
+    });
+
+    candleForm.hidden = false;
+    putOut();
   }
 })();
