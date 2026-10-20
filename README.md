@@ -17,6 +17,7 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   **Proyecto UniWay (App):** Sección *hero* destacada que incluye el prototipo de Netlify, enlace al código y una demostración en vídeo emulada dentro de un marco de smartphone creado con CSS.
 *   **Mi Equipo:** Maquetación del Caso Asesoría y diseño visual del "Contrato de Equipo" simulando un documento A4 real con firmas.
 *   **Liderazgo:** Reflexiones y conclusiones sobre las dinámicas grupales ("Estilo novia", "El espejo", "El baile").
+*   **Idea de negocio (Fase 1 · grupal):** Hoja de ruta con los 8 apartados de la fase (los que aún no tienen contenido aparecen como "En preparación"), el proceso de generación de ideas paso a paso (brainstorming → SCAMPER → sombreros → flor de loto) con sus preguntas de reflexión, y el tablero de marca del logotipo (símbolo, paleta, tipografía, estilo y fondo).
 *   **Reflexión Final:** Tabla de valoraciones (con notas y etiquetas doradas) y conclusiones personales en un tono sincero y directo.
 
 ## 💻 Características Técnicas y Diseño
@@ -24,14 +25,16 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   **UI/UX:** Diseño totalmente *Responsive* (Mobile-first). Incluye un menú de navegación que pasa a modo hamburguesa en resoluciones inferiores a 1140px para evitar desbordamientos.
 *   **Motion & Animaciones:** Uso de `IntersectionObserver` en JS para lograr efectos de aparición en cascada (*fade-in slide-up*) al hacer scroll, con soporte para opciones de "reducir movimiento" del sistema operativo.
 *   **Transparencia (Archivos originales):** Integración de botones fantasma (*ghost buttons*) debajo de cada componente interactivo que abren los JPGs/PDFs originales de los apuntes a mano, alojados directamente en el repo.
-*   **Optimización:** *Assets* aligerados y control de versiones estricto (eliminación de imágenes pesadas o en desuso para mantener la carga rápida). CSS cache-busting implementado (`?v=3`).
+*   **Optimización:** *Assets* aligerados y control de versiones estricto (eliminación de imágenes pesadas o en desuso para mantener la carga rápida). CSS cache-busting implementado (`?v=9`): sube el número cada vez que cambies `styles.css`.
 
 ## 🛠️ Notas para la continuación del proyecto
 Como este portfolio se irá ampliando en los próximos meses, ten en cuenta lo siguiente para futuras actualizaciones:
 1.  **Añadir nuevas secciones:** Solo hay que replicar la estructura de `<section id="nuevo-id" class="reveal">`. El JavaScript animará los nuevos contenidos automáticamente.
 2.  **Imágenes originales:** Si se añaden nuevos apuntes en papel, guárdalos en `assets/img/` y enlázalos usando el diseño de los *ghost buttons* ("Ver apunte original").
-3.  **Textos:** Todos los textos están escritos en el HTML. Si se actualizan reflexiones o notas, deben modificarse directamente ahí.
-4.  **Despliegue:** Cualquier `git push` a la rama `main` actualizará automáticamente GitHub Pages en un par de minutos.
+3.  **Completar la Fase 1:** Cuando un apartado de la hoja de ruta (`#idea-negocio`) tenga contenido, cambia su etiqueta "En preparación" y añade su bloque debajo, igual que "Generación de ideas" o "Nombre y logotipo".
+4.  **Menú:** El menú de escritorio va justo de ancho. Si añades otra sección, comprueba que los enlaces no se partan en dos líneas (o acorta el texto del enlace).
+5.  **Textos:** Todos los textos están escritos en el HTML. Si se actualizan reflexiones o notas, deben modificarse directamente ahí.
+6.  **Despliegue:** Cualquier `git push` a la rama `main` actualizará automáticamente GitHub Pages en un par de minutos.
 
 ---
 *Desarrollado con mucha dedicación, HTML, CSS y un poco de café.* ☕
