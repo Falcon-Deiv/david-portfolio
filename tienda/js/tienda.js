@@ -181,30 +181,37 @@
     const glow = $('#hero-glow');
     const blocks = $$('.stage-block', hero);
     let tx = window.innerWidth * 0.6, ty = window.innerHeight * 0.4, gx = tx, gy = ty, mx = 0, my = 0, sy = 0;
+    let heroVisible = true, ready = false, running = false;
+    // Solo se anima mientras algo cambia (ratón o scroll); luego se para
+    function kick() {
+      if (ready && !running && !reduceMotion && heroVisible) { running = true; requestAnimationFrame(frame); }
+    }
     hero.addEventListener('pointermove', function (e) {
       const r = hero.getBoundingClientRect();
       tx = e.clientX - r.left;
       ty = e.clientY - r.top;
       mx = (e.clientX - r.left) / r.width - 0.5;
       my = (e.clientY - r.top) / r.height - 0.5;
+      kick();
     });
     function frame() {
-      if (!reduceMotion && heroVisible) {
-        gx += (tx - gx) * 0.08;
-        gy += (ty - gy) * 0.08;
-        glow.style.transform = 'translate(' + gx.toFixed(1) + 'px,' + gy.toFixed(1) + 'px)';
-        blocks.forEach(function (b, i) {
-          const depth = [14, 22, 30][i];
-          b.style.transform = 'translate(' + (mx * -depth).toFixed(1) + 'px,' + (my * -depth * 0.5 + sy * (0.08 + i * 0.05)).toFixed(1) + 'px)';
-        });
-      }
-      requestAnimationFrame(frame);
+      gx += (tx - gx) * 0.08;
+      gy += (ty - gy) * 0.08;
+      glow.style.transform = 'translate3d(' + gx.toFixed(1) + 'px,' + gy.toFixed(1) + 'px,0)';
+      blocks.forEach(function (b, i) {
+        const depth = [14, 22, 30][i];
+        b.style.transform = 'translate3d(' + (mx * -depth).toFixed(1) + 'px,' + (my * -depth * 0.5 + sy * (0.08 + i * 0.05)).toFixed(1) + 'px,0)';
+      });
+      if (heroVisible && (Math.abs(tx - gx) > 0.3 || Math.abs(ty - gy) > 0.3)) requestAnimationFrame(frame);
+      else running = false;
     }
-    let heroVisible = true;
     new IntersectionObserver(function (en) { heroVisible = en[0].isIntersecting; }).observe(hero);
-    window.addEventListener('scroll', function () { sy = Math.min(window.scrollY, 800); }, { passive: true });
+    window.addEventListener('scroll', function () {
+      const y = Math.min(window.scrollY, 800);
+      if (y !== sy) { sy = y; kick(); }
+    }, { passive: true });
     // Los bloques entran animados; el relieve empieza después
-    setTimeout(function () { requestAnimationFrame(frame); }, 1300);
+    setTimeout(function () { ready = true; kick(); }, 1300);
   }
 
   /* =========================================================
@@ -685,30 +692,42 @@
       }
     }
     Sound.onPop(function (peak) { if (visible) spawn(Math.round(2 + peak * 10), 0.8 + peak * 1.4); });
+    // Cada chispa es la misma imagen pequeña ya dibujada (mucho más ligero que una sombra)
+    const sprite = document.createElement('canvas');
+    sprite.width = sprite.height = 32;
+    (function () {
+      const c = sprite.getContext('2d');
+      const g = c.createRadialGradient(16, 16, 0, 16, 16, 16);
+      g.addColorStop(0, 'rgba(255,246,214,1)');
+      g.addColorStop(0.22, 'rgba(255,200,110,.95)');
+      g.addColorStop(0.5, 'rgba(255,150,60,.35)');
+      g.addColorStop(1, 'rgba(255,140,50,0)');
+      c.fillStyle = g;
+      c.fillRect(0, 0, 32, 32);
+    })();
+    let looping = false;
     function tick() {
-      if (visible) {
-        ctx.clearRect(0, 0, w, h);
-        if (Math.random() < 0.08) spawn(1, 0.6); // brasas suaves siempre
-        sparks = sparks.filter(function (s) { return s.life > 0; });
-        sparks.forEach(function (s) {
-          s.x += s.vx + Math.sin(s.y / (30 * dpr)) * 0.3 * dpr;
-          s.y += s.vy;
-          s.vy *= 0.985;
-          s.life -= 0.012;
-          ctx.beginPath();
-          ctx.fillStyle = 'rgba(255,' + Math.round(150 + 80 * s.life) + ',80,' + Math.max(0, s.life).toFixed(2) + ')';
-          ctx.shadowColor = 'rgba(255,170,60,.8)';
-          ctx.shadowBlur = 8 * dpr;
-          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-          ctx.fill();
-        });
-      }
+      if (!visible || document.visibilityState !== 'visible') { looping = false; ctx.clearRect(0, 0, w, h); return; }
+      ctx.clearRect(0, 0, w, h);
+      if (Math.random() < 0.08) spawn(1, 0.6); // brasas suaves siempre
+      sparks = sparks.filter(function (s) { return s.life > 0; });
+      sparks.forEach(function (s) {
+        s.x += s.vx + Math.sin(s.y / (30 * dpr)) * 0.3 * dpr;
+        s.y += s.vy;
+        s.vy *= 0.985;
+        s.life -= 0.012;
+        const d = s.r * 6;
+        ctx.globalAlpha = Math.max(0, s.life);
+        ctx.drawImage(sprite, s.x - d / 2, s.y - d / 2, d, d);
+      });
+      ctx.globalAlpha = 1;
       requestAnimationFrame(tick);
     }
+    function loop() { if (!looping && visible) { looping = true; requestAnimationFrame(tick); } }
     size();
     window.addEventListener('resize', size);
-    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) size(); }).observe(section);
-    requestAnimationFrame(tick);
+    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; if (visible) { size(); loop(); } }).observe(section);
+    document.addEventListener('visibilitychange', loop);
   }
 
   /* =========================================================
@@ -1318,6 +1337,9 @@
   window.Vibra = {
     reduceMotion: reduceMotion,
     toast: toast,
+    esc: esc,
+    eur: eur,
+    velaSvg: velaSvg,
     sound: {
       isOn: function () { return Sound.isOn(); },
       start: function () { const ok = Sound.start(); syncSoundButtons(); return ok; },
