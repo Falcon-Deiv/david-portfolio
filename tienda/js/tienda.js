@@ -1314,6 +1314,17 @@
     if (ok) inp.value = '';
   });
 
+  /* Lo que usa js/motion.js (modo vela, etc.) */
+  window.Vibra = {
+    reduceMotion: reduceMotion,
+    toast: toast,
+    sound: {
+      isOn: function () { return Sound.isOn(); },
+      start: function () { const ok = Sound.start(); syncSoundButtons(); return ok; },
+      stop: function () { Sound.stop(); syncSoundButtons(); }
+    }
+  };
+
   /* ---------- Arranque ---------- */
   window.Empresa.init({ toast: toast, store: store, eur: eur, esc: esc, V: V, openLayer: openLayer, closeAll: closeAll });
   fillDrops();

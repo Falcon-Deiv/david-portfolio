@@ -10,10 +10,35 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Italiana&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/tienda.css?v=4">
+  <link rel="stylesheet" href="css/tienda.css?v=5">
+  <script>
+    /* Entrada animada: una vez por sesión, nunca dentro del portfolio ni con «reducir movimiento» */
+    (function () { try { if (window.top === window && !sessionStorage.getItem('vibra-intro') && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('has-intro'); } catch (e) {} })();
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Saltar al contenido</a>
+
+  <!-- Entrada (solo la primera vez) -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <svg class="intro-mark" viewBox="0 0 60 60"><rect class="mk-frame" x="1.5" y="1.5" width="57" height="57"/><path d="M20.5 14H27V14.7H25.3L31 33.2L37.7 15.2L35.6 14.7V14H40.5V14.7H38.7L31.2 37H30.3L22.3 14.7H20.5Z"/><path class="mk-flame" fill-rule="evenodd" d="M30.7 41C33.4 43.6 34.4 46.3 33.3 49 32.5 50.9 31 51.8 29.6 51.8 27.6 51.8 26.6 50.3 26.6 48.6 26.6 46.7 27.9 45.3 29 44.4 28.9 45.8 29.3 46.9 30.1 47.5 29.6 45.6 29.8 43 30.7 41ZM31.1 45.3C32.4 46.9 32.6 48.6 31.6 50 31 50.8 30.2 51 29.6 50.6 30.6 49.4 31.3 47.5 31.1 45.3Z"/></svg>
+      <p class="intro-word"><span style="--k:0">V</span><span style="--k:1">i</span><span style="--k:2">b</span><span style="--k:3">r</span><span style="--k:4">a</span></p>
+      <p class="intro-sub">Velas hechas a mano</p>
+    </div>
+    <span class="intro-skip">Toca para entrar</span>
+  </div>
+
+  <!-- Progreso de lectura: una mecha que se consume -->
+  <div class="scroll-wick" aria-hidden="true"><span id="scroll-wick"></span></div>
+
+  <!-- Modo vela -->
+  <div class="night" id="night" aria-hidden="true"></div>
+  <div class="night-glow" id="night-glow" aria-hidden="true"></div>
+  <button class="lights-btn" id="lights-btn" type="button" aria-pressed="false">
+    <span class="lights-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="li-flame" d="M12 2c2.6 2.9 3.8 5.2 3.8 7.2A3.8 3.8 0 0 1 12 13a3.8 3.8 0 0 1-3.8-3.8C8.2 7.6 9.3 5.6 12 2z"/><rect x="8" y="14" width="8" height="8" rx="1.5"/></svg></span>
+    <span class="lights-label">Apaga la luz</span>
+  </button>
 
   <!-- Barra de avisos (se mueve sola) -->
   <div class="announce" aria-label="Avisos">
@@ -177,6 +202,83 @@
         </div>
       </section>
 
+      <!-- Así nace una vela (se cuenta con el scroll) -->
+      <section class="story" id="story" aria-labelledby="story-title">
+        <div class="story-sticky">
+          <div class="wrap story-inner">
+            <div class="story-text">
+              <p class="eyebrow">Del taller a tu casa</p>
+              <h2 id="story-title">Así nace una vela Vibra</h2>
+              <ol class="story-steps">
+                <li class="story-step is-active"><span class="story-num">01</span><h3>Fundimos la cera</h3><p>Soja y cera de abeja en la jarra, a fuego lento y con el termómetro delante. Sin prisa: así queda lisa y sin burbujas.</p></li>
+                <li class="story-step"><span class="story-num">02</span><h3>Aroma y color</h3><p>Pesamos el aroma en la báscula y añadimos el color gota a gota, hasta dar con el tono que buscamos.</p></li>
+                <li class="story-step"><span class="story-num">03</span><h3>Escondemos el mensaje</h3><p>Con unas pinzas colocamos las letras metálicas y las tapamos con otra capa de cera. Desde fuera no se ve nada.</p></li>
+                <li class="story-step"><span class="story-num">04</span><h3>La enciendes tú</h3><p>La cera se derrite y las letras van saliendo una a una. El mensaje estaba ahí desde el principio.</p></li>
+              </ol>
+              <div class="story-rail" id="story-rail">
+                <span class="story-rail-line"><i id="story-rail-fill"></i></span>
+                <button type="button" data-story="0" class="is-active">Fundir</button>
+                <button type="button" data-story="1">Aroma</button>
+                <button type="button" data-story="2">Mensaje</button>
+                <button type="button" data-story="3">Encender</button>
+              </div>
+            </div>
+            <div class="story-stage" aria-hidden="true">
+              <svg class="story-svg" id="story-svg" viewBox="0 0 320 420">
+                <defs>
+                  <clipPath id="st-clip"><path d="M94 150 H226 V350 Q226 372 204 372 H116 Q94 372 94 350 Z"/></clipPath>
+                  <radialGradient id="st-glow-g"><stop offset="0" stop-color="#ffd08a" stop-opacity=".75"/><stop offset=".45" stop-color="#ffb35c" stop-opacity=".22"/><stop offset="1" stop-color="#ffb35c" stop-opacity="0"/></radialGradient>
+                  <linearGradient id="st-glass-g" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity=".15"/><stop offset="1" stop-color="#fff" stop-opacity=".4"/></linearGradient>
+                  <linearGradient id="st-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2b955"/><stop offset="1" stop-color="#9c6e1c"/></linearGradient>
+                </defs>
+                <circle class="st-glow" id="st-glow" cx="160" cy="150" r="150" fill="url(#st-glow-g)"/>
+                <ellipse cx="160" cy="384" rx="92" ry="9" fill="rgba(36,44,42,.12)"/>
+                <!-- jarra -->
+                <g class="st-pitcher" id="st-pitcher">
+                  <path d="M40 40 H112 L106 104 Q104 114 94 114 H58 Q48 114 46 104 Z" fill="#cfd5cc" stroke="#7d877c" stroke-width="2"/>
+                  <path d="M112 40 L126 34 L114 50" fill="#cfd5cc" stroke="#7d877c" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M46 56 Q28 60 30 78 Q32 92 48 94" fill="none" stroke="#7d877c" stroke-width="4" stroke-linecap="round"/>
+                  <rect x="50" y="62" width="52" height="40" rx="4" class="st-pitcher-wax" fill="#f2eadb"/>
+                </g>
+                <path class="st-stream" id="st-stream" d="M0 0" fill="none" stroke="#f2eadb" stroke-width="7" stroke-linecap="round"/>
+                <!-- cuentagotas -->
+                <g class="st-dropper" id="st-dropper">
+                  <rect x="232" y="20" width="14" height="22" rx="7" fill="#5f7259"/>
+                  <path d="M234 42 H244 L241 92 Q239 98 237 92 Z" fill="rgba(255,255,255,.7)" stroke="#7d877c" stroke-width="1.5"/>
+                </g>
+                <g id="st-drops"><circle cx="0" cy="0" r="4"/><circle cx="0" cy="0" r="4"/><circle cx="0" cy="0" r="4"/></g>
+                <!-- aroma -->
+                <g class="st-wisps" id="st-wisps" fill="none" stroke="#9aa386" stroke-width="2" stroke-linecap="round">
+                  <path d="M130 140 C120 120 140 108 130 88 C122 72 134 62 130 48"/>
+                  <path d="M162 136 C152 112 174 100 162 76 C154 60 168 50 162 34"/>
+                  <path d="M194 140 C184 120 204 108 194 88 C186 72 198 62 194 48"/>
+                </g>
+                <!-- vaso por detrás -->
+                <path d="M94 150 H226 V350 Q226 372 204 372 H116 Q94 372 94 350 Z" fill="rgba(255,255,255,.35)"/>
+                <g clip-path="url(#st-clip)">
+                  <rect class="st-wax" id="st-wax" x="90" y="372" width="140" height="0" fill="#f2eadb"/>
+                  <ellipse class="st-wax-top" id="st-wax-top" cx="160" cy="372" rx="68" ry="6" fill="#f7f1e6"/>
+                  <path class="st-swirl" id="st-swirl" d="M100 300 C130 280 150 320 180 296 S220 290 226 300" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round"/>
+                  <rect class="st-melt" id="st-melt" x="90" y="202" width="140" height="34" fill="#fff8e8"/>
+                </g>
+                <g class="st-letters" id="st-letters" font-family="Jost, sans-serif" font-weight="600" font-size="16" text-anchor="middle" fill="url(#st-gold)"></g>
+                <!-- mecha y llama -->
+                <path class="st-wick" id="st-wick" d="M160 196 Q162 184 160 174" stroke="#3b2a1e" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <g class="st-flame" id="st-flame">
+                  <path d="M160 128 C172 146 174 160 170 168 C166 176 154 176 150 168 C146 160 148 146 160 128 Z" fill="#ffb347"/>
+                  <path d="M160 146 C166 156 167 162 164 167 C162 171 158 171 156 167 C153 162 154 156 160 146 Z" fill="#fff3c4"/>
+                </g>
+                <!-- vaso por delante -->
+                <path d="M94 150 H226 V350 Q226 372 204 372 H116 Q94 372 94 350 Z" fill="url(#st-glass-g)" fill-opacity=".35" stroke="#9aa094" stroke-width="2.5"/>
+                <ellipse cx="160" cy="150" rx="66" ry="7" fill="none" stroke="#9aa094" stroke-width="2"/>
+                <path d="M106 172 V336" stroke="#fff" stroke-opacity=".75" stroke-width="5" stroke-linecap="round"/>
+                <g class="st-label" id="st-label"><rect x="122" y="300" width="76" height="34" rx="3" fill="#f6f1e8" stroke="#c3cbb5"/><text x="160" y="322" text-anchor="middle" font-family="Italiana, serif" font-size="15" letter-spacing="1.5" fill="#3f4a46">Vibra</text></g>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Festividades -->
       <section class="block fiestas" aria-labelledby="fiestas-title">
         <div class="wrap">
@@ -207,10 +309,18 @@
         </div>
       </section>
 
+      <!-- Manifiesto -->
+      <section class="manifiesto" aria-labelledby="manifiesto-title">
+        <div class="wrap">
+          <p class="eyebrow" id="manifiesto-title">Por qué Vibra</p>
+          <p class="manifiesto-text" id="manifiesto">A la gente le cuesta decir lo que siente. Por eso escondemos las palabras dentro de una vela: la enciendes, la cera se derrite y el mensaje aparece. Decirlo sin tener que decirlo.</p>
+        </div>
+      </section>
+
       <!-- La marca -->
       <section class="block marca" aria-labelledby="marca-title">
         <div class="wrap marca-inner">
-          <figure class="marca-img" data-reveal><img src="img/vibra-logo.jpg" alt="Logo de Vibra: una V con una llama dentro de un cuadrado, en una pared con luz de ventana" width="1024" height="1024" loading="lazy"></figure>
+          <figure class="marca-img reveal-clip" data-reveal><img src="img/vibra-logo.jpg" alt="Logo de Vibra: una V con una llama dentro de un cuadrado, en una pared con luz de ventana" width="1024" height="1024" loading="lazy"></figure>
           <div class="marca-text" data-reveal>
             <svg class="logo-mark marca-mark" viewBox="0 0 60 60" aria-hidden="true"><rect class="mk-frame" x="1.5" y="1.5" width="57" height="57"/><path d="M20.5 14H27V14.7H25.3L31 33.2L37.7 15.2L35.6 14.7V14H40.5V14.7H38.7L31.2 37H30.3L22.3 14.7H20.5Z"/><path class="mk-flame" fill-rule="evenodd" d="M30.7 41C33.4 43.6 34.4 46.3 33.3 49 32.5 50.9 31 51.8 29.6 51.8 27.6 51.8 26.6 50.3 26.6 48.6 26.6 46.7 27.9 45.3 29 44.4 28.9 45.8 29.3 46.9 30.1 47.5 29.6 45.6 29.8 43 30.7 41ZM31.1 45.3C32.4 46.9 32.6 48.6 31.6 50 31 50.8 30.2 51 29.6 50.6 30.6 49.4 31.3 47.5 31.1 45.3Z"/></svg>
             <p class="eyebrow">Nuestra marca</p>
@@ -218,7 +328,7 @@
             <p>Velas hechas a mano para días más bonitos. Cera natural, aromas seguros y, si quieres, un mensaje escondido que solo aparece al encenderla.</p>
             <a class="btn btn-solid" href="#/nosotros">Conócenos <span class="arrow" aria-hidden="true">→</span></a>
           </div>
-          <figure class="marca-img marca-img--alt" data-reveal><img src="img/vibra-vela.jpg" alt="Sombra de una mano sujetando una vela encendida con el nombre Vibra" width="1078" height="1347" loading="lazy"></figure>
+          <figure class="marca-img marca-img--alt reveal-clip" data-reveal><img src="img/vibra-vela.jpg" alt="Sombra de una mano sujetando una vela encendida con el nombre Vibra" width="1078" height="1347" loading="lazy"></figure>
         </div>
       </section>
 
@@ -463,8 +573,8 @@
         </div>
       </div>
       <div class="wrap brand-row">
-        <figure class="brand-photo" data-reveal><img src="img/vibra-vela.jpg" alt="Sombra de una mano sujetando una vela encendida con el nombre Vibra" width="1078" height="1347" loading="lazy"><figcaption>Vibra</figcaption></figure>
-        <figure class="brand-photo" data-reveal><img src="img/vibra-logo.jpg" alt="Logo de Vibra en una pared con luz de ventana" width="1024" height="1024" loading="lazy"><figcaption>Nuestro logo: la V con una llama</figcaption></figure>
+        <figure class="brand-photo reveal-clip" data-reveal><img src="img/vibra-vela.jpg" alt="Sombra de una mano sujetando una vela encendida con el nombre Vibra" width="1078" height="1347" loading="lazy"><figcaption>Vibra</figcaption></figure>
+        <figure class="brand-photo reveal-clip" data-reveal><img src="img/vibra-logo.jpg" alt="Logo de Vibra en una pared con luz de ventana" width="1024" height="1024" loading="lazy"><figcaption>Nuestro logo: la V con una llama</figcaption></figure>
       </div>
       <div class="wrap">
         <ul class="values">
@@ -556,6 +666,7 @@
         <a class="back-portfolio" href="../index.html#idea-negocio"><span aria-hidden="true">←</span> Volver al portfolio</a>
       </div>
     </div>
+    <div class="ftr-giant" id="ftr-giant" aria-hidden="true"><span style="--k:0">V</span><span style="--k:1">i</span><span style="--k:2">b</span><span style="--k:3">r</span><span style="--k:4">a</span></div>
   </footer>
 
   <!-- Carrito -->
@@ -631,6 +742,7 @@
   <script src="js/datos.js?v=3"></script>
   <script src="js/velas.js?v=3"></script>
   <script src="js/empresa.js?v=3"></script>
-  <script src="js/tienda.js?v=3"></script>
+  <script src="js/tienda.js?v=4"></script>
+  <script src="js/motion.js?v=1"></script>
 </body>
 </html>
