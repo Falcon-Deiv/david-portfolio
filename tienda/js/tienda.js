@@ -325,9 +325,55 @@
       saveCart();
     }
   });
-  $('#checkout').addEventListener('click', function () {
-    toast('Esto es un prototipo: aquí terminaría la compra. ¡Gracias por probarla!');
-  });
+  $('#checkout').addEventListener('click', function () { openCheckout(); });
+
+  /* ---------- Finalizar compra: el pedido llega al área de empresa ---------- */
+  const ENVIO = 4.95;
+  function openCheckout() {
+    if (!cart.length) return;
+    const sub = cartTotal();
+    const envio = sub >= T.envioGratis ? 0 : ENVIO;
+    const body = $('#co-body');
+    body.innerHTML =
+      '<h2 id="co-title">Finalizar compra</h2>' +
+      '<ul class="co-items">' + cart.map(function (it) { return '<li><span>' + it.qty + ' × ' + esc(it.nombre) + '</span><span>' + eur(it.precio * it.qty) + '</span></li>'; }).join('') + '</ul>' +
+      '<dl class="co-totals"><div><dt>Subtotal</dt><dd>' + eur(sub) + '</dd></div><div><dt>Envío</dt><dd>' + (envio ? eur(envio) : 'Gratis') + '</dd></div><div class="co-total"><dt>Total (IVA incluido)</dt><dd>' + eur(sub + envio) + '</dd></div></dl>' +
+      '<form class="co-form" id="co-form" novalidate>' +
+      '<label class="field"><span>Nombre y apellidos</span><input name="nombre" required autocomplete="name"></label>' +
+      '<label class="field"><span>Correo</span><input name="email" type="email" required autocomplete="email"></label>' +
+      '<label class="field"><span>Dirección</span><input name="direccion" required autocomplete="street-address"></label>' +
+      '<label class="field"><span>Ciudad y código postal</span><input name="ciudad" required autocomplete="address-level2"></label>' +
+      '<label class="field"><span>Nota para el pedido (opcional)</span><input name="nota" maxlength="120" placeholder="Ej.: es para regalar"></label>' +
+      '<button class="btn btn-solid btn-block" type="submit">Confirmar pedido · ' + eur(sub + envio) + '</button>' +
+      '<p class="emp-small">Prototipo: no se cobra nada. El pedido llega al área de empresa de este navegador.</p>' +
+      '</form>';
+    openLayer($('#checkout-modal'));
+    $('#co-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const f = e.currentTarget;
+      let ok = true;
+      $$('[required]', f).forEach(function (inp) {
+        const bad = !inp.value.trim() || (inp.type === 'email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(inp.value));
+        inp.closest('.field').classList.toggle('is-error', bad);
+        if (bad) ok = false;
+      });
+      if (!ok) { toast('Revisa los campos marcados'); return; }
+      const d = Object.fromEntries(new FormData(f).entries());
+      const pedido = window.Empresa.nuevoPedidoWeb({
+        cliente: { nombre: d.nombre.trim(), email: d.email.trim(), direccion: d.direccion.trim(), ciudad: d.ciudad.trim() },
+        nota: (d.nota || '').trim(),
+        items: cart.map(function (it) { return { nombre: it.nombre, detalle: it.detalle || '', qty: it.qty, precio: it.precio }; }),
+        subtotal: sub, envio: envio, total: Math.round((sub + envio) * 100) / 100
+      });
+      cart = [];
+      saveCart();
+      updateBadges('cart');
+      body.innerHTML = '<div class="co-ok">' + V.svg({ id: 'ok', forma: 'vaso', cristal: 'ambar', cera: '#f3e6d3', encendida: true, etiquetaTexto: 'Gracias' }) +
+        '<h2 id="co-title">¡Pedido recibido!</h2><p>Tu número de pedido es <strong>' + esc(pedido.num) + '</strong>. Te escribiremos a ' + esc(pedido.cliente.email) + ' cuando salga.</p>' +
+        '<p class="emp-small">Es un prototipo: no se ha cobrado nada.</p><button class="btn btn-solid" type="button" data-close-co>Seguir mirando</button></div>';
+      $('[data-close-co]', body).addEventListener('click', function () { closeAll(); });
+    });
+  }
 
   function toggleFav(id, btn) {
     if (favs.has(id)) favs.delete(id); else favs.add(id);
@@ -1161,7 +1207,7 @@
   /* =========================================================
      Rutas (#/pagina/sub)
      ========================================================= */
-  const VIEWS = { '': 'inicio', tematicas: 'tematicas', colecciones: 'colecciones', 'mecha-de-madera': 'madera', 'crea-tu-vela': 'crea', producto: 'producto', regalos: 'regalos', nosotros: 'nosotros', contacto: 'contacto' };
+  const VIEWS = { '': 'inicio', tematicas: 'tematicas', colecciones: 'colecciones', 'mecha-de-madera': 'madera', 'crea-tu-vela': 'crea', producto: 'producto', regalos: 'regalos', nosotros: 'nosotros', contacto: 'contacto', empresa: 'empresa' };
   let currentView = null;
   function route() {
     const hash = location.hash || '#/';
@@ -1189,6 +1235,7 @@
     if (view === 'regalos') renderRegalos();
     if (view === 'nosotros') document.title = 'Sobre nosotros · Chispa';
     if (view === 'contacto') document.title = 'Contacto · Chispa';
+    if (view === 'empresa') { window.Empresa.render($('#empresa'), sub); if (!changed) jumpTop(); }
     observeReveals();
     closeDrops();
   }
@@ -1257,6 +1304,7 @@
   });
 
   /* ---------- Arranque ---------- */
+  window.Empresa.init({ toast: toast, store: store, eur: eur, esc: esc, V: V, openLayer: openLayer, closeAll: closeAll });
   fillDrops();
   initHero();
   initHome();

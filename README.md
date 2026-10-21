@@ -33,6 +33,9 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   `tienda/js/datos.js`: el catálogo (productos, precios, aromas, colecciones y opciones del configurador). Para añadir una vela basta con añadir un objeto aquí.
 *   `tienda/js/velas.js`: dibuja las velas en SVG (taza, copa, tarta, calabaza, árbol, etc.). No hay fotos: todas las velas son ilustraciones.
 *   `tienda/js/tienda.js`: rutas, banner de temporada, carrusel, sonido, configurador, carrito y favoritos (se guardan en el navegador).
+*   `tienda/js/empresa.js`: **Área de empresa** (`#/empresa`, enlace «Acceso empresa» en el pie). Solo para Jorge y Maite, con usuario y contraseña. Desde ahí se hacen pedidos a proveedores (con base imponible, IVA del 21 % y nota de pedido para imprimir o guardar en PDF), se lleva el historial con su estado y se ven los pedidos que hacen los clientes en la tienda. Se pueden descargar en CSV.
+    *   Las contraseñas **no están en el código**: solo un resumen cifrado (PBKDF2-SHA256 con sal). Tras 5 intentos fallidos se bloquea 1 minuto y la sesión se cierra a las 2 horas o al cerrar la pestaña.
+    *   Como la web no tiene servidor, es una protección de prototipo y los pedidos se guardan en el navegador donde se hacen. Para cambiar una contraseña hay que generar un nuevo resumen y sustituirlo en `USERS`.
 *   El nombre «Chispa» es provisional: cambia en el logo de `tienda/index.html` y en `marca` de `datos.js`.
 
 ## 🛠️ Notas para la continuación del proyecto
