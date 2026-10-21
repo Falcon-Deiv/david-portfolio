@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=12">
+  <link rel="stylesheet" href="css/styles.css?v=13">
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
@@ -1043,60 +1043,27 @@
               </ul>
             </article>
 
-            <article class="card idea-card">
+            <article class="card idea-card web-card">
               <header class="idea-card-head">
-                <h3>Primer diseño de la web</h3>
-                <p class="idea-hint">Navega por el menú.</p>
+                <h3>Nuestra web</h3>
+                <p class="idea-hint">Es una web de verdad: pruébala.</p>
               </header>
-              <div class="browser">
+              <div class="browser web-live">
                 <div class="browser-bar" aria-hidden="true">
                   <span class="browser-dots"><i></i><i></i><i></i></span>
-                  <span class="browser-url" id="web-url">/inicio</span>
+                  <span class="browser-url">chispa · velas hechas a mano</span>
                 </div>
-                <div class="browser-nav" role="tablist" aria-label="Menú de la web">
-                  <button type="button" class="web-link is-active" role="tab" id="web-inicio" aria-controls="webp-inicio" data-sw-btn="web" data-key="inicio" data-url="/inicio">Inicio</button>
-                  <button type="button" class="web-link" role="tab" id="web-tematicas" aria-controls="webp-tematicas" data-sw-btn="web" data-key="tematicas" data-url="/tematicas">Temáticas</button>
-                  <button type="button" class="web-link" role="tab" id="web-colecciones" aria-controls="webp-colecciones" data-sw-btn="web" data-key="colecciones" data-url="/colecciones">Colecciones</button>
-                  <button type="button" class="web-link" role="tab" id="web-madera" aria-controls="webp-madera" data-sw-btn="web" data-key="madera" data-url="/mecha-de-madera">Mecha de madera</button>
-                  <button type="button" class="web-link" role="tab" id="web-crea" aria-controls="webp-crea" data-sw-btn="web" data-key="crea" data-url="/crea-tu-vela">Crea tu vela</button>
-                  <button type="button" class="web-link" role="tab" id="web-regalos" aria-controls="webp-regalos" data-sw-btn="web" data-key="regalos" data-url="/regalos">Regalos</button>
+                <div class="web-frame" id="web-frame">
+                  <iframe src="tienda/index.html" title="Vista previa de la web de Chispa" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
                 </div>
-                <div class="browser-page">
-                  <div class="web-page" id="webp-inicio" role="tabpanel" aria-labelledby="web-inicio" data-sw-panel="web" data-key="inicio">
-                    <p class="web-banner">Banner que cambia con la temporada: calabazas en octubre, Navidad en diciembre.</p>
-                    <p>Debajo, el carrusel <strong>«Para comerte a besos (¡no a bocados!)»</strong> con las velas que parecen postres, un bloque para la mecha de madera, el botón de «Crea tu vela» y accesos a cada festividad. Al final, lo que nos importa: ceras naturales, aromas seguros y todo hecho a mano.</p>
-                  </div>
-                  <div class="web-page" id="webp-tematicas" role="tabpanel" aria-labelledby="web-tematicas" data-sw-panel="web" data-key="tematicas">
-                    <ul class="web-cards">
-                      <li><strong>Halloween</strong>Calabazas, fantasmas y pócimas. Huele a calabaza especiada o manzana con canela.</li>
-                      <li><strong>Navidad</strong>Árboles, copos y muñecos de jengibre. Pino, galleta de jengibre o chocolate caliente.</li>
-                      <li><strong>Pascua</strong>Huevos, conejitos y flores. Vainilla, miel y flores frescas.</li>
-                      <li><strong>San Valentín</strong>Corazones y tartas. Fresas con nata o champán.</li>
-                    </ul>
-                  </div>
-                  <div class="web-page" id="webp-colecciones" role="tabpanel" aria-labelledby="web-colecciones" data-sw-panel="web" data-key="colecciones">
-                    <ul class="web-cards">
-                      <li><strong>Dulces</strong>Tazas con nata, tartas, donuts, gofres…</li>
-                      <li><strong>Salados</strong>Palomitas, ramen o nachos.</li>
-                      <li><strong>Naturaleza</strong>Suculentas y flores en 3D. Eucalipto, lavanda, tierra mojada.</li>
-                      <li><strong>Zodiaco</strong>Una vela para cada signo, con su color y su aroma.</li>
-                      <li><strong>Mística</strong>Gemas de cera. Sándalo, incienso, palo santo.</li>
-                      <li><strong>Escultórica</strong>Bustos griegos y formas geométricas.</li>
-                    </ul>
-                  </div>
-                  <div class="web-page" id="webp-madera" role="tabpanel" aria-labelledby="web-madera" data-sw-panel="web" data-key="madera">
-                    <p>Velas con mecha de madera: cruje como una chimenea pequeña, quema más limpio y queda muy natural. Se pueden filtrar por dulces, navideñas o de bosque, y llevan una guía para recortar la mecha antes de cada uso.</p>
-                  </div>
-                  <div class="web-page" id="webp-crea" role="tabpanel" aria-labelledby="web-crea" data-sw-panel="web" data-key="crea">
-                    <ol class="web-steps">
-                      <li>Envase o molde</li><li>Mecha de algodón o de madera</li><li>Color</li><li>Aroma</li><li>Toppings de cera</li><li>Mensaje o etiqueta</li>
-                    </ol>
-                    <p class="web-warn">En cada vela, un aviso bien grande: «Aunque parezca delicioso, NO ES COMESTIBLE».</p>
-                  </div>
-                  <div class="web-page" id="webp-regalos" role="tabpanel" aria-labelledby="web-regalos" data-sw-panel="web" data-key="regalos">
-                    <p>Mini tartas de vela como recuerdo para invitados, cajas temáticas como la «Caja mágica de Halloween» o la «Caja astral», y velas con nombres o logos para bodas y empresas.</p>
-                  </div>
-                </div>
+                <a class="web-live-link" href="tienda/index.html" target="_blank" rel="noopener"><span>Abrir la web <span aria-hidden="true">↗</span></span></a>
+              </div>
+              <ul class="step-tags web-features" aria-label="Qué tiene la web">
+                <li>Banner que cambia con la temporada</li><li>Carrusel «Para comerte a besos»</li><li>Mecha de madera que se oye</li><li>Configurador «Crea tu vela»</li><li>Carrito, favoritos y buscador</li>
+              </ul>
+              <div class="web-actions">
+                <a class="candle-btn web-btn" href="tienda/index.html" target="_blank" rel="noopener">Ver la web <span aria-hidden="true">↗</span></a>
+                <a class="web-btn-line" href="tienda/index.html#/crea-tu-vela" target="_blank" rel="noopener">Ir a «Crea tu vela»</a>
               </div>
               <p class="web-after">Después del SCAMPER y los sombreros la idea es simplificarla: menos colecciones y ordenada por ocasiones («Para regalar», «Para mí» y «Para una fiesta»).</p>
             </article>
@@ -1205,6 +1172,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=8"></script>
 </body>
 </html>

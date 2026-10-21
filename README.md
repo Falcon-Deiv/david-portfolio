@@ -17,7 +17,8 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   **Proyecto UniWay (App):** Sección *hero* destacada que incluye el prototipo de Netlify, enlace al código y una demostración en vídeo emulada dentro de un marco de smartphone creado con CSS.
 *   **Mi Equipo:** Maquetación del Caso Asesoría y diseño visual del "Contrato de Equipo" simulando un documento A4 real con firmas.
 *   **Liderazgo:** Reflexiones y conclusiones sobre las dinámicas grupales ("Estilo novia", "El espejo", "El baile").
-*   **Idea de negocio (Fase 1 · grupal):** "Velas con mensaje oculto" con una vela interactiva (escribes un mensaje, la enciendes y aparecen las letras) y pestañas propias: cómo llegamos a la idea (pasos con SCAMPER, sombreros y flor de loto que se pueden pulsar), lienzo Canvas interactivo, evaluación con competencia y números, taller y maqueta navegable de la web, y por qué emprender con los socios. El apunte original de la flor de loto está en `assets/img/flor-de-loto.jpg`.
+*   **Idea de negocio (Fase 1 · grupal):** "Velas con mensaje oculto" con una vela interactiva y pestañas propias: cómo llegamos a la idea (SCAMPER, sombreros y flor de loto), lienzo Canvas, evaluación con números, taller y web, y por qué emprender. En "Taller y web" hay una vista previa en vivo de la tienda y un botón para abrirla, igual que el prototipo de UniWay.
+*   **Tienda «Chispa» (`tienda/`):** Web completa de la tienda de velas (prototipo, sin pagos). Menú con desplegables, banner que cambia según la temporada (Halloween, Navidad, San Valentín, Pascua), carrusel «Para comerte a besos», mecha de madera con sonido de chimenea generado en el navegador, configurador «Crea tu vela» de 6 pasos, ficha de producto con pirámide olfativa y aviso de «no es comestible», regalos, zodiaco, carrito, favoritos y buscador.
 *   **Reflexión Final:** Tabla de valoraciones (con notas y etiquetas doradas) y conclusiones personales en un tono sincero y directo.
 
 ## 💻 Características Técnicas y Diseño
@@ -26,6 +27,13 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   **Motion & Animaciones:** Uso de `IntersectionObserver` en JS para lograr efectos de aparición en cascada (*fade-in slide-up*) al hacer scroll, con soporte para opciones de "reducir movimiento" del sistema operativo.
 *   **Transparencia (Archivos originales):** Integración de botones fantasma (*ghost buttons*) debajo de cada componente interactivo que abren los JPGs/PDFs originales de los apuntes a mano, alojados directamente en el repo.
 *   **Optimización:** *Assets* aligerados y control de versiones estricto (eliminación de imágenes pesadas o en desuso para mantener la carga rápida). CSS cache-busting implementado (`?v=9`): sube el número cada vez que cambies `styles.css`.
+
+## 🕯️ La tienda (`tienda/`)
+*   `tienda/index.html`: estructura de todas las páginas. Se navega con rutas tipo `#/tematicas/halloween`, `#/producto/<id>` o `#/crea-tu-vela`, así funciona en GitHub Pages sin servidor.
+*   `tienda/js/datos.js`: el catálogo (productos, precios, aromas, colecciones y opciones del configurador). Para añadir una vela basta con añadir un objeto aquí.
+*   `tienda/js/velas.js`: dibuja las velas en SVG (taza, copa, tarta, calabaza, árbol, etc.). No hay fotos: todas las velas son ilustraciones.
+*   `tienda/js/tienda.js`: rutas, banner de temporada, carrusel, sonido, configurador, carrito y favoritos (se guardan en el navegador).
+*   El nombre «Chispa» es provisional: cambia en el logo de `tienda/index.html` y en `marca` de `datos.js`.
 
 ## 🛠️ Notas para la continuación del proyecto
 Como este portfolio se irá ampliando en los próximos meses, ten en cuenta lo siguiente para futuras actualizaciones:

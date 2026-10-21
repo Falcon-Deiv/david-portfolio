@@ -210,7 +210,7 @@
 
   /* ---------- Idea de negocio: grupos de botones que cambian lo que se ve ----------
      Cada botón lleva data-sw-btn="grupo" y data-key; cada panel, data-sw-panel="grupo"
-     y la misma data-key. Sirve para las pestañas, sombreros, pétalos, lienzo, precios y web. */
+     y la misma data-key. Sirve para las pestañas, sombreros, pétalos, lienzo y precios. */
   function initSwitch(group) {
     const btns = Array.from(document.querySelectorAll('[data-sw-btn="' + group + '"]'));
     const panels = Array.from(document.querySelectorAll('[data-sw-panel="' + group + '"]'));
@@ -228,10 +228,6 @@
           b.setAttribute('aria-pressed', String(on));
         }
         if (on && focusBtn) b.focus();
-        if (on && b.dataset.url) {
-          const url = document.getElementById('web-url');
-          if (url) url.textContent = b.dataset.url;
-        }
       });
       panels.forEach(function (p) { p.hidden = p.dataset.key !== key; });
     }
@@ -260,7 +256,18 @@
     const hasIntro = panels.some(function (p) { return p.dataset.key === 'intro'; });
     show(active ? active.dataset.key : (hasIntro ? 'intro' : btns[0].dataset.key));
   }
-  ['idea', 'sombrero', 'petalo', 'canvas', 'precio', 'web'].forEach(initSwitch);
+  ['idea', 'sombrero', 'petalo', 'canvas', 'precio'].forEach(initSwitch);
+
+  /* ---------- Idea de negocio: vista previa de la web (iframe a escala) ---------- */
+  const webFrame = document.getElementById('web-frame');
+  if (webFrame) {
+    const fit = function () {
+      if (webFrame.clientWidth) webFrame.style.setProperty('--s', (webFrame.clientWidth / 1366).toFixed(4));
+    };
+    if ('ResizeObserver' in window) new ResizeObserver(fit).observe(webFrame);
+    window.addEventListener('resize', fit);
+    fit();
+  }
 
   /* ---------- Idea de negocio: vela con mensaje oculto ---------- */
   const candle = document.getElementById('candle');

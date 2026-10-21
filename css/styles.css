@@ -1591,40 +1591,21 @@ p:last-child { margin-bottom: 0; }
 .browser-dots i:nth-child(2) { background: #f3cf7a; }
 .browser-dots i:nth-child(3) { background: #9fd3a8; }
 .browser-url { flex: 1; min-width: 0; padding: 4px 12px; border-radius: 999px; background: #fff; border: 1px solid var(--line); color: var(--muted); font-size: .8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.browser-nav { display: flex; gap: 4px; padding: 8px; border-bottom: 1px solid var(--line); background: #fffaf2; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.web-link {
-  flex: none;
-  padding: 6px 12px;
-  border: 0;
-  border-radius: 8px;
-  background: transparent;
-  color: #6b4d26;
-  font: inherit; font-size: .85rem; font-weight: 600;
-  cursor: pointer;
-  transition: background .2s, color .2s;
-}
-.web-link:hover { background: var(--gold-100); }
-.web-link:focus-visible { outline: 2px solid var(--blue-500); outline-offset: -2px; }
-.web-link.is-active { background: #6b4d26; color: #fff; }
-.browser-page { padding: 20px 22px; min-height: 230px; }
-.web-page { animation: fadeUp .35s ease both; }
-.web-page[hidden] { display: none; }
-.web-page + .web-page { margin-top: 16px; }
-.web-banner {
-  padding: 18px 20px;
-  border-radius: 12px;
-  background: linear-gradient(120deg, #f6b26b, #e0743c);
-  color: #fff;
-  font-weight: 700;
-}
-.web-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.web-cards li { padding: 12px 14px; border-radius: 12px; background: #fffaf2; border: 1px solid #efe3cc; font-size: .9rem; line-height: 1.45; }
-.web-cards strong { display: block; margin-bottom: 2px; color: #6b4d26; }
-.web-steps { margin: 0; padding: 0; list-style: none; counter-reset: web; display: flex; flex-wrap: wrap; gap: 8px; }
-.web-steps li { counter-increment: web; padding: 6px 12px; border-radius: 999px; background: #fffaf2; border: 1px solid #efe3cc; font-size: .88rem; font-weight: 600; }
-.web-steps li::before { content: counter(web) ". "; color: #b07a2a; }
-.web-warn { margin-top: 14px; padding: 10px 14px; border-radius: 10px; background: #fdecea; color: #9b2c22; font-weight: 600; font-size: .9rem; }
 .web-after { margin: 14px 0 0; color: var(--muted); font-size: .9rem; }
+/* Vista previa en vivo de la web (como el prototipo de UniWay) */
+.web-live { position: relative; }
+.web-frame { position: relative; aspect-ratio: 1366 / 860; overflow: hidden; background: #fbf7f1; }
+.web-frame iframe { position: absolute; top: 0; left: 0; width: 1366px; height: 860px; border: 0; transform-origin: 0 0; transform: scale(var(--s, .5)); pointer-events: none; }
+.web-live-link { position: absolute; inset: 0; z-index: 1; display: grid; place-items: center; border-radius: inherit; background: rgba(43, 26, 18, 0); transition: background .3s; }
+.web-live-link > span { padding: 12px 22px; border-radius: 999px; background: var(--gold-500); color: var(--navy-900); font-weight: 700; box-shadow: 0 10px 24px rgba(0, 0, 0, .25); opacity: 0; transform: translateY(8px); transition: opacity .3s, transform .3s; }
+.web-live-link:hover, .web-live-link:focus-visible { background: rgba(43, 26, 18, .35); }
+.web-live-link:hover > span, .web-live-link:focus-visible > span { opacity: 1; transform: none; }
+.web-live-link:focus-visible { outline: 3px solid var(--blue-500); outline-offset: 3px; }
+.web-features { margin-top: 14px; }
+.web-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 16px; }
+.web-btn { display: inline-flex; align-items: center; gap: 6px; }
+.web-btn-line { display: inline-flex; align-items: center; padding: 9px 18px; border: 1.5px solid var(--line); border-radius: 999px; color: var(--navy-900); font-weight: 600; transition: border-color .2s, background .2s; }
+.web-btn-line:hover { border-color: var(--blue-500); background: var(--blue-50); }
 
 /* Socios */
 .partners { display: grid; gap: 12px; }
@@ -1741,8 +1722,6 @@ p:last-child { margin-bottom: 0; }
   .canvas-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "propuesta" "clientes" "canales" "relacion" "actividades" "recursos" "socios" "costes" "ingresos"; }
   .price-rows { grid-template-columns: 1fr; }
   .price-rows dd { font-size: 1.2rem; }
-  .web-cards { grid-template-columns: 1fr; }
-  .browser-page { padding: 16px; }
   .itabs .itab { flex: 1 1 auto; border-radius: 12px; padding: 10px 14px; }
   .step-panel { flex-direction: column; }
   .step-panel { padding: 18px; gap: 14px; min-height: 0; }

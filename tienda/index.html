@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chispa · Velas hechas a mano</title>
+  <meta name="description" content="Chispa: velas artesanas de cera natural. Temáticas, gourmand, naturaleza, mecha de madera y velas a tu gusto. Prototipo del proyecto de Simulación Empresarial.">
+  <meta name="theme-color" content="#3a2419">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4C40 18 46 26 46 38a14 14 0 0 1-28 0c0-8 6-14 8-22 2 6 6 9 6 9S32 14 32 4z' fill='%23e8952f'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tienda.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <!-- Barra de avisos (se mueve sola) -->
+  <div class="announce" aria-label="Avisos">
+    <div class="announce-track">
+      <span>Envío gratis a partir de 45 €</span><span>Ceras naturales de soja y miel</span><span>Hechas a mano, una a una</span><span>Nuevo: velas con mensaje oculto</span>
+      <span aria-hidden="true">Envío gratis a partir de 45 €</span><span aria-hidden="true">Ceras naturales de soja y miel</span><span aria-hidden="true">Hechas a mano, una a una</span><span aria-hidden="true">Nuevo: velas con mensaje oculto</span>
+    </div>
+  </div>
+
+  <!-- Cabecera -->
+  <header class="hdr" id="hdr">
+    <div class="hdr-inner">
+      <button class="icon-btn hdr-burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-drawer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+
+      <a class="logo" href="#/" aria-label="Chispa, inicio">
+        <svg class="logo-flame" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1c3 6 7 9 7 15a7 7 0 0 1-14 0c0-4 3-7 4-11 1 3 3 4 3 4s0-4 0-8z"/></svg>
+        <span>Chispa</span>
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#/" data-nav="inicio">Inicio</a></li>
+          <li class="has-drop">
+            <button class="nav-link" type="button" aria-expanded="false" aria-controls="drop-tematicas" data-nav="tematicas">Temáticas <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg></button>
+            <div class="drop" id="drop-tematicas">
+              <div class="drop-inner">
+                <p class="drop-title">Velas temáticas y festivas</p>
+                <ul class="drop-links" id="drop-tem-links"></ul>
+                <a class="drop-feature" id="drop-tem-feature" href="#/tematicas"></a>
+              </div>
+            </div>
+          </li>
+          <li class="has-drop">
+            <button class="nav-link" type="button" aria-expanded="false" aria-controls="drop-colecciones" data-nav="colecciones">Colecciones <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg></button>
+            <div class="drop" id="drop-colecciones">
+              <div class="drop-inner">
+                <p class="drop-title">Gourmand, naturaleza y esotérica</p>
+                <ul class="drop-links" id="drop-col-links"></ul>
+                <a class="drop-feature" id="drop-col-feature" href="#/colecciones/dulces"></a>
+              </div>
+            </div>
+          </li>
+          <li><a class="nav-link nav-wood" href="#/mecha-de-madera" data-nav="madera"><span class="wood-dot" aria-hidden="true"></span>Mecha de madera</a></li>
+          <li><a class="nav-link" href="#/crea-tu-vela" data-nav="crea">Crea tu vela</a></li>
+          <li><a class="nav-link" href="#/regalos" data-nav="regalos">Regalos</a></li>
+          <li><a class="nav-link" href="#/nosotros" data-nav="nosotros">Nosotros</a></li>
+          <li><a class="nav-link" href="#/contacto" data-nav="contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="hdr-icons">
+        <button class="icon-btn" id="open-search" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        </button>
+        <button class="icon-btn" id="open-favs" aria-label="Favoritos">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>
+          <span class="badge" id="fav-count" hidden>0</span>
+        </button>
+        <button class="icon-btn hide-sm" id="open-account" aria-label="Mi cuenta">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        </button>
+        <button class="icon-btn" id="open-cart" aria-label="Carrito">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="badge" id="cart-count" hidden>0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= INICIO ================= -->
+    <section class="view" data-view="inicio" aria-label="Inicio">
+
+      <!-- Banner de temporada -->
+      <section class="hero" id="hero" data-season="halloween">
+        <div class="hero-glow" id="hero-glow" aria-hidden="true"></div>
+        <div class="hero-particles" id="hero-particles" aria-hidden="true"></div>
+        <svg class="hero-branch" viewBox="0 0 200 400" aria-hidden="true"><path d="M100 400 C 104 300, 92 220, 110 120 M106 260 C 130 240, 150 236, 170 214 M103 300 C 80 284, 60 280, 36 262 M108 180 C 128 160, 136 140, 160 128 M110 140 C 92 118, 80 96, 60 86"/><g class="hero-berries"><circle cx="170" cy="214" r="4"/><circle cx="160" cy="128" r="4"/><circle cx="60" cy="86" r="4"/><circle cx="36" cy="262" r="4"/><circle cx="110" cy="120" r="4"/><circle cx="150" cy="226" r="3"/><circle cx="72" cy="94" r="3"/></g></svg>
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="eyebrow" id="hero-eyebrow">Temporada de Halloween</p>
+            <h1 class="hero-title" id="hero-title">Noches de calabaza</h1>
+            <p class="hero-sub" id="hero-sub">Calabazas, fantasmas y pócimas que huelen a otoño.</p>
+            <div class="hero-actions">
+              <a class="btn btn-solid" id="hero-cta" href="#/tematicas/halloween">Ver la colección <span class="arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn-line" href="#/crea-tu-vela">Crea la tuya</a>
+            </div>
+            <div class="hero-seasons" role="tablist" aria-label="Temporadas" id="hero-seasons"></div>
+          </div>
+          <div class="hero-stage" id="hero-stage">
+            <div class="stage-block stage-block--a"><div class="stage-candle" data-slot="0"></div></div>
+            <div class="stage-block stage-block--b"><div class="stage-candle" data-slot="1"></div></div>
+            <div class="stage-block stage-block--c"><div class="stage-candle" data-slot="2"></div></div>
+          </div>
+        </div>
+        <a class="hero-scroll" href="#besos" aria-label="Bajar"><span></span></a>
+      </section>
+
+      <!-- Para comerte a besos -->
+      <section class="block besos" id="besos" aria-labelledby="besos-title">
+        <div class="big-marquee" aria-hidden="true"><div class="big-marquee-track"><span>Para comerte a besos</span><span>¡no a bocados!</span><span>Para comerte a besos</span><span>¡no a bocados!</span><span>Para comerte a besos</span><span>¡no a bocados!</span></div></div>
+        <div class="wrap">
+          <div class="block-head">
+            <div>
+              <p class="eyebrow">Gourmand</p>
+              <h2 id="besos-title">Para comerte a besos <em>(¡no a bocados!)</em></h2>
+            </div>
+            <div class="carousel-ctrls">
+              <button class="round-btn" data-carousel-prev="besos-track" aria-label="Anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+              <button class="round-btn" data-carousel-next="besos-track" aria-label="Siguientes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+          </div>
+          <div class="carousel" id="besos-track" tabindex="0" aria-label="Velas que parecen postres"></div>
+          <div class="carousel-progress" aria-hidden="true"><span id="besos-progress"></span></div>
+        </div>
+      </section>
+
+      <!-- Mecha de madera -->
+      <section class="wood" id="wood-feature" aria-labelledby="wood-title">
+        <canvas class="wood-sparks" id="wood-sparks" aria-hidden="true"></canvas>
+        <div class="wrap wood-inner">
+          <div class="wood-visual">
+            <div class="wood-candle" id="wood-candle"></div>
+            <div class="eq" id="wood-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="wood-text">
+            <p class="eyebrow eyebrow--light">Efecto chimenea</p>
+            <h2 id="wood-title">Escucha cómo cruje</h2>
+            <p>Nuestras velas con mecha de madera suenan como una chimenea pequeña. Dale al botón, cierra los ojos y piensa en una manta.</p>
+            <button class="sound-btn" type="button" data-sound aria-pressed="false">
+              <span class="sound-ico" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></span>
+              <span class="sound-label">Escuchar el chisporroteo</span>
+            </button>
+            <ul class="wood-benefits">
+              <li><strong>Sonido relajante</strong>Crepita flojito, como la leña.</li>
+              <li><strong>Quema más limpio</strong>Más superficie de cera y más aroma.</li>
+              <li><strong>Natural</strong>Rústica, moderna y bonita apagada.</li>
+            </ul>
+            <a class="link-light" href="#/mecha-de-madera">Ver las velas con mecha de madera <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Crea tu vela -->
+      <section class="block crea-promo" aria-labelledby="crea-promo-title">
+        <div class="wrap crea-promo-inner">
+          <div class="crea-promo-visual" data-reveal>
+            <div class="crea-promo-candle" id="crea-promo-candle"></div>
+            <p class="crea-promo-tag" id="crea-promo-tag">Taza · Menta · Nata</p>
+          </div>
+          <div class="crea-promo-text" data-reveal>
+            <p class="eyebrow">Taller de personalización</p>
+            <h2 id="crea-promo-title">Crea tu vela a medida</h2>
+            <p>Para un cumpleaños, un evento o porque sí. Eliges el envase, la mecha, el color, el aroma, los toppings y el mensaje. Nosotros la hacemos a mano.</p>
+            <ol class="mini-steps"><li>Envase</li><li>Mecha</li><li>Color</li><li>Aroma</li><li>Toppings</li><li>Mensaje</li></ol>
+            <a class="btn btn-solid" href="#/crea-tu-vela">Empezar a diseñar <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Festividades -->
+      <section class="block fiestas" aria-labelledby="fiestas-title">
+        <div class="wrap">
+          <div class="block-head">
+            <div>
+              <p class="eyebrow">Por temporada</p>
+              <h2 id="fiestas-title">Una vela para cada fiesta</h2>
+            </div>
+            <a class="link" href="#/tematicas">Ver todas <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="fiesta-grid" id="fiesta-grid"></div>
+        </div>
+      </section>
+
+      <!-- Mensaje oculto -->
+      <section class="block secreto" aria-labelledby="secreto-title">
+        <div class="wrap secreto-inner">
+          <div class="secreto-text" data-reveal>
+            <p class="eyebrow">Nuestra idea estrella</p>
+            <h2 id="secreto-title">Un mensaje que aparece al encenderla</h2>
+            <p>Escondemos unas letras metálicas bajo la cera. Al encender la vela, la cera se vuelve líquida y las letras van saliendo una a una. Para decir «te quiero», «ánimo» o una frase de tu libro favorito sin tener que decirlo.</p>
+            <a class="btn btn-solid" href="#/crea-tu-vela?mensaje">Escribe tu mensaje <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+          <div class="secreto-visual" data-reveal aria-hidden="true">
+            <div class="secreto-candle" id="secreto-candle"></div>
+            <div class="secreto-letters" id="secreto-letters"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Compromiso de calidad -->
+      <section class="block calidad" aria-labelledby="calidad-title">
+        <div class="wrap">
+          <h2 class="center" id="calidad-title">Nuestro compromiso</h2>
+          <ul class="calidad-grid">
+            <li data-reveal>
+              <span class="cal-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6c8 8 14 14 14 22a14 14 0 0 1-28 0c0-8 6-14 14-22z"/><path d="M24 20v22M24 30l-6-5M24 34l6-5"/></svg></span>
+              <h3>Ceras naturales</h3><p>Soja y cera de abeja: se moldean muy bien y queman limpio.</p>
+            </li>
+            <li data-reveal>
+              <span class="cal-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 6l14 6v10c0 9-6 16-14 20-8-4-14-11-14-20V12z"/><path d="M17 24l5 5 9-10"/></svg></span>
+              <h3>Aromas seguros</h3><p>Aceites aromáticos aptos para velas y libres de ftalatos.</p>
+            </li>
+            <li data-reveal>
+              <span class="cal-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M16 42V22a3 3 0 0 1 6 0v8M22 26v-8a3 3 0 0 1 6 0v10M28 22a3 3 0 0 1 6 0v8M34 26a3 3 0 0 1 6 0v6c0 6-4 10-10 10h-6c-4 0-6-2-8-4"/></svg></span>
+              <h3><span class="count" data-count="100">0</span> % a mano</h3><p>Cada vela la hacemos nosotros, una a una.</p>
+            </li>
+            <li data-reveal>
+              <span class="cal-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M14 18l4-8h12l4 8M10 18h28l-3 22H13z"/><path d="M19 28l4 4 7-8"/></svg></span>
+              <h3>Envase reutilizable</h3><p>Tazas y vasos que se quedan en casa, y papel reciclado para envolver.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </section>
+
+    <!-- ================= TEMÁTICAS ================= -->
+    <section class="view" data-view="tematicas" aria-labelledby="tem-title" hidden>
+      <header class="page-head" id="tem-head">
+        <div class="wrap">
+          <p class="crumbs"><a href="#/">Inicio</a> <span aria-hidden="true">/</span> Temáticas</p>
+          <h1 id="tem-title">Velas temáticas y festivas</h1>
+          <p class="page-sub">Ordenadas por temporada para encontrar rápido lo que buscas.</p>
+        </div>
+      </header>
+      <div class="wrap">
+        <div class="chips" role="tablist" aria-label="Temporadas" id="tem-chips"></div>
+        <div class="cat-intro" id="tem-intro"></div>
+        <div class="grid" id="tem-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= COLECCIONES ================= -->
+    <section class="view" data-view="colecciones" aria-labelledby="col-title" hidden>
+      <header class="page-head page-head--light">
+        <div class="wrap">
+          <p class="crumbs"><a href="#/">Inicio</a> <span aria-hidden="true">/</span> Colecciones</p>
+          <h1 id="col-title">Gourmand, naturaleza y esotérica</h1>
+          <p class="page-sub">Formas, aromas y sensaciones. Elige una colección.</p>
+        </div>
+      </header>
+      <div class="wrap">
+        <div class="chips" role="tablist" aria-label="Colecciones" id="col-chips"></div>
+        <div class="cat-intro" id="col-intro"></div>
+        <div class="zodiac" id="zodiac" hidden>
+          <div class="zodiac-wheel" id="zodiac-wheel"></div>
+          <div class="zodiac-info" id="zodiac-info" aria-live="polite"></div>
+        </div>
+        <div class="grid" id="col-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= MECHA DE MADERA ================= -->
+    <section class="view" data-view="madera" aria-labelledby="mad-title" hidden>
+      <header class="page-head page-head--wood">
+        <div class="wrap mad-head">
+          <div>
+            <p class="crumbs"><a href="#/">Inicio</a> <span aria-hidden="true">/</span> Mecha de madera</p>
+            <h1 id="mad-title">Velas con mecha de madera</h1>
+            <p class="page-sub">La mecha natural que cruje como una chimenea.</p>
+            <button class="sound-btn" type="button" data-sound aria-pressed="false">
+              <span class="sound-ico" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></span>
+              <span class="sound-label">Escuchar el chisporroteo</span>
+            </button>
+          </div>
+          <div class="mad-head-candle" id="mad-head-candle"></div>
+        </div>
+      </header>
+      <div class="wrap">
+        <h2 class="sec-title">¿Por qué mecha de madera?</h2>
+        <div class="why" id="why">
+          <div class="why-tabs" role="tablist" aria-label="Ventajas">
+            <button class="why-tab is-active" role="tab" id="why-t1" aria-controls="why-p1" aria-selected="true">Sonido relajante</button>
+            <button class="why-tab" role="tab" id="why-t2" aria-controls="why-p2" aria-selected="false" tabindex="-1">Quemado más limpio</button>
+            <button class="why-tab" role="tab" id="why-t3" aria-controls="why-p3" aria-selected="false" tabindex="-1">Estética natural</button>
+          </div>
+          <div class="why-panel" id="why-p1" role="tabpanel" aria-labelledby="why-t1">
+            <div class="why-anim why-anim--sound" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <p>Crepita delicadamente, como una chimenea pequeña. Es el sonido que más se comenta cuando alguien la enciende por primera vez.</p>
+          </div>
+          <div class="why-panel" id="why-p2" role="tabpanel" aria-labelledby="why-t2" hidden>
+            <div class="why-anim why-anim--pool" aria-hidden="true"><span></span></div>
+            <p>La mecha plana derrite más superficie de cera: la piscina de cera es más grande y el aroma sale de forma constante.</p>
+          </div>
+          <div class="why-panel" id="why-p3" role="tabpanel" aria-labelledby="why-t3" hidden>
+            <div class="why-anim why-anim--wood" aria-hidden="true"><span></span><span></span><span></span></div>
+            <p>Rústica, moderna y elegante. Queda bonita incluso apagada.</p>
+          </div>
+        </div>
+
+        <div class="chips chips--filter" role="group" aria-label="Filtrar" id="mad-filters"></div>
+        <div class="grid" id="mad-grid"></div>
+
+        <section class="guide" aria-labelledby="guide-title">
+          <h2 class="sec-title" id="guide-title">Guía de uso</h2>
+          <ol class="guide-steps">
+            <li data-reveal><span class="guide-ill guide-ill--1" aria-hidden="true"></span><strong>Antes de encenderla</strong>Quita la parte quemada de la madera con los dedos o con un papel. Tiene que quedar más o menos medio centímetro.</li>
+            <li data-reveal><span class="guide-ill guide-ill--2" aria-hidden="true"></span><strong>Enciéndela inclinada</strong>Acerca la llama a lo largo de la mecha unos segundos. Al principio la llama es pequeña: es normal.</li>
+            <li data-reveal><span class="guide-ill guide-ill--3" aria-hidden="true"></span><strong>Déjala hasta el borde</strong>La primera vez, déjala encendida hasta que toda la superficie esté líquida. Así no hace túnel.</li>
+          </ol>
+        </section>
+      </div>
+    </section>
+
+    <!-- ================= CREA TU VELA ================= -->
+    <section class="view" data-view="crea" aria-labelledby="crea-title" hidden>
+      <header class="page-head page-head--light">
+        <div class="wrap">
+          <p class="crumbs"><a href="#/">Inicio</a> <span aria-hidden="true">/</span> Crea tu vela</p>
+          <h1 id="crea-title">Crea tu vela</h1>
+          <p class="page-sub">Seis pasos y la tienes. La vas viendo cambiar mientras eliges.</p>
+        </div>
+      </header>
+      <div class="wrap crea">
+        <div class="crea-preview">
+          <div class="crea-stage">
+            <div class="crea-candle" id="crea-candle"></div>
+            <div class="crea-msg" id="crea-msg" aria-hidden="true"></div>
+            <button class="crea-light" type="button" id="crea-light" aria-pressed="true">Apagar</button>
+          </div>
+          <dl class="crea-summary" id="crea-summary"></dl>
+          <div class="crea-total"><span>Total</span><strong id="crea-price">16,00 €</strong></div>
+          <button class="btn btn-solid btn-block" type="button" id="crea-add">Añadir al carrito</button>
+        </div>
+
+        <div class="crea-steps">
+          <ol class="crea-progress" id="crea-progress" aria-label="Pasos"></ol>
+          <div class="crea-panels" id="crea-panels">
+            <fieldset class="crea-panel" data-step="0">
+              <legend>1. Elige el envase o molde</legend>
+              <div class="opt-grid" id="opt-envase"></div>
+            </fieldset>
+            <fieldset class="crea-panel" data-step="1" hidden>
+              <legend>2. Elige la mecha</legend>
+              <div class="opt-grid opt-grid--2" id="opt-mecha"></div>
+              <button class="sound-btn sound-btn--small" type="button" data-sound aria-pressed="false">
+                <span class="sound-ico" aria-hidden="true"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></span>
+                <span class="sound-label">Escuchar la mecha de madera</span>
+              </button>
+            </fieldset>
+            <fieldset class="crea-panel" data-step="2" hidden>
+              <legend>3. Elige el color</legend>
+              <div id="opt-color"></div>
+            </fieldset>
+            <fieldset class="crea-panel" data-step="3" hidden>
+              <legend>4. Elige el aroma</legend>
+              <label class="field"><span>Aroma</span><select id="opt-aroma"></select></label>
+              <p class="hint" id="aroma-hint"></p>
+            </fieldset>
+            <fieldset class="crea-panel" data-step="4" hidden>
+              <legend>5. Añade toppings de cera <small>(hasta 3)</small></legend>
+              <div class="topping-grid" id="opt-toppings"></div>
+              <label class="field" id="sign-field" hidden><span>Tu signo</span><select id="opt-signo"></select></label>
+            </fieldset>
+            <fieldset class="crea-panel" data-step="5" hidden>
+              <legend>6. Etiqueta o mensaje</legend>
+              <div class="msg-mode" role="radiogroup" aria-label="Tipo de mensaje">
+                <label class="msg-opt"><input type="radio" name="msgmode" value="etiqueta" checked><span><strong>Etiqueta</strong>Texto impreso en la etiqueta</span></label>
+                <label class="msg-opt"><input type="radio" name="msgmode" value="oculto"><span><strong>Mensaje oculto</strong>Letras metálicas que aparecen al derretirse (+1 €)</span></label>
+              </div>
+              <label class="field"><span id="msg-label">Texto de la etiqueta</span><input type="text" id="opt-msg" maxlength="30" placeholder="Feliz cumpleaños María"></label>
+              <p class="hint" id="msg-hint">Ejemplos: «Feliz cumpleaños María», «Propiedad de la bruja de la casa», «Energía Tauro».</p>
+            </fieldset>
+          </div>
+          <div class="crea-nav">
+            <button class="btn btn-line" type="button" id="crea-prev">Anterior</button>
+            <button class="btn btn-solid" type="button" id="crea-next">Siguiente</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FICHA DE PRODUCTO ================= -->
+    <section class="view" data-view="producto" aria-label="Producto" hidden>
+      <div class="wrap" id="product"></div>
+    </section>
+
+    <!-- ================= REGALOS ================= -->
+    <section class="view" data-view="regalos" aria-labelledby="reg-title" hidden>
+      <header class="page-head page-head--gift">
+        <div class="wrap">
+          <p class="crumbs"><a href="#/">Inicio</a> <span aria-hidden="true">/</span> Regalos</p>
+          <h1 id="reg-title">Regalos y eventos</h1>
+          <p class="page-sub">Cumpleaños, cajas temáticas, bodas y empresas.</p>
+        </div>
+      </header>
+      <div class="wrap">
+        <div class="gift-intro">
+          <article class="gift-card" data-reveal>
+            <div class="gift-ill" id="gift-mini"></div>
+            <h3>Detalles para cumpleaños y fiestas</h3>
+            <p>Mini tartas de vela como recuerdo para los invitados. Las hacemos con el color y el aroma de la fiesta.</p>
+            <a class="link" href="#/contacto">Pedir presupuesto <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="gift-card" data-reveal>
+            <div class="gift-ill" id="gift-boda"></div>
+            <h3>Bodas y empresas</h3>
+            <p>Velas temáticas con nombres o logotipos para regalar a los invitados o al equipo.</p>
+            <a class="link" href="#/contacto">Cuéntanos tu idea <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+        <h2 class="sec-title">Cajas y packs</h2>
+        <div class="grid grid--boxes" id="reg-grid"></div>
+      </div>
+    </section>
+
+    <!-- ================= SOBRE NOSOTROS ================= -->
+    <section class="view" data-view="nosotros" aria-labelledby="nos-title" hidden>
+      <header class="page-head page-head--light">
+        <div class="wrap">
+          <p class="crumbs"><a href="#/">Inicio</a> <span aria-hidden="true">/</span> Sobre nosotros</p>
+          <h1 id="nos-title">Hechas a mano por Jorge y Maite</h1>
+        </div>
+      </header>
+      <div class="wrap about">
+        <div class="about-text" data-reveal>
+          <p class="lead">Chispa nace de algo que vemos mucho: a la gente le cuesta decir lo que siente. Una vela es una forma bonita de decirlo sin tener que decirlo.</p>
+          <p>Somos dos estudiantes de Administración y Finanzas. Nos gusta leer, la papelería y estudiar con una vela encendida, y queríamos regalos que sorprendan de verdad, no lo de siempre.</p>
+          <p>Hacemos las velas en un taller pequeño en casa: fundimos la cera, mezclamos aroma y color, las vertemos y las decoramos una a una. También llevamos las redes, los pedidos y las cuentas.</p>
+        </div>
+        <div class="team" data-reveal>
+          <figure class="member"><img src="img/jorge.jpg" alt="Jorge" width="220" height="220" loading="lazy"><figcaption><strong>Jorge</strong>Creativo y organizado</figcaption></figure>
+          <figure class="member"><img src="img/maite.jpg" alt="Maite" width="220" height="220" loading="lazy"><figcaption><strong>Maite</strong>Vídeos y redes</figcaption></figure>
+        </div>
+      </div>
+      <div class="wrap">
+        <ul class="values">
+          <li data-reveal><strong>Cera vegetal</strong>Soja y cera de abeja.</li>
+          <li data-reveal><strong>Envase reutilizable</strong>La taza se queda en casa.</li>
+          <li data-reveal><strong>Papel reciclado</strong>Para envolver cada pedido.</li>
+          <li data-reveal><strong>Hecho a mano</strong>Una a una, en nuestro taller.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= CONTACTO ================= -->
+    <section class="view" data-view="contacto" aria-labelledby="con-title" hidden>
+      <header class="page-head page-head--light">
+        <div class="wrap">
+          <p class="crumbs"><a href="#/">Inicio</a> <span aria-hidden="true">/</span> Contacto</p>
+          <h1 id="con-title">Hablamos</h1>
+          <p class="page-sub">Pedidos personalizados, eventos, empresas o cualquier duda.</p>
+        </div>
+      </header>
+      <div class="wrap contact">
+        <form class="contact-form" id="contact-form" novalidate>
+          <label class="field"><span>Nombre</span><input type="text" name="nombre" required autocomplete="name"></label>
+          <label class="field"><span>Correo</span><input type="email" name="email" required autocomplete="email"></label>
+          <label class="field"><span>¿Sobre qué?</span>
+            <select name="tema"><option>Pedido personalizado</option><option>Evento o fiesta</option><option>Bodas o empresas</option><option>Otra cosa</option></select>
+          </label>
+          <label class="field"><span>Mensaje</span><textarea name="mensaje" rows="5" required></textarea></label>
+          <button class="btn btn-solid" type="submit">Enviar</button>
+          <p class="form-note" id="contact-note" role="status"></p>
+        </form>
+        <aside class="contact-side">
+          <h2>También por aquí</h2>
+          <p>Por Instagram y WhatsApp concretamos los detalles de cada vela personalizada.</p>
+          <div class="social">
+            <button class="social-btn" type="button" data-soon="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>Instagram</button>
+            <button class="social-btn" type="button" data-soon="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11a4 4 0 1 1-4-4M14 3c1 3 3 4 6 4"/></svg>TikTok</button>
+            <button class="social-btn" type="button" data-soon="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.5-4A8 8 0 1 1 9 19z"/></svg>WhatsApp</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="ftr">
+    <div class="wrap ftr-top">
+      <div class="ftr-brand">
+        <a class="logo logo--light" href="#/"><svg class="logo-flame" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1c3 6 7 9 7 15a7 7 0 0 1-14 0c0-4 3-7 4-11 1 3 3 4 3 4s0-4 0-8z"/></svg><span>Chispa</span></a>
+        <p>Velas hechas a mano para días más bonitos.</p>
+        <div class="social social--light">
+          <button class="social-btn" type="button" data-soon="TikTok" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11a4 4 0 1 1-4-4M14 3c1 3 3 4 6 4"/></svg></button>
+          <button class="social-btn" type="button" data-soon="Instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></button>
+        </div>
+      </div>
+      <div class="ftr-col">
+        <h3>Cuida tus velas</h3>
+        <div class="faq">
+          <details><summary>Cómo cortar la mecha de algodón</summary><p>Antes de cada uso, córtala a unos 5 mm con unas tijeras o un cortamechas. Así la llama no hace humo.</p></details>
+          <details><summary>Cómo cortar la mecha de madera</summary><p>Quita la parte quemada con los dedos o con un papel, con la vela apagada y fría. Deja unos 3-5 mm.</p></details>
+          <details><summary>Cómo limpiar la taza o la copa</summary><p>Cuando se acabe, métela un rato en el congelador: la cera se despega sola. Después, agua caliente y jabón, y ya la puedes usar.</p></details>
+          <details><summary>Velas con toppings o sin envase</summary><p>Ponlas siempre sobre un plato o una base que aguante el calor.</p></details>
+        </div>
+      </div>
+      <div class="ftr-col">
+        <h3>Aviso de seguridad</h3>
+        <ul class="safety">
+          <li>No dejes nunca una vela encendida sin vigilar.</li>
+          <li>Lejos de niños, mascotas y cortinas. Aunque parezcan postres, <strong>no se comen</strong>.</li>
+          <li>Sobre una superficie que aguante el calor.</li>
+          <li>Como mucho 3-4 horas seguidas.</li>
+        </ul>
+      </div>
+      <div class="ftr-col ftr-news">
+        <h3>Newsletter</h3>
+        <p>Suscríbete y recibe sorpresas dulces y avisos de las ediciones limitadas.</p>
+        <form class="news-form" id="news-form" novalidate>
+          <label class="sr-only" for="news-email">Tu correo</label>
+          <input type="email" id="news-email" placeholder="Tu correo" required autocomplete="email">
+          <button type="submit" aria-label="Suscribirme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <p class="form-note" id="news-note" role="status"></p>
+      </div>
+    </div>
+    <div class="wrap ftr-bottom">
+      <p>© 2026 Chispa · Prototipo del proyecto de Simulación Empresarial (2º A.F). No se venden velas de verdad.</p>
+      <a class="back-portfolio" href="../index.html#idea-negocio"><span aria-hidden="true">←</span> Volver al portfolio</a>
+    </div>
+  </footer>
+
+  <!-- Carrito -->
+  <div class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+    <div class="drawer-head">
+      <h2 id="cart-title">Tu carrito</h2>
+      <button class="icon-btn" data-close aria-label="Cerrar carrito"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="ship-bar"><p id="ship-text"></p><div class="ship-track"><span id="ship-fill"></span></div></div>
+    <ul class="drawer-list" id="cart-list"></ul>
+    <div class="drawer-foot">
+      <div class="drawer-total"><span>Subtotal</span><strong id="cart-total">0,00 €</strong></div>
+      <button class="btn btn-solid btn-block" type="button" id="checkout">Finalizar compra</button>
+    </div>
+  </div>
+
+  <!-- Favoritos -->
+  <div class="drawer" id="fav-drawer" role="dialog" aria-modal="true" aria-labelledby="fav-title" hidden>
+    <div class="drawer-head">
+      <h2 id="fav-title">Favoritos</h2>
+      <button class="icon-btn" data-close aria-label="Cerrar favoritos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <ul class="drawer-list" id="fav-list"></ul>
+  </div>
+
+  <!-- Buscador -->
+  <div class="search" id="search" role="dialog" aria-modal="true" aria-label="Buscar" hidden>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <label class="sr-only" for="search-input">Buscar velas</label>
+      <input type="search" id="search-input" placeholder="Busca por vela o aroma: canela, taza, lavanda…" autocomplete="off">
+      <button class="icon-btn" data-close aria-label="Cerrar buscador"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <ul class="search-results" id="search-results" aria-live="polite"></ul>
+  </div>
+
+  <!-- Cuenta -->
+  <div class="popover" id="account-pop" hidden>
+    <p><strong>Mi cuenta</strong></p>
+    <p>Aquí podrás ver tus pedidos y tus velas guardadas. Lo estamos preparando.</p>
+  </div>
+
+  <!-- Menú móvil -->
+  <div class="drawer drawer--left" id="menu-drawer" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+    <div class="drawer-head">
+      <a class="logo" href="#/"><svg class="logo-flame" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1c3 6 7 9 7 15a7 7 0 0 1-14 0c0-4 3-7 4-11 1 3 3 4 3 4s0-4 0-8z"/></svg><span>Chispa</span></a>
+      <button class="icon-btn" data-close aria-label="Cerrar menú"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <nav class="m-nav" id="m-nav" aria-label="Menú móvil"></nav>
+  </div>
+
+  <div class="backdrop" id="backdrop" hidden></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/datos.js?v=1"></script>
+  <script src="js/velas.js?v=1"></script>
+  <script src="js/tienda.js?v=1"></script>
+</body>
+</html>
