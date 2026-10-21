@@ -1,10 +1,10 @@
 /* =========================================================
-   Chispa · catálogo (prototipo)
+   Vibra · catálogo (prototipo)
    Precios según el plan: colección 13-15 €, personalizada 16-18 €,
    packs 28-35 €. Coste de cada vela: 3,50-5 €.
    ========================================================= */
 window.TIENDA = {
-  marca: 'Chispa',
+  marca: 'Vibra',
   envioGratis: 45,
 
   // Grupos del menú

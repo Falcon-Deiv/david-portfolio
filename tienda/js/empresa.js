@@ -1,5 +1,5 @@
 /* =========================================================
-   Chispa · Área de empresa (solo Jorge y Maite)
+   Vibra · Área de empresa (solo Jorge y Maite)
    - Acceso con usuario y contraseña. En el código NO está la contraseña:
      solo un resumen (hash PBKDF2-SHA256 con sal). Se comprueba en el navegador.
    - Como la web no tiene servidor, los pedidos se guardan en el navegador
@@ -17,6 +17,7 @@
   const MAX_FAILS = 5;          // intentos antes de bloquear
   const LOCK_SECONDS = 60;
   const IVA = 0.21;
+  const MARK = '<svg class="doc-mark" viewBox="0 0 60 60" aria-hidden="true"><rect x="1.5" y="1.5" width="57" height="57" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M20.5 14H27V14.7H25.3L31 33.2L37.7 15.2L35.6 14.7V14H40.5V14.7H38.7L31.2 37H30.3L22.3 14.7H20.5Z"/><path fill="currentColor" fill-rule="evenodd" d="M30.7 41C33.4 43.6 34.4 46.3 33.3 49 32.5 50.9 31 51.8 29.6 51.8 27.6 51.8 26.6 50.3 26.6 48.6 26.6 46.7 27.9 45.3 29 44.4 28.9 45.8 29.3 46.9 30.1 47.5 29.6 45.6 29.8 43 30.7 41ZM31.1 45.3C32.4 46.9 32.6 48.6 31.6 50 31 50.8 30.2 51 29.6 50.6 30.6 49.4 31.3 47.5 31.1 45.3Z"/></svg>';
 
   /* Proveedores (socios clave del lienzo). Precios orientativos, sin IVA. */
   const PROVEEDORES = [
@@ -60,10 +61,10 @@
   function round2(n) { return Math.round(n * 100) / 100; }
   function icon(name) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || '') + '</svg>'; }
   function ses() {
-    try { return JSON.parse(sessionStorage.getItem('chispa-sesion') || 'null'); } catch (e) { return mem.ses || null; }
+    try { return JSON.parse(sessionStorage.getItem('vibra-sesion') || 'null'); } catch (e) { return mem.ses || null; }
   }
   function setSes(v) {
-    try { if (v) sessionStorage.setItem('chispa-sesion', JSON.stringify(v)); else sessionStorage.removeItem('chispa-sesion'); } catch (e) { mem.ses = v; }
+    try { if (v) sessionStorage.setItem('vibra-sesion', JSON.stringify(v)); else sessionStorage.removeItem('vibra-sesion'); } catch (e) { mem.ses = v; }
   }
   function pedidos() { return app.store.get('pedidos-proveedor', []); }
   function pedidosWeb() { return app.store.get('pedidos-web', []); }
@@ -106,11 +107,10 @@
   }
 
   function renderLogin(root, msg) {
-    document.title = 'Área de empresa · Chispa';
+    document.title = 'Área de empresa · Vibra';
     root.innerHTML =
       '<div class="emp-login">' +
-      '<div class="emp-login-art" aria-hidden="true"><div class="emp-login-candle" id="emp-candle">' + app.V.svg({ id: 'login', forma: 'vaso', cristal: 'negro', cera: '#efe6d6', mecha: 'madera', etiquetaTexto: 'Equipo' }) + '</div>' +
-      '</div>' +
+      '<div class="emp-login-art" aria-hidden="true"><img class="emp-login-photo" src="img/vibra-vela.jpg" alt="" width="1078" height="1347"><span class="emp-login-glow"></span></div>' +
       '<form class="emp-login-form" id="emp-form" novalidate>' +
       '<p class="eyebrow"><span class="lock-ico">' + icon('lock') + '</span>Área de empresa</p>' +
       '<h1>Acceso para el equipo</h1>' +
@@ -166,8 +166,6 @@
       if (ok) {
         setLock({ fallos: 0, hasta: 0 });
         setSes({ u: u, exp: Date.now() + SESSION_MIN * 60000 });
-        const svg = root.querySelector('#emp-candle .vela');
-        if (svg) svg.classList.add('is-lit');
         root.querySelector('.emp-login').classList.add('is-in-ok');
         setTimeout(function () {
           if (location.hash.indexOf('#/empresa') === 0) render(root, 'nuevo');
@@ -201,7 +199,7 @@
     const gasto = peds.reduce(function (t, p) { return t + p.total; }, 0);
     const ventas = webs.reduce(function (t, p) { return t + p.total; }, 0);
     const pendWeb = webs.filter(function (p) { return p.estado !== 'Enviado'; }).length;
-    document.title = 'Área de empresa · Chispa';
+    document.title = 'Área de empresa · Vibra';
     root.innerHTML =
       '<div class="emp-panel">' +
       '<header class="emp-top">' +
@@ -383,7 +381,7 @@
   /* ---------- Nota de pedido (documento) ---------- */
   function docHtml(p) {
     return '<article class="doc" id="doc">' +
-      '<header class="doc-head"><div class="doc-brand"><span>CHISPA</span><small>Velas hechas a mano<br>Jorge González Luque y Maite Basterrechea Carrasco</small></div>' +
+      '<header class="doc-head"><div class="doc-brand">' + MARK + '<span>Vibra</span><small>Velas hechas a mano<br>Jorge González Luque y Maite Basterrechea Carrasco</small></div>' +
       '<div class="doc-title"><h2>Nota de pedido</h2><p>Nº <strong>' + app.esc(p.num) + '</strong></p><p>Fecha: ' + fecha(p.fecha) + '</p></div></header>' +
       '<div class="doc-parties"><div><span class="doc-k">Proveedor</span><strong>' + app.esc(p.proveedorNombre) + '</strong></div>' +
       '<div><span class="doc-k">Entrega deseada</span><strong>' + fecha(p.entrega) + '</strong></div>' +

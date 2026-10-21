@@ -1,5 +1,5 @@
 /* =========================================================
-   Chispa · tienda de velas (prototipo)
+   Vibra · tienda de velas (prototipo)
    Todo funciona en el navegador: no hay servidor ni pagos.
    ========================================================= */
 (function () {
@@ -23,8 +23,19 @@
   }
   function norm(t) { return String(t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
   const store = {
-    get: function (k, d) { try { const v = localStorage.getItem('chispa-' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
-    set: function (k, v) { try { localStorage.setItem('chispa-' + k, JSON.stringify(v)); } catch (e) { /* sin almacenamiento */ } }
+    get: function (k, d) {
+      try {
+        let v = localStorage.getItem('vibra-' + k);
+        if (v === null && localStorage.getItem('chispa-' + k) !== null) {
+          // datos guardados con el nombre anterior de la tienda
+          v = localStorage.getItem('chispa-' + k);
+          localStorage.setItem('vibra-' + k, v);
+          localStorage.removeItem('chispa-' + k);
+        }
+        return v ? JSON.parse(v) : d;
+      } catch (e) { return d; }
+    },
+    set: function (k, v) { try { localStorage.setItem('vibra-' + k, JSON.stringify(v)); } catch (e) { /* sin almacenamiento */ } }
   };
   const ICON = {
     heart: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
@@ -648,7 +659,7 @@
     });
   });
 
-  /* ---------- Chispas (canvas) ---------- */
+  /* ---------- Chispas de la mecha (canvas) ---------- */
   function initSparks() {
     const canvas = $('#wood-sparks');
     const section = $('#wood-feature');
@@ -819,7 +830,7 @@
     head.style.setProperty('--theme-1', V.shade(t.color, -0.55));
     head.style.setProperty('--theme-2', V.shade(t.color, -0.2));
     fillGrid($('#tem-grid'), T.productos.filter(function (p) { return p.grupo === 'tematicas' && p.sub === sub; }));
-    document.title = t.nombre + ' · Chispa';
+    document.title = t.nombre + ' · Vibra';
   }
 
   let wheelAngle = 0;
@@ -832,7 +843,7 @@
     fillGrid($('#col-grid'), T.productos.filter(function (p) { return p.grupo === 'colecciones' && p.sub === sub; }));
     $('#zodiac').hidden = sub !== 'zodiaco';
     if (sub === 'zodiaco') renderZodiac();
-    document.title = c.nombre + ' · Chispa';
+    document.title = c.nombre + ' · Vibra';
   }
   function renderZodiac() {
     const wheel = $('#zodiac-wheel');
@@ -881,7 +892,7 @@
     }).join('');
     const list = T.productos.filter(function (p) { return p.mecha === 'madera' && (maderaFilter === 'todas' || p.maderaGrupo === maderaFilter); });
     fillGrid($('#mad-grid'), list);
-    document.title = 'Mecha de madera · Chispa';
+    document.title = 'Mecha de madera · Vibra';
   }
   $('#mad-filters').addEventListener('click', function (e) {
     const b = e.target.closest('[data-mfilter]');
@@ -958,7 +969,7 @@
       '</div></div></div>' +
       '<section class="related"><h2 class="sec-title">También te puede gustar</h2><div class="grid" id="related-grid"></div></section>';
     fillGrid($('#related-grid'), related);
-    document.title = p.nombre + ' · Chispa';
+    document.title = p.nombre + ' · Vibra';
 
     // Vistas de la galería
     const main = $('#g-main');
@@ -997,7 +1008,7 @@
       $('#gift-boda').innerHTML = V.svg({ id: 'boda1', forma: 'vaso', cristal: 'claro', cera: '#f6ead6', etiquetaTexto: 'Boda' }) + V.svg({ id: 'boda2', forma: 'vaso', cristal: 'ambar', cera: '#f3e6d3', etiquetaTexto: 'Tu logo' });
     }
     fillGrid($('#reg-grid'), T.productos.filter(function (p) { return p.grupo === 'regalos'; }));
-    document.title = 'Regalos y eventos · Chispa';
+    document.title = 'Regalos y eventos · Vibra';
   }
 
   /* ---------- Crea tu vela ---------- */
@@ -1201,7 +1212,7 @@
       crea.msgMode();
       creaGo(5);
     }
-    document.title = 'Crea tu vela · Chispa';
+    document.title = 'Crea tu vela · Vibra';
   }
 
   /* =========================================================
@@ -1226,15 +1237,15 @@
     }
     $$('.nav-link').forEach(function (a) { a.classList.toggle('is-active', a.dataset.nav === view); });
 
-    if (view === 'inicio') document.title = 'Chispa · Velas hechas a mano';
+    if (view === 'inicio') document.title = 'Vibra · Velas hechas a mano';
     if (view === 'tematicas') renderTematicas(sub);
     if (view === 'colecciones') renderColecciones(sub);
     if (view === 'madera') renderMadera();
     if (view === 'crea') renderCrea(query);
     if (view === 'producto') { renderProducto(sub); jumpTop(); }
     if (view === 'regalos') renderRegalos();
-    if (view === 'nosotros') document.title = 'Sobre nosotros · Chispa';
-    if (view === 'contacto') document.title = 'Contacto · Chispa';
+    if (view === 'nosotros') document.title = 'Sobre nosotros · Vibra';
+    if (view === 'contacto') document.title = 'Contacto · Vibra';
     if (view === 'empresa') { window.Empresa.render($('#empresa'), sub); if (!changed) jumpTop(); }
     observeReveals();
     closeDrops();

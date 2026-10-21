@@ -1,5 +1,5 @@
 /* =========================================================
-   Chispa · dibujos de las velas (SVG)
+   Vibra · dibujos de las velas (SVG)
    Velas.svg(opciones) devuelve el SVG de una vela.
    opciones: forma, cera (color), envase (color), cristal, mecha,
              toppings [], etiqueta, encendida, id
@@ -174,7 +174,7 @@
         '<ellipse cx="120" cy="112" rx="53" ry="9" fill="#000" opacity="' + (glass === 'claro' ? 0 : 0.12) + '"/>';
       const front = '<rect x="60" y="96" width="120" height="138" rx="16" fill="url(#g-sheen)"/>' +
         '<ellipse cx="120" cy="97" rx="59" ry="6" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>' +
-        (o.etiqueta !== false ? '<g class="v-label"><rect x="86" y="146" width="68" height="56" rx="2" fill="#f1e8db"/><text x="120" y="167" text-anchor="middle" font-family="Jost, sans-serif" font-size="7" letter-spacing="2.4" fill="#5b3a29">CHISPA</text><line x1="112" y1="174" x2="128" y2="174" stroke="#b9a58e" stroke-width=".8"/><text x="120" y="188" text-anchor="middle" font-family="Jost, sans-serif" font-size="5.4" letter-spacing="1.6" fill="#7b6a5e">' + esc((o.etiquetaTexto || '').toUpperCase()).slice(0, 16) + '</text></g>' : '');
+        (o.etiqueta !== false ? '<g class="v-label"><rect x="86" y="146" width="68" height="56" rx="2" fill="#f1e8db"/><text x="120" y="167" text-anchor="middle" font-family="Italiana, serif" font-size="9.5" letter-spacing="1" fill="#3f4a46">Vibra</text><line x1="112" y1="174" x2="128" y2="174" stroke="#9aa386" stroke-width=".8"/><text x="120" y="188" text-anchor="middle" font-family="Jost, sans-serif" font-size="5.4" letter-spacing="1.6" fill="#7b6a5e">' + esc((o.etiquetaTexto || '').toUpperCase()).slice(0, 16) + '</text></g>' : '');
       return { back: s, front: front, wick: { x: 120, y: 110 }, top: { x: 120, y: 113, rx: 50, ry: 8 } };
     },
 

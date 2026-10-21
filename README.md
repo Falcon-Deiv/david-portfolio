@@ -18,7 +18,7 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   **Mi Equipo:** Maquetación del Caso Asesoría y diseño visual del "Contrato de Equipo" simulando un documento A4 real con firmas.
 *   **Liderazgo:** Reflexiones y conclusiones sobre las dinámicas grupales ("Estilo novia", "El espejo", "El baile").
 *   **Idea de negocio (Fase 1 · grupal):** "Velas con mensaje oculto" con una vela interactiva y pestañas propias: cómo llegamos a la idea (SCAMPER, sombreros y flor de loto), lienzo Canvas, evaluación con números, taller y web, y por qué emprender. En "Taller y web" hay una vista previa en vivo de la tienda y un botón para abrirla, igual que el prototipo de UniWay.
-*   **Tienda «Chispa» (`tienda/`):** Web completa de la tienda de velas (prototipo, sin pagos). Menú con desplegables, banner que cambia según la temporada (Halloween, Navidad, San Valentín, Pascua), carrusel «Para comerte a besos», mecha de madera con sonido de chimenea generado en el navegador, configurador «Crea tu vela» de 6 pasos, ficha de producto con pirámide olfativa y aviso de «no es comestible», regalos, zodiaco, carrito, favoritos y buscador.
+*   **Tienda «Vibra» (`tienda/`):** Web completa de la tienda de velas (prototipo, sin pagos). Menú con desplegables, banner que cambia según la temporada (Halloween, Navidad, San Valentín, Pascua), carrusel «Para comerte a besos», mecha de madera con sonido de chimenea generado en el navegador, configurador «Crea tu vela» de 6 pasos, ficha de producto con pirámide olfativa y aviso de «no es comestible», regalos, zodiaco, carrito, favoritos y buscador.
 *   **Reflexión Final:** Tabla de valoraciones (con notas y etiquetas doradas) y conclusiones personales en un tono sincero y directo.
 
 ## 💻 Características Técnicas y Diseño
@@ -36,7 +36,7 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   `tienda/js/empresa.js`: **Área de empresa** (`#/empresa`, enlace «Acceso empresa» en el pie). Solo para Jorge y Maite, con usuario y contraseña. Desde ahí se hacen pedidos a proveedores (con base imponible, IVA del 21 % y nota de pedido para imprimir o guardar en PDF), se lleva el historial con su estado y se ven los pedidos que hacen los clientes en la tienda. Se pueden descargar en CSV.
     *   Las contraseñas **no están en el código**: solo un resumen cifrado (PBKDF2-SHA256 con sal). Tras 5 intentos fallidos se bloquea 1 minuto y la sesión se cierra a las 2 horas o al cerrar la pestaña.
     *   Como la web no tiene servidor, es una protección de prototipo y los pedidos se guardan en el navegador donde se hacen. Para cambiar una contraseña hay que generar un nuevo resumen y sustituirlo en `USERS`.
-*   El nombre «Chispa» es provisional: cambia en el logo de `tienda/index.html` y en `marca` de `datos.js`.
+*   La marca es **Vibra**. El logo (una V con una llama dentro de un cuadrado) está dibujado en SVG en `tienda/index.html`, los colores salen de las fotos de la marca (salvia, beige y gris pizarra) y las fotos están en `tienda/img/`. El nombre también está en `marca` de `datos.js`.
 
 ## 🛠️ Notas para la continuación del proyecto
 Como este portfolio se irá ampliando en los próximos meses, ten en cuenta lo siguiente para futuras actualizaciones:
