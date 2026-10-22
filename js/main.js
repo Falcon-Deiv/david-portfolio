@@ -181,6 +181,7 @@
         stepPanels[j].hidden = !on;
       });
       steps.style.setProperty('--p', current / (stepBtns.length - 1));
+      stepPanels[current].dispatchEvent(new CustomEvent('stepshow'));
       prevBtn.disabled = current === 0;
       nextBtn.disabled = current === stepBtns.length - 1;
       stepCount.textContent = 'Paso ' + (current + 1) + ' de ' + stepBtns.length;
@@ -256,7 +257,7 @@
     const hasIntro = panels.some(function (p) { return p.dataset.key === 'intro'; });
     show(active ? active.dataset.key : (hasIntro ? 'intro' : btns[0].dataset.key));
   }
-  ['idea', 'sombrero', 'petalo', 'canvas', 'precio'].forEach(initSwitch);
+  ['idea', 'sombrero', 'petalo', 'canvas', 'motivo'].forEach(initSwitch);
 
   /* ---------- Idea de negocio: vista previa de la web (iframe a escala) ---------- */
   const webFrame = document.getElementById('web-frame');
@@ -269,69 +270,117 @@
     fit();
   }
 
-  /* ---------- Idea de negocio: vela con mensaje oculto ---------- */
-  const candle = document.getElementById('candle');
-  const candleForm = document.getElementById('candle-form');
-  if (candle && candleForm) {
-    const msgInput = document.getElementById('candle-msg');
-    const pool = document.getElementById('candle-letters');
-    const candleBtn = candleForm.querySelector('button');
-    const candleStatus = document.getElementById('candle-status');
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let timers = [];
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function stopTimers() {
-      timers.forEach(clearTimeout);
-      timers = [];
-    }
-
-    function putOut() {
-      stopTimers();
-      candle.dataset.state = 'off';
-      pool.textContent = '';
-      msgInput.readOnly = false;
-      candleBtn.textContent = 'Encender';
-      candleStatus.textContent = 'Las letras están escondidas bajo la cera.';
-    }
-
-    function light() {
-      const text = (msgInput.value.trim() || 'Ánimo').toUpperCase().slice(0, 12);
-      pool.textContent = '';
-      // Cada palabra va junta, para que las filas se corten entre palabras
-      text.split(/\s+/).filter(Boolean).forEach(function (word) {
-        const group = document.createElement('span');
-        group.className = 'bead-word';
-        Array.from(word).forEach(function (ch) {
-          const bead = document.createElement('span');
-          bead.className = 'bead';
-          bead.textContent = ch;
-          group.appendChild(bead);
-        });
-        pool.appendChild(group);
+  /* ---------- Idea de negocio: tablero de la lluvia de ideas ----------
+     «Ordenar por puesto» recoloca los post-its y los mueve con suavidad. */
+  const brain = document.getElementById('brain');
+  const brainSort = document.getElementById('brain-sort');
+  if (brain && brainSort) {
+    const cards = Array.from(brain.children);
+    brainSort.addEventListener('click', function () {
+      const on = brainSort.getAttribute('aria-pressed') !== 'true';
+      const before = new Map(cards.map(function (c) { return [c, c.getBoundingClientRect()]; }));
+      const order = on ? cards.slice().sort(function (a, b) { return a.dataset.rank - b.dataset.rank; }) : cards;
+      order.forEach(function (c) { brain.appendChild(c); });
+      brainSort.setAttribute('aria-pressed', String(on));
+      brainSort.textContent = on ? 'Orden del tablero' : 'Ordenar por puesto';
+      if (reduceMotion || !Element.prototype.animate) return;
+      cards.forEach(function (c) {
+        const a = before.get(c), z = c.getBoundingClientRect();
+        const dx = a.left - z.left, dy = a.top - z.top;
+        if (dx || dy) c.animate([{ translate: dx + 'px ' + dy + 'px' }, { translate: '0px 0px' }], { duration: 550, easing: 'cubic-bezier(.2,.7,.2,1)' });
       });
-      candle.dataset.state = 'lit';
-      msgInput.readOnly = true;
-      candleBtn.textContent = 'Apagar';
-      candleStatus.textContent = 'Se está derritiendo la cera… (en la vida real, 30-45 minutos)';
-
-      const beads = Array.from(pool.querySelectorAll('.bead'));
-      const wait = reduceMotion ? 0 : 1500;
-      const gap = reduceMotion ? 0 : 280;
-      beads.forEach(function (bead, i) {
-        timers.push(setTimeout(function () { bead.classList.add('is-shown'); }, wait + i * gap));
-      });
-      timers.push(setTimeout(function () {
-        candle.dataset.state = 'done';
-        candleStatus.textContent = 'Mensaje: «' + text + '». Apágala para probar otro.';
-      }, wait + beads.length * gap + 300));
-    }
-
-    candleForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (candle.dataset.state === 'off') light(); else putOut();
     });
+  }
 
-    candleForm.hidden = false;
-    putOut();
+  /* ---------- Idea de negocio: filtrado de ideas (barras) ----------
+     Cada idea guarda sus 6 subtotales (data-s). «Total» los suma (sobre 110). */
+  const filt = document.getElementById('filt');
+  if (filt) {
+    const rows = Array.from(filt.querySelectorAll('.filt-row'));
+    const MAX = [25, 20, 15, 15, 20, 15];
+    const NAMES = ['Mercado y nicho', 'Valor y diferenciación', 'Viabilidad técnica', 'Parte legal', 'Números', 'Equipo, riesgos e impacto'];
+    const filtBtns = Array.from(document.querySelectorAll('[data-filt]'));
+    const scale = document.getElementById('filt-scale');
+    const maxEl = document.getElementById('filt-max');
+    let mode = 'total';
+    const renderFilt = function () {
+      const vals = rows.map(function (r) {
+        const s = r.dataset.s.split(',').map(Number);
+        return mode === 'total' ? s.reduce(function (a, b) { return a + b; }, 0) : s[Number(mode)];
+      });
+      const max = mode === 'total' ? 110 : MAX[Number(mode)];
+      const top = Math.max.apply(null, vals);
+      rows.forEach(function (r, i) {
+        r.querySelector('.filt-bar i').style.width = (vals[i] / max * 100).toFixed(1) + '%';
+        r.querySelector('.filt-num').textContent = vals[i];
+        r.classList.toggle('is-top', vals[i] === top);
+      });
+      if (scale) scale.classList.toggle('is-hidden', mode !== 'total');
+      if (maxEl) maxEl.textContent = mode === 'total' ? 'Puntuación total, sobre 110. Menos de 60: aparcar · 60-74: investigar o pivotar · 75-89: avanzar corrigiendo debilidades · 90-110: validar ya.' : NAMES[Number(mode)] + ', sobre ' + max + '.';
+    };
+    filtBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        mode = b.dataset.filt;
+        filtBtns.forEach(function (x) { const on = x === b; x.classList.toggle('is-active', on); x.setAttribute('aria-pressed', String(on)); });
+        renderFilt();
+      });
+    });
+    // Las barras crecen cada vez que se abre el paso
+    const filtPanel = filt.closest('.step-panel');
+    if (filtPanel) {
+      filtPanel.addEventListener('stepshow', function () {
+        rows.forEach(function (r) { r.querySelector('.filt-bar i').style.width = '0'; });
+        requestAnimationFrame(function () { requestAnimationFrame(renderFilt); });
+      });
+    }
+    renderFilt();
+  }
+
+  /* ---------- Idea de negocio: circuito del negocio ----------
+     Filtra por bienes o dinero, o recorre los 8 tramos uno a uno. */
+  const circ = document.getElementById('circ');
+  if (circ) {
+    const showBtns = Array.from(document.querySelectorAll('[data-circ]'));
+    const flows = Array.from(circ.querySelectorAll('.flow')).sort(function (a, b) { return a.dataset.o - b.dataset.o; });
+    const caption = document.getElementById('circ-caption');
+    const playBtn = document.querySelector('.circ-play');
+    const baseCaption = caption.textContent;
+    const basePlay = playBtn.innerHTML;
+    let step = -1;
+    const setShow = function (k) {
+      circ.dataset.show = k;
+      showBtns.forEach(function (b) { const on = b.dataset.circ === k; b.classList.toggle('is-active', on); b.setAttribute('aria-pressed', String(on)); });
+    };
+    const flowText = function (f) {
+      const c = f.cloneNode(true);
+      c.querySelectorAll('.flow-route, em').forEach(function (x) { x.remove(); });
+      return c.textContent.trim();
+    };
+    const stopSteps = function () {
+      step = -1;
+      circ.classList.remove('is-stepping');
+      flows.forEach(function (f) { f.classList.remove('is-on'); });
+      caption.textContent = baseCaption;
+      playBtn.innerHTML = basePlay;
+    };
+    const showStep = function (i) {
+      step = (i + flows.length) % flows.length;
+      setShow('todo');
+      circ.classList.add('is-stepping');
+      flows.forEach(function (f, j) { f.classList.toggle('is-on', j === step); });
+      const f = flows[step];
+      caption.textContent = 'Paso ' + (step + 1) + ' de ' + flows.length + ' · ' + f.querySelector('.flow-route').textContent + ': ' + flowText(f) + '.';
+      playBtn.innerHTML = 'Siguiente <span aria-hidden="true">→</span>';
+      if (window.innerWidth < 960) f.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+    };
+    showBtns.forEach(function (b) { b.addEventListener('click', function () { stopSteps(); setShow(b.dataset.circ); }); });
+    document.querySelectorAll('[data-circ-step]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        const d = Number(b.dataset.circStep);
+        showStep(step < 0 ? (d > 0 ? 0 : flows.length - 1) : step + d);
+      });
+    });
   }
 })();
