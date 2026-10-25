@@ -11,12 +11,12 @@ Este repositorio contiene el código fuente del portfolio de la asignatura de Si
 ## 🏗️ Lo que hemos construido hasta ahora (Base del Proyecto)
 El portfolio ha evolucionado de simples apuntes en papel a una experiencia web interactiva completa. Actualmente cuenta con las siguientes secciones funcionales:
 
-*   **¿Quién Soy?:** Presentación personal con foto de perfil optimizada (recorte circular perfecto y responsivo).
-*   **Autoconocimiento:** Transformación de la *Diana de Evaluación* y el *Test EntreComp* en paneles interactivos de HTML/CSS con barras de progreso que se animan al hacer scroll. *(Nota: Las puntuaciones reproducen exactamente lo marcado por el alumno en papel, preservando la fidelidad del ejercicio original).*
-*   **Creatividad:** Tablas responsivas para el "Bloqueo Creativo" y "Reto 1+1" (incluyendo un sistema de filtros interactivo para las ideas), y la técnica SCAMPER.
-*   **Proyecto UniWay (App):** Sección *hero* destacada que incluye el prototipo de Netlify, enlace al código y una demostración en vídeo emulada dentro de un marco de smartphone creado con CSS.
-*   **Mi Equipo:** Maquetación del Caso Asesoría y diseño visual del "Contrato de Equipo" simulando un documento A4 real con firmas.
-*   **Liderazgo:** Reflexiones y conclusiones sobre las dinámicas grupales ("Estilo novia", "El espejo", "El baile").
+*   **¿Quién Soy?:** Presentación personal con foto de perfil, el panel del test EntreComp y «Lo que me dice mi diana» (foto de la diana con su explicación).
+*   **Autoconocimiento:** Fortalezas (del test) y áreas de mejora (de la diana), la reflexión personal, la carta «Mi objetivo este año» y la hoja del test con una breve narración. Las barras del test se animan al hacer scroll. *(Las puntuaciones son las del papel. Donde hay dos casillas marcadas, cuenta la que tiene la X limpia; la otra está tachada.)*
+*   **Creatividad:** Pestañas en el orden de la guía de clase: «Bloqueo creativo», «Dinámica de las formas», «Reto 1+1» (con los dos bancos de palabras y filtros para las ideas) y SCAMPER. Cada una acaba con «Mi reflexión».
+*   **Proyecto UniWay (App):** Sección *hero* destacada que incluye el prototipo de Netlify, enlace al código, el vídeo dentro de un marco de smartphone hecho con CSS y la reflexión del vídeo (qué comuniqué, qué quería comunicar y qué mejoraría).
+*   **Mi Equipo:** «Estilo de novia» y división de roles, las cuatro preguntas del trabajo en equipo, el «Contrato de Equipo» como documento A4 con firmas (mismo texto que el PDF), comportamientos que ayudan o dificultan y el Caso Asesoría con sus 6 tareas, foto y reflexión.
+*   **Liderazgo:** El baile, la dinámica del espejo y la respuesta del grupo, con «¿Qué hice yo?».
 *   **Idea de negocio (Fase 1 · RA1):** todo el camino hasta Vibra, en pestañas. «Cómo llegamos» va en 6 pasos: test inicial y lluvia de ideas (tablero de post-its que se puede ordenar por puesto, con dos ideas extra), filtrado de ideas (barras con la puntuación de la matriz, total y por bloques), SCAMPER 1, sombreros, flor de loto y SCAMPER 2. Después: lienzo de modelo de negocio, página web (vista previa en vivo de la tienda), motivos para emprender, diseño del espacio físico y virtual (circuito del negocio que se puede filtrar o recorrer paso a paso) y perfil de socio con LinkedIn. Cada apartado acaba con «Mi reflexión» y enlaza al apunte original (`assets/img/ra1-*`).
 *   **Tienda «Vibra» (`tienda/`):** Web completa de la tienda de velas (prototipo, sin pagos). Menú con desplegables, banner que cambia según la temporada (Halloween, Navidad, San Valentín, Pascua), carrusel «Para comerte a besos», mecha de madera con sonido de chimenea generado en el navegador, configurador «Crea tu vela» de 6 pasos, ficha de producto con pirámide olfativa y aviso de «no es comestible», regalos, zodiaco, carrito, favoritos y buscador.
 *   **Reflexión Final:** Tabla de valoraciones (con notas y etiquetas doradas) y conclusiones personales en un tono sincero y directo.
@@ -26,7 +26,7 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   **UI/UX:** Diseño totalmente *Responsive* (Mobile-first). Incluye un menú de navegación que pasa a modo hamburguesa en resoluciones inferiores a 1140px para evitar desbordamientos.
 *   **Motion & Animaciones:** Uso de `IntersectionObserver` en JS para lograr efectos de aparición en cascada (*fade-in slide-up*) al hacer scroll, con soporte para opciones de "reducir movimiento" del sistema operativo.
 *   **Transparencia (Archivos originales):** Integración de botones fantasma (*ghost buttons*) debajo de cada componente interactivo que abren los JPGs/PDFs originales de los apuntes a mano, alojados directamente en el repo.
-*   **Optimización:** *Assets* aligerados y control de versiones estricto (eliminación de imágenes pesadas o en desuso para mantener la carga rápida). CSS cache-busting implementado (`?v=9`): sube el número cada vez que cambies `styles.css`.
+*   **Optimización:** *Assets* aligerados y control de versiones estricto (eliminación de imágenes pesadas o en desuso para mantener la carga rápida). CSS cache-busting implementado (`?v=15`): sube el número cada vez que cambies `styles.css`.
 
 ## 🕯️ La tienda (`tienda/`)
 *   `tienda/index.html`: estructura de todas las páginas. Se navega con rutas tipo `#/tematicas/halloween`, `#/producto/<id>` o `#/crea-tu-vela`, así funciona en GitHub Pages sin servidor.
