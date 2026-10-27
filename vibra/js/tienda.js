@@ -13,6 +13,13 @@
   const byId = {};
   T.productos.forEach(function (p) { byId[p.id] = p; });
 
+  /* «Volver al portfolio»: dentro del portfolio (carpeta vibra/) el enlace es relativo;
+     cuando la tienda va sola (p. ej. en Netlify) apunta a la web del portfolio. */
+  const PORTFOLIO_URL = /\/vibra\/(index\.html)?$/.test(location.pathname)
+    ? '../index.html#idea-negocio'
+    : 'https://jorge-gonzalez-luque.github.io/#idea-negocio';
+  $$('a.back-portfolio').forEach(function (a) { a.href = PORTFOLIO_URL; });
+
   /* ---------- Utilidades ---------- */
   const money = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
   function eur(n) { return money.format(n); }
@@ -529,7 +536,7 @@
       '<details><summary>Temáticas</summary>' + Object.keys(T.tematicas).map(function (k) { return '<a href="#/tematicas/' + k + '">' + esc(T.tematicas[k].nombre) + '</a>'; }).join('') + '</details>' +
       '<details><summary>Colecciones</summary>' + Object.keys(T.colecciones).map(function (k) { return '<a href="#/colecciones/' + k + '">' + esc(T.colecciones[k].nombre) + '</a>'; }).join('') + '</details>' +
       '<a href="#/mecha-de-madera">Mecha de madera</a><a href="#/crea-tu-vela">Crea tu vela</a><a href="#/regalos">Regalos</a><a href="#/nosotros">Sobre nosotros</a><a href="#/contacto">Contacto</a>' +
-      '<a class="m-back" href="../index.html#idea-negocio">← Volver al portfolio</a>';
+      '<a class="m-back" href="' + PORTFOLIO_URL + '">← Volver al portfolio</a>';
     $('#m-nav').addEventListener('click', function (e) { if (e.target.closest('a')) closeAll(true); });
   }
   let dropTimer = null;

@@ -1,0 +1,5 @@
+# Netlify publica solo la tienda Vibra (carpeta vibra/). No hay nada que compilar.
+[build]
+  base = "vibra"
+  publish = "."
+  command = ""
