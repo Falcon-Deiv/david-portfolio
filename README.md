@@ -3,7 +3,7 @@
 **Autor:** Jorge González Luque (2º Administración y Finanzas)  
 **Desarrollo Técnico:** Octubre 2026  
 **Estado:** 🚧 Proyecto vivo y en desarrollo continuo (Próximos meses)  
-**Sitio en vivo:** [Enlace a GitHub Pages] *(Nota: asegúrate de que el enlace de GitHub Pages esté configurado)*
+**Sitio en vivo:** https://jorge-gonzalez-luque.github.io/ (la tienda en https://jorge-gonzalez-luque.github.io/tienda/)  
 
 ## 📖 Sobre el proyecto
 Este repositorio contiene el código fuente del portfolio de la asignatura de Simulación Empresarial. El objetivo es documentar de forma interactiva y profesional el proceso de aprendizaje, autoconocimiento, creatividad, trabajo en equipo y liderazgo a lo largo del curso.
