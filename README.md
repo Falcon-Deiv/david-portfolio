@@ -3,7 +3,7 @@
 **Autor:** Jorge González Luque (2º Administración y Finanzas)  
 **Desarrollo Técnico:** Octubre 2026  
 **Estado:** 🚧 Proyecto vivo y en desarrollo continuo (Próximos meses)  
-**Sitio en vivo:** https://jorge-gonzalez-luque.github.io/ (la tienda en https://jorge-gonzalez-luque.github.io/vibra/)  
+**Sitio en vivo:** https://jorge-gonzalez-luque.github.io/ · **Tienda Vibra:** https://vibra-velas.netlify.app/ (también en https://jorge-gonzalez-luque.github.io/vibra/)  
 
 ## 📖 Sobre el proyecto
 Este repositorio contiene el código fuente del portfolio de la asignatura de Simulación Empresarial. El objetivo es documentar de forma interactiva y profesional el proceso de aprendizaje, autoconocimiento, creatividad, trabajo en equipo y liderazgo a lo largo del curso.
@@ -29,7 +29,7 @@ El portfolio ha evolucionado de simples apuntes en papel a una experiencia web i
 *   **Optimización:** *Assets* aligerados y control de versiones estricto (eliminación de imágenes pesadas o en desuso para mantener la carga rápida). CSS cache-busting implementado (`?v=15`): sube el número cada vez que cambies `styles.css`.
 
 ## 🕯️ La tienda (`vibra/`)
-*   **Netlify:** la tienda también se publica sola, con su propio enlace, desde esta misma carpeta. `netlify.toml` le dice a Netlify que publique solo `vibra/` (sin compilar nada), así que cada `git push` a `main` actualiza también la tienda en Netlify. El enlace «Volver al portfolio» detecta si la tienda va sola y entonces apunta a la web del portfolio.
+*   **Netlify:** la tienda también se publica sola, con su propio enlace (https://vibra-velas.netlify.app/), desde esta misma carpeta. `netlify.toml` le dice a Netlify que publique solo `vibra/` (sin compilar nada), así que cada `git push` a `main` actualiza también la tienda en Netlify. El enlace «Volver al portfolio» detecta si la tienda va sola y entonces apunta a la web del portfolio.
 *   `vibra/index.html`: estructura de todas las páginas. Se navega con rutas tipo `#/tematicas/halloween`, `#/producto/<id>` o `#/crea-tu-vela`, así funciona en GitHub Pages sin servidor.
 *   `vibra/js/datos.js`: el catálogo (productos, precios, aromas, colecciones y opciones del configurador). Para añadir una vela basta con añadir un objeto aquí.
 *   `vibra/js/velas.js`: dibuja las velas en SVG (taza, copa, tarta, calabaza, árbol, etc.). No hay fotos: todas las velas son ilustraciones.
